@@ -172,7 +172,7 @@
 		</div>
 	</div>
 </div>่
-
+sss
 <!--<div class="pie" style="--p:20"> 20%</div>
 <div class="pie" style="--p:50;--c:lightgreen;--b:10px"> 50%</div>
 <div class="pie no-round" style="--p:60;--c:purple;--b:15px"> 60%</div>
