@@ -1,4 +1,4 @@
-$(() => {
+/*$(() => {
 
     getProductDetails()
 
@@ -29,4 +29,4 @@ function getProductDetails() {
 
         }
     })
-}
+}*/
