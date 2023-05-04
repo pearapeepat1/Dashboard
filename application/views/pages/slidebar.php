@@ -8,13 +8,11 @@
             <li class="sidebar-header">
                 Pages
             </li>
-            <hr class="text-white txt-b">
             <li class="sidebar-item active">
                 <a class="sidebar-link" href="http://127.0.0.1/DashboardProject/Dashboard/dashboard">
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                 </a>
             </li>
-            <hr class="text-white txt-b">
             <li class="sidebar-item active">
                 <a class="sidebar-link" >
                 <p onclick="manage()" id="mdlLogin"><i class="bi bi-clipboard-plus"></i> <span class="align-middle">Management</span></p> 

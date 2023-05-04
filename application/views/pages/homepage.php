@@ -24,13 +24,14 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
   <title>Project Dashboard</title>
 </head>
 
-<body >
+<body>
 <div class="wrapper">
 	{slide_bar}
-		<div class="main">
+		<div class="main bg">
 			<!--{header}-->
 			{page_content}
 			{footer}
