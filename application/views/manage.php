@@ -218,24 +218,3 @@
 
     </div>
 </div>่
-
-<!--<input type="textbox" id="myTextbox" />
-<select id="ddlModel">
-<option value="">--Select--</option>
-<option value="Iphone">Iphone</option>
-<option value="Samsung">Samsung</option>
-<option value="Sony">Sony</option>
-<option value="Vivo">Vivo</option>
-</select>-->
-
-
-<!--<form id="form1" runat="server">
-<div>
-     <select id="slct">
-   <option value="1"> 1 </option>
-     <option value="2"> 2 </option>
-   <option value="3"> 3 </option>
-    </select>
-   <div id="container"></div>
-</div>
-</form>-->
