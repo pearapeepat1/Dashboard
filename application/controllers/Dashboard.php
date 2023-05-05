@@ -45,13 +45,13 @@ class Dashboard extends CI_Controller {
 		$this->render_view('home');
 	}
 
-    // public function manage()
-	// {
-    //     $this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
-    //     // $this->data['tblProjectList'] = $this->Show_model->ProjectList();
-    //     //$this->ShowProjectList();
-	// 	$this->render_view('manage');
-	// }
+    public function manage()
+	{
+        //$this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
+        //$this->data['tblProjectList'] = $this->Show_model->ProjectList();
+        //$this->ShowProjectList();
+		$this->render_view('manage');
+	}
     
 
 

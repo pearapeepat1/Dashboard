@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <textarea class="form-control"id="myTextbox" disabled></textarea>
+                                <textarea class="form-control" id="myTextbox" disabled></textarea>
                             </div>
                             <!--<div class="mb-3" class="form-label">
                                 <label for="topic" class="form-label">Topic</label>
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>-->
-                            
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -83,6 +83,7 @@
             </select>
         </div>
     </div>
+    
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 py-2">
         <!-- Total Project -->
         <div class="col">
@@ -215,11 +216,4 @@
                 </div>
             </div>
         </div>
-
-    </div>
-<<<<<<< HEAD
-</div>
-
-=======
-</div>่
->>>>>>> 78292ed6979d2bef5a2b44fa5dfc1e9f0ef2af95
+        </div>
