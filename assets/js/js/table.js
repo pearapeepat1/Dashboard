@@ -34,3 +34,4 @@ function getProductDetails() {
 $(document).ready(function () {
     $('#example').DataTable();
 });
+

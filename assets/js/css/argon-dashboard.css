@@ -27027,7 +27027,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
         /* the thickness */
         --c: darkred;
         /* the color */
-        --w: 50px;
+        --w: 40px;
         /* the size*/
         width: var(--w);
         aspect-ratio: 1/1;
@@ -27035,7 +27035,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
         display: inline-grid;
         margin: 5px;
         place-content: center;
-        font-size: 15px;
+        font-size: 10px;
         font-weight: bold;
         font-family: sans-serif;
     }
@@ -27169,3 +27169,6 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
     45deg
      , #ffdf40, #ff8359)!important;
     }
+
+
+    

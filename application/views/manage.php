@@ -1,219 +1,207 @@
 <div class="container py-2">
     <div class="row py-2">
-        <div class="col-lg-4">
-            <h2 class="text-dark txt-b">Management</h2>
-        </div>
         <div class="col-lg-8">
-            <h6 class="text-right text-secondary"><span id="time"></span></h6>
+            <h2 class="text-dark txt-b">Dashboard</h2>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-plus-lg txt-b"></i> Add Project
+            </button>
+            <!-- Modal -->
+            <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title txt-b" id="exampleModalLabel">Add Project</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Project Name</label>
+                                <input type="text" class="form-control" id="inpName" placeholder="Project name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="manager" class="form-label">
+                                    <h6 class="txt-b">Person in charge :</h6>
+                                </label>
+                                <div class="row">
+                                    <div class="col-md-5"><label for="startdate" class="form-label">Position</label>
+                                        <select id="selPosition" class="form-select">
+                                            <option>Disabled select</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5 ms-auto"><label for="duedate" class="form-label">Name</label>
+                                        <select id="selUser" class="form-select">
+                                            <option>Disabled select</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 ms-auto">
+                                        <br>
+                                        <button type="button" class="btn btn-primary">ADD</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="Duedate">
+                            </div>
+                            <div class="mb-3" class="form-label">
+                                <label for="topic" class="form-label">Topic</label>
+                                <div class="form-group">
+                                    <form name="add_name" id="add_name">
+                                        <table class="table table-bordered table-hover" id="dynamic_field">
+                                            <tr>
+                                                <td><input type="text" name="topic[]" placeholder="Enter topic" class="form-control total_amount" /></td>
+                                                <td><button type="button" name="add" id="add" class="btn btn-primary">Add More</button></td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-select" name="selDate" id="selDate">
+                <option>Last 30 Day</option>
+            </select>
         </div>
     </div>
-    <div class="row py-3">
-        <div class="col-lg-3 box">
-            <div class="card " style="width: 18rem;">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 py-2">
+        <!-- Total Project -->
+        <div class="col">
+            <div class="card radius-10 border-start border-0 border-3 border-info">
                 <div class="card-body">
-                    <h5 class="card-title  text-success">Project</h5>
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <h2 class="txt-b text-dark">25/100</h2>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <p class="mb-0 text-secondary txt-b">Total Project</p>
+                            <h4 class="my-1 text-info">25/100</h4>
                         </div>
-                        <div class="col-lg-3">
-                            <i class="bi bi-briefcase-fill fa-2x text-success"></i>
+                        <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 box ">
-            <div class="card" style="width: 18rem;">
+        <!-- Total Resources -->
+        <div class="col">
+            <div class="card radius-10 border-start border-0 border-3 border-danger">
                 <div class="card-body">
-                    <h5 class="card-title text-danger">Tasks</h5>
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <h2 class="txt-b text-dark">100/110</h2>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <p class="mb-0 text-secondary txt-b">Total Resources</p>
+                            <h4 class="my-1 text-danger">85/90</h4>
                         </div>
-                        <div class="col-lg-3">
-                            <i class="bi bi-bookmark-check-fill fa-2x text-danger"></i>
+                        <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-users"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 box">
-            <div class="card" style="width: 18rem;">
+        <!-- Time Spent -->
+        <div class="col">
+            <div class="card radius-10 border-start border-0 border-3 border-success">
                 <div class="card-body">
-                    <h5 class="card-title text-primary">Resources</h5>
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <h2 class="txt-b text-dark">85/90</h2>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <p class="mb-0 text-secondary txt-b">Time Spent</p>
+                            <h4 class="my-1 text-success">752 H</h4>
                         </div>
-                        <div class="col-lg-3">
-                            <i class="bi bi-person-fill fa-2x text-primary"></i>
+                        <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bi bi-clock-history"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 box">
-            <div class="card" style="width: 18rem;">
+        <div class="col">
+            <div class="card radius-10 border-start border-0 border-3 border-warning">
                 <div class="card-body">
-                    <h5 class="card-title text-warning">Time Spent</h5>
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <h2 class="txt-b text-dark">752 H</h2>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <p class="mb-0 text-secondary"></p>
+                            <h4 class="my-1 text-warning"></h4>
+                            <p class="mb-0 font-13"></p>
                         </div>
-                        <div class="col-lg-3">
-                            <i class="bi bi-clock-fill fa-2x text-warning"></i>
+                        <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class="bi bi-exclamation"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row py-5">
-        <div class="col-lg-8 box">
+</div>
+<div class="container py-2">
+    <div class="row py-2">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h3 class="title txt-b ">Project Summary</h3>
-                            </div>
-                            <div class="col-md-3">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="bi bi-plus-lg txt-b"></i> Add Project
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title txt-b" id="exampleModalLabel">Add Project</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="mb-3">
-                                                    <label for="name" class="form-label">Project Name</label>
-                                                    <input type="text" class="form-control" id="inpName" placeholder="Project name">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="manager" class="form-label">
-                                                        <h6 class="txt-b">Person in charge :</h6>
-                                                    </label>
-                                                    <div class="row">
-                                                        <div class="col-md-5"><label for="startdate" class="form-label">Position</label>
-                                                        <select id="selPosition" class="form-select">
-                                                                <option>Disabled select</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-md-5 ms-auto"><label for="duedate" class="form-label">Name</label>
-                                                            <select id="selUser" class="form-select">
-                                                                <option>Disabled select</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-md-2 ms-auto">
-                                                            <br>
-                                                            <button type="button" class="btn btn-primary">ADD</button>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <input type="text" class="form-control" id="Duedate">
-                                                </div>
-                                                <div class="mb-3" class="form-label">
-                                                    <label for="topic" class="form-label">Topic</label>
-                                                    <div class="form-group">
-                                                        <form name="add_name" id="add_name">
-                                                            <table class="table table-bordered table-hover" id="dynamic_field">
-                                                                <tr>
-                                                                    <td><input type="text" name="topic[]" placeholder="Enter topic" class="form-control total_amount" /></td>
-                                                                    <td><button type="button" name="add" id="add" class="btn btn-primary">Add More</button></td>
-                                                                </tr>
-                                                            </table>
-                                                        </form>
-                                                    </div>
-                                                    <div class="col-md-1"></div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-4">
+                            <h3 class="title txt-b text-secondary ">Project Summary</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select" name="selName" id="selName" onchange="getState(this.value)">
+                                <option>Project Name</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select" name="selPerson" id="selPerson">
+                                <option>Person in charge</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-select" name="selStatus" id="selStatus">
+                                <option>Status</option>
+                            </select>
                         </div>
                     </div>
                     <div class="py-3">
-                        <table id="tblProjectList" class="display " style="width:100%">
+                        <table id="example" class="display " style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>Project Name</th>
-                                    <th>Project Manager</th>
+                                    <th>Step</th>
+                                    <th>Person in Charge</th>
+                                    <th>Positon</th>
+                                    <th>sweetalert2 Date</th>
                                     <th>Due Date</th>
-                                    <th>Status</th>
-                                    <th>Progress</th>
+                                    <th>Status </th>
+                                    <th>Action</th>
+                                    <th>Edit</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                <tr>
+                                    <td>Project A</td>
+                                    <td>7</td>
+                                    <td>Rapeepat Jaiboon</td>
+                                    <td>Programer</td>
+                                    <td>16 may 2023</td>
+                                    <td>26 may 2023</td>
+                                    <td class="text-danger">Delayed</td>
+                                    <td>
+                                        <form method="post" id="toggleForm">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" class="custom-control-input" id="customSwitch1" name='machine_state'>
+                                                        <label class="custom-control-label" id="statusText" for="customSwitch1"></label>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </td>
+                                    <td><button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></td>
+                                </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 box">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="title txt-b ">Overall Progress</h3>
-                    <div class="chart chart-sm py-3">
-                        <canvas id="chartjs-doughnut">1</canvas>
-                    </div>
-                    <div class="row py-5">
-                        <div class="col">
-                            <div class="row">
-                                <center>
-                                    <h4 class="txt-b">24</h4>
-                                </center>
-                            </div>
-                            <div class="row">
-                                <center>Total Project</center>
-                            </div>
-                        </div>
-                        <div class="col ">
-                            <div class="row">
-                                <center>
-                                    <h4 class="txt-b text-success">15</h4>
-                                </center>
-                            </div>
-                            <div class="row">
-                                <center>Project Completed</center>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="row">
-                                <center>
-                                    <h4 class="txt-b text-warning">5</h4>
-                                </center>
-                            </div>
-                            <div class="row">
-                                <center>Project in Progres</center>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="row">
-                                <center>
-                                    <h4 class="txt-b text-danger">4</h4>
-                                </center>
-                            </div>
-                            <div class="row ">
-                                <center>Project Delayed</center>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
             </div>

@@ -76,7 +76,7 @@
 </div>
 <div class="container py-2">
 	<div class="row py-2">
-		<div class="col-md-8 ">
+		<div class="col-md-8">
 			<div class="card">
 				<div class="card-body">
 					<div class="row">
@@ -103,7 +103,6 @@
 						<table id="example" class="display " style="width:100%">
 							<thead>
 								<tr>
-									<th>#</th>
 									<th>Project Name</th>
 									<th>Person in Charge</th>
 									<th>Due Date</th>
@@ -114,7 +113,6 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>1</td>
 									<td>Project A</td>
 									<td>Rapeepat Jaiboon</td>
 									<td>16 may 2023</td>
@@ -125,7 +123,6 @@
 									<td><button type="button" class="btn btn-secondary"><i class="bi bi-info-circle"></i> Detail</button></td>
 								</tr>
 								<tr>
-									<td>2</td>
 									<td>ProjectB</td>
 									<td>Rapeepat Jaiboon</td>
 									<td>16 may 2023</td>
@@ -136,7 +133,6 @@
 									<td><button type="button" class="btn btn-secondary"><i class="bi bi-info-circle"></i> Detail</button></td>
 								</tr>
 								<tr>
-									<td>3</td>
 									<td>ProjectC</td>
 									<td>Rapeepat Jaiboon</td>
 									<td>16 may 2023</td>
@@ -147,7 +143,6 @@
 									<td><button type="button" class="btn btn-secondary"><i class="bi bi-info-circle"></i> Detail</button></td>
 								</tr>
 								<tr>
-									<td>4</td>
 									<td>ProjectD</td>
 									<td>Rapeepat Jaiboon</td>
 									<td>16 may 2023</td>
@@ -158,7 +153,6 @@
 									<td><button type="button" class="btn btn-secondary"><i class="bi bi-info-circle"></i> Detail</button></td>
 								</tr>
 								<tr>
-									<td>5</td>
 									<td>ProjectE</td>
 									<td>Rapeepat Jaiboon</td>
 									<td>16 may 2023</td>
@@ -174,12 +168,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4 ">
+		<div class="col-md-4">
 			<div class="card">
 				<div class="card-body">
 					<h3 class="title txt-b text-secondary">Overall Progress</h3>
 					<div class="chart chart-sm py-3">
-						<center><canvas id="pieOverall" height="300" width="300"></canvas></center>
+						<canvas id="pieOverall" height="300" width="300"></canvas>
 					</div>
 					<div class="row py-3">
 						<div class="col">
