@@ -173,7 +173,7 @@
 				<div class="card-body">
 					<h3 class="title txt-b text-secondary">Overall Progress</h3>
 					<div class="chart chart-sm py-3">
-						<canvas id="pieOverall" height="300" width="300"></canvas>
+					<center><canvas id="pieOverall" height="300" width="300"></canvas></center>	
 					</div>
 					<div class="row py-3">
 						<div class="col">
