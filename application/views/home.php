@@ -57,7 +57,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col">
+		<!--<div class="col">
 			<div class="card radius-10 border-start border-0 border-3 border-warning">
 				<div class="card-body">
 					<div class="d-flex align-items-center">
@@ -71,7 +71,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 	</div>
 </div>
 <div class="container py-2">
@@ -222,7 +222,7 @@
 		</div>
 	</div>
 </div>่
-
+test edit
 <!--<div class="pie" style="--p:20"> 20%</div>
 <div class="pie" style="--p:50;--c:lightgreen;--b:10px"> 50%</div>
 <div class="pie no-round" style="--p:60;--c:purple;--b:15px"> 60%</div>
