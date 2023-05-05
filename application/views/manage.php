@@ -25,12 +25,21 @@
                                     <h6 class="txt-b">Person in charge :</h6>
                                 </label>
                                 <div class="row">
-                                    <div class="col-md-5"><label for="startdate" class="form-label">Position</label>
-                                        <select id="selPosition" class="form-select">
+                                    <div class="col-md-5">
+                                        <label for="startdate" class="form-label">Position</label>
+                                        <!--<select id="selPosition" class="form-select">
                                             <option>Disabled select</option>
+                                        </select>-->
+                                        <select id="ddlModel" class="form-select">
+                                            <option value="">Position</option>
+                                            <option value="Front-End">Front-End</option>
+                                            <option value="Web Designer">Web Designer</option>
+                                            <option value="Full-Stack">Full-Stack</option>
+                                            <option value="UX Designer/Developer">UX Designer/Developer</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-5 ms-auto"><label for="duedate" class="form-label">Name</label>
+                                    <div class="col-md-5 ms-auto">
+                                        <label for="duedate" class="form-label">Name</label>
                                         <select id="selUser" class="form-select">
                                             <option>Disabled select</option>
                                         </select>
@@ -39,13 +48,12 @@
                                         <br>
                                         <button type="button" class="btn btn-primary">ADD</button>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="Duedate">
+                                <textarea class="form-control"id="myTextbox" disabled></textarea>
                             </div>
-                            <div class="mb-3" class="form-label">
+                            <!--<div class="mb-3" class="form-label">
                                 <label for="topic" class="form-label">Topic</label>
                                 <div class="form-group">
                                     <form name="add_name" id="add_name">
@@ -58,7 +66,8 @@
                                     </form>
                                 </div>
                                 <div class="col-md-1"></div>
-                            </div>
+                            </div>-->
+                            
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -120,7 +129,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <!--<div class="col">
             <div class="card radius-10 border-start border-0 border-3 border-warning">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
@@ -134,7 +143,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
 <div class="container py-2">
@@ -209,3 +218,24 @@
 
     </div>
 </div>่
+
+<!--<input type="textbox" id="myTextbox" />
+<select id="ddlModel">
+<option value="">--Select--</option>
+<option value="Iphone">Iphone</option>
+<option value="Samsung">Samsung</option>
+<option value="Sony">Sony</option>
+<option value="Vivo">Vivo</option>
+</select>-->
+
+
+<!--<form id="form1" runat="server">
+<div>
+     <select id="slct">
+   <option value="1"> 1 </option>
+     <option value="2"> 2 </option>
+   <option value="3"> 3 </option>
+    </select>
+   <div id="container"></div>
+</div>
+</form>-->
