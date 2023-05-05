@@ -75,11 +75,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'trinee',
-	'dbdriver' => 'mysqli',
+	'post' => 1433,
+	'hostname' => 'Driver={SQL SERVER};Server=192.168.161.101;Database=dashboard_progress_db',
+	'username' => 'sa',
+	'password' => 'Te@m1nw',
+	'database' => 'dashboard_progress_db',
+	'dbdriver' => 'odbc',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

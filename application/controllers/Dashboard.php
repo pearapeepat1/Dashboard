@@ -51,6 +51,11 @@ class Dashboard extends CI_Controller {
 		$this->render_view('manage');
 	}
     
+
+
+
+
+    
     public function ShowProjectList()
     {
         $this->load->model('Show_model');
@@ -64,4 +69,15 @@ class Dashboard extends CI_Controller {
 		$result = $this->Login->checkLoginDb($data);
 		echo json_encode($result);
 	}
+
+    public function index(){
+        // $this->load
+        $this->load->database();
+    }
+
+    public function get_Prosition(){
+
+    }
+
+
 }
