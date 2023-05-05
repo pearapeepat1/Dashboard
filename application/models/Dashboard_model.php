@@ -11,9 +11,12 @@ class Dashboard_model extends CI_Model
     }
     
     public function checkLoginDb($data) {
+        $username = $data["username"];
         $password = $data["password"];
-        $result = $this->db->query("SELECT * FROM sys_user 
-                                  AGENT_CODE = ?", [$password]);
+        $result = $this->db->query("SELECT * FROM sys_users
+                                    WHERE username = ? 
+                                    AND password = ?", [$username, $password]);
+
         if ($result->num_rows() > 0) {
             return ['result' => true, 'message' => 'login success'];
         } else {

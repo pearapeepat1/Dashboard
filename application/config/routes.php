@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['user/import']      = 'Upload/import';
-$route['default_controller'] = 'dashboard';
+$route['default_controller'] = 'Dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;$route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

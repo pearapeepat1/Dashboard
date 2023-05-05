@@ -22,6 +22,9 @@ class Dashboard extends CI_Controller {
         $this->header = $result;
         $this->slide_bar = $result;
         $this->footer = $result;
+
+
+        $this->load->model('dashboard_model','dashboard');
     }
 
 	protected function render_view($path)
@@ -36,36 +39,39 @@ class Dashboard extends CI_Controller {
     }
 	public function dashboard()
 	{
-        $this->load->model('Show_model');
         $this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
-        $this->data['tblProjectList'] = $this->Show_model->ProjectList();
+        // $this->data['tblProjectList'] = $this->Show_model->ProjectList();
         //$this->ShowProjectList();
 		$this->render_view('home');
 	}
-    public function manage()
-	{
-        $this->load->model('Show_model');
-        $this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
-        $this->data['tblProjectList'] = $this->Show_model->ProjectList();
-        //$this->ShowProjectList();
-		$this->render_view('manage');
-	}
+
+    // public function manage()
+	// {
+    //     $this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
+    //     // $this->data['tblProjectList'] = $this->Show_model->ProjectList();
+    //     //$this->ShowProjectList();
+	// 	$this->render_view('manage');
+	// }
     
 
 
 
-
-    
-    public function ShowProjectList()
+    public function showProjectall()
     {
-        $this->load->model('Show_model');
-        $result = $this->Show_model->ProjectList();
+        $result = $this->dashboard->ProjectList();
         echo json_encode($result);
     }
+    
+    public function showProjectList()
+    {
+        $result = $this->dashboard->ProjectList();
+        echo json_encode($result);
+    }
+
     public function checkLoginDb()
 	{
 		$data = $this->input->get(NULL);
-		$this->load->model('Show_model','Login');
+		$this->load->model('Login_model','Login');
 		$result = $this->Login->checkLoginDb($data);
 		echo json_encode($result);
 	}
@@ -73,6 +79,7 @@ class Dashboard extends CI_Controller {
     public function index(){
         // $this->load
         $this->load->database();
+        echo "erwerwerw";
     }
 
     public function get_Prosition(){
