@@ -35,3 +35,32 @@ $(document).ready(function () {
     $('#example').DataTable();
 });
 
+//insert textbox when select in dropdown*****
+/*$(document).ready(function () {
+
+    $('#slct').change(function () {
+        var value = $(this).val(); var toAppend = '';
+        if (value == 1) {
+            toAppend = "<input type='textbox' >"; $("#container").html(toAppend); return;
+        }
+        if (value == 2) {
+            toAppend = "<input type='textbox' >&nbsp;<input type='textbox' >"; $("#container").html(toAppend); return;
+        }
+        if (value = 3) {
+            toAppend = "<input type='textbox' >&nbsp;<input type='textbox' >&nbsp;<input type='textbox' >"; $("#container").html(toAppend); return;
+
+        }
+
+    });
+
+});*/
+
+$(document).ready(function(){
+	
+    $("#ddlModel").on("change",function(){
+       var GetValue=$("#ddlModel").val();
+       $("#myTextbox").val(GetValue);
+    });
+    
+    });
+    
