@@ -24,8 +24,46 @@ class Dashboard_model extends CI_Model
         }
     }
 
-    public function get_position_db(){
-        $sql = "SELECT * FROM [dbo].[mst_position]";
+
+    ##### เมณู #####
+    ##count project
+    public function get_Projectcount(){
+        $sql = "EXEC [dbo].[count_Project]";
+        $query = $this->db->query($sql);
+
+        return $query->result();
+    }
+
+    ##count person
+    public function get_Personcount(){
+        $sql = "EXEC [dbo].[count_person]";
+        $query = $this->db->query($sql);
+
+        return $query->result();
+    }
+
+
+    ## count เวลาทั้งหมดในการทำ hour
+    public function get_Timecount_hour(){
+        $sql = "EXEC [dbo].[count_time_hour]";
+        $query = $this->db->query($sql);
+
+        return $query->result();
+    }
+
+    ## count เวลาทั้งหมดในการทำ day
+    public function get_Timecount_day(){
+        $sql = "EXEC [dbo].[count_time_day]";
+        $query = $this->db->query($sql);
+
+        return $query->result();
+    }
+
+
+
+
+    public function get_position(){
+        $sql = "EXEC [dbo].[query_preson]";
         $query = $this->db->query($sql);
 
         return $query->result();

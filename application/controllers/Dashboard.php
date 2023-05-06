@@ -45,23 +45,61 @@ class Dashboard extends CI_Controller {
 		$this->render_view('home');
 	}
 
-    // public function manage()
-	// {
-    //     $this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
-    //     // $this->data['tblProjectList'] = $this->Show_model->ProjectList();
-    //     //$this->ShowProjectList();
-	// 	$this->render_view('manage');
-	// }
+    public function manage()
+	{
+        $this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
+        // $this->data['tblProjectList'] = $this->Show_model->ProjectList();
+        //$this->ShowProjectList();
+		$this->render_view('manage');
+	}
     
 
 
 
-    public function showProjectall()
+    ##count project
+    public function showProjectcount()
     {
-        $result = $this->dashboard->ProjectList();
+        $result = $this->dashboard->get_Projectcount();
         echo json_encode($result);
     }
-    
+
+    ##count person
+    public function showPersoncount()
+    {
+        $result = $this->dashboard->get_Personcount();
+        echo json_encode($result);
+
+    }
+
+    ##count time hour
+    public function showTimecount_hour()
+    {
+        $result = $this->dashboard->get_Timecount_hour();
+        echo json_encode($result);
+
+    }
+
+    ##count time day
+    public function showtimecount_day()
+    {
+        $result = $this->dashboard->get_Timecount_hour();
+        echo json_encode($result);
+
+    }
+
+
+    ## query person
+    public function show_Prosition()
+    {
+        $result = $this->dashboard->get_position();
+        echo json_encode($result);
+    }
+
+
+
+
+
+
     public function showProjectList()
     {
         $result = $this->dashboard->ProjectList();
@@ -76,15 +114,16 @@ class Dashboard extends CI_Controller {
 		echo json_encode($result);
 	}
 
+
+
+
     public function index(){
         // $this->load
         $this->load->database();
         echo "erwerwerw";
     }
 
-    public function get_Prosition(){
-
-    }
+   
 
 
 }
