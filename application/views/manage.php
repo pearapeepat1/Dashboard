@@ -27,31 +27,52 @@
                                 <div class="row">
                                     <div class="col-md-5">
                                         <label for="startdate" class="form-label">Position</label>
-                                        <!--<select id="selPosition" class="form-select">
-                                            <option>Disabled select</option>
-                                        </select>-->
-                                        <select id="ddlModel" class="form-select">
-                                            <option value="">Position</option>
-                                            <option value="Front-End">Front-End</option>
-                                            <option value="Web Designer">Web Designer</option>
-                                            <option value="Full-Stack">Full-Stack</option>
-                                            <option value="UX Designer/Developer">UX Designer/Developer</option>
-                                        </select>
+                                        <form action="" method="post">
+                                            <select data-placeholder="Select your Library" name="program[]" class="chzn-select form-label" multiple="multiple" tabindex="6" style="width:200px">
+                                                <option value="html">HTML</option>
+                                                <option value="css">CSS</option>
+                                                <option value="php">PHP</option>
+                                                <option value="javascript">Javascript</option>
+                                                <option value="jquery">JQuery</option>
+                                                <option value="ajax">AJAX</option>
+                                            </select>
+                                        </form>
+                                        <script src="../assets/js/js/jquery-1.8.2.min.js"></script>
+                                        <script type="text/javascript" src="../assets/js/js/chosen.jquery.min.js"></script>
+                                        <script>
+                                            $(".chzn-select").chosen();
+                                            $(".chzn-select-deselect").chosen({
+                                                allow_single_deselect: true
+                                            });
+                                        </script>
                                     </div>
                                     <div class="col-md-5 ms-auto">
                                         <label for="duedate" class="form-label">Name</label>
-                                        <select id="selUser" class="form-select">
-                                            <option>Disabled select</option>
-                                        </select>
+                                        <form action="" method="post">
+                                            <select data-placeholder="Select your Library" name="program[]" class="chzn-select form-label" multiple="multiple" tabindex="6" style="width:200px">
+                                                <option value="html">Duangtawan</option>
+                                                <option value="css">Phatcahrin</option>
+                                                <option value="php">Kittisak</option>
+                                                <option value="javascript">Rapeepat</option>
+                                            </select>
+                                        </form>
+                                        <script src="../assets/js/js/jquery-1.8.2.min.js"></script>
+                                        <script type="text/javascript" src="../assets/js/js/chosen.jquery.min.js"></script>
+                                        <script>
+                                            $(".chzn-select").chosen();
+                                            $(".chzn-select-deselect").chosen({
+                                                allow_single_deselect: true
+                                            });
+                                        </script>
                                     </div>
                                     <div class="col-md-2 ms-auto">
                                         <br>
-                                        <button type="button" class="btn btn-primary">ADD</button>
+                                        <button type="button" class="btn btn-primary">add</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <textarea class="form-control"id="myTextbox" disabled></textarea>
+                                <textarea class="form-control" id="myTextbox" disabled></textarea>
                             </div>
                             <!--<div class="mb-3" class="form-label">
                                 <label for="topic" class="form-label">Topic</label>
@@ -67,7 +88,7 @@
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>-->
-                            
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -79,10 +100,14 @@
         </div>
         <div class="col-lg-2">
             <select class="form-select" name="selDate" id="selDate">
-                <option>Last 30 Day</option>
+                <option value="24">All Day</option>
+                <option value="30">Last 30 Day</option>
+                <option value="15">Last 15 Day</option>
+                <option value="7">Last 7 Day</option>
             </select>
         </div>
     </div>
+
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 py-2">
         <!-- Total Project -->
         <div class="col">
@@ -91,7 +116,7 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary txt-b">Total Project</p>
-                            <h4 class="my-1 text-info">25/100</h4>
+                            <h4 class="my-1 text-info txt-b">25/100</h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
                         </div>
@@ -106,7 +131,7 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary txt-b">Total Resources</p>
-                            <h4 class="my-1 text-danger">85/90</h4>
+                            <h4 class="my-1 text-danger txt-b">85/90</h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-users"></i>
                         </div>
@@ -121,7 +146,7 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary txt-b">Time Spent</p>
-                            <h4 class="my-1 text-success">752 H</h4>
+                            <h4 class="my-1 text-success txt-b">752 H</h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bi bi-clock-history"></i>
                         </div>
@@ -129,21 +154,21 @@
                 </div>
             </div>
         </div>
-        <!--<div class="col">
+        <div class="col">
             <div class="card radius-10 border-start border-0 border-3 border-warning">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
-                            <p class="mb-0 text-secondary"></p>
-                            <h4 class="my-1 text-warning"></h4>
+                            <p class="mb-0 text-secondary txt-b">Current Time</p>
+                            <h4 class="my-1 text-warning txt-b"><span id="ralTime"></span></h4>
                             <p class="mb-0 font-13"></p>
                         </div>
-                        <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class="bi bi-exclamation"></i>
+                        <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class="bi bi-stopwatch"></i>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>-->
+        </div>
     </div>
 </div>
 <div class="container py-2">
@@ -167,7 +192,11 @@
                         </div>
                         <div class="col-md-2">
                             <select class="form-select" name="selStatus" id="selStatus">
-                                <option>Status</option>
+                            <option>Status</option>
+								<option value="01">All Status</option>
+								<option value="00">In progress</option>
+								<option value="11">Completed</option>
+								<option value="22">Delayed</option>
                             </select>
                         </div>
                     </div>
@@ -215,11 +244,4 @@
                 </div>
             </div>
         </div>
-
     </div>
-<<<<<<< HEAD
-</div>
-
-=======
-</div>่
->>>>>>> 78292ed6979d2bef5a2b44fa5dfc1e9f0ef2af95
