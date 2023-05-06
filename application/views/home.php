@@ -1,14 +1,19 @@
 <div class="container py-2">
 	<div class="row py-2">
-		<div class="col-lg-10">
+		<div class="col-lg-8">
 			<h2 class="text-dark txt-b">Dashboard</h2>
 		</div>
-		<!--<div class="col-lg-6">
-			<h6 class="text-right text-secondary"><span id="time"></span></h6>
-		</div>-->
+		<div class="col-lg-2">
+			<h1 class="text-right text-secondary">
+				</p>
+			</h1>
+		</div>
 		<div class="col-lg-2">
 			<select class="form-select" name="selDate" id="selDate">
-				<option>Last 30 Day</option>
+				<option value="24">All Day</option>
+				<option value="30">Last 30 Day</option>
+				<option value="15">Last 15 Day</option>
+				<option value="7">Last 7 Day</option>
 			</select>
 		</div>
 	</div>
@@ -20,7 +25,7 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Project</p>
-							<h4 class="my-1 text-info">25/100</h4>
+							<h4 class="my-1 text-info txt-b">25/100</h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
 						</div>
@@ -35,7 +40,8 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Resources</p>
-							<h4 class="my-1 text-danger">85/90</h4>						</div>
+							<h4 class="my-1 text-danger txt-b">85/90</h4>
+						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-users"></i>
 						</div>
 					</div>
@@ -49,7 +55,7 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Time Spent</p>
-							<h4 class="my-1 text-success">752 H</h4>
+							<h4 class="my-1 text-success txt-b">752 H</h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bi bi-clock-history"></i>
 						</div>
@@ -57,25 +63,25 @@
 				</div>
 			</div>
 		</div>
-		<!--<div class="col">
+		<div class="col">
 			<div class="card radius-10 border-start border-0 border-3 border-warning">
 				<div class="card-body">
 					<div class="d-flex align-items-center">
 						<div>
-							<p class="mb-0 text-secondary"></p>
-							<h4 class="my-1 text-warning"></h4>
+							<p class="mb-0 text-secondary txt-b">Current Time</p>
+							<h4 class="my-1 text-warning txt-b"><span id="ralTime"></span></h4>
 							<p class="mb-0 font-13"></p>
 						</div>
-						<div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class="bi bi-exclamation"></i>
+						<div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto"><i class="bi bi-stopwatch"></i>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>-->
+		</div>
 	</div>
 </div>
-<div class="container py-2">
-	<div class="row py-2">
+<div class="container">
+	<div class="row ">
 		<div class="col-md-8">
 			<div class="card">
 				<div class="card-body">
@@ -96,6 +102,10 @@
 						<div class="col-md-2">
 							<select class="form-select" name="selStatus" id="selStatus">
 								<option>Status</option>
+								<option value="01">All Status</option>
+								<option value="00">In progress</option>
+								<option value="11">Completed</option>
+								<option value="22">Delayed</option>
 							</select>
 						</div>
 					</div>
@@ -128,7 +138,7 @@
 									<td>16 may 2023</td>
 									<td class="text-success">Completed</td>
 									<td>
-										<div class="pie animate no-round" style="--p:100;--c:lightgreen;--b:5px"> 100%</div>
+										<div class="pie animate no-round" style="--p:100;--c:lightgreen;--b:5px">100%</div>
 									</td>
 									<td><button type="button" class="btn btn-secondary"><i class="bi bi-info-circle"></i> Detail</button></td>
 								</tr>
@@ -173,7 +183,7 @@
 				<div class="card-body">
 					<h3 class="title txt-b text-secondary">Overall Progress</h3>
 					<div class="chart chart-sm py-3">
-					<center><canvas id="pieOverall" height="300" width="300"></canvas></center>	
+						<center><canvas id="pieOverall" height="300" width="300"></canvas></center>
 					</div>
 					<div class="row py-3">
 						<div class="col">
@@ -221,7 +231,21 @@
 			</div>
 		</div>
 	</div>
-</div>่
+</div>
+<?php
+$value = 1;
+if ($value == 00) {
+	$color = 'yellow';
+} elseif ($value == 11) {
+	$color = 'green';
+} else {
+	$color = 'red';
+}
+?>
+<div style="color:<?= $color ?>;">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua.
+</div>
 
 <!--<div class="pie" style="--p:20"> 20%</div>
 <div class="pie" style="--p:50;--c:lightgreen;--b:10px"> 50%</div>
