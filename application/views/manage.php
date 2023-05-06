@@ -55,7 +55,7 @@
                                                 <option value="php">Kittisak</option>
                                                 <option value="javascript">Rapeepat</option>
                                             </select>
-                                        </form> 
+                                        </form>
                                         <script src="../assets/js/js/jquery-1.8.2.min.js"></script>
                                         <script type="text/javascript" src="../assets/js/js/chosen.jquery.min.js"></script>
                                         <script>
@@ -100,7 +100,10 @@
         </div>
         <div class="col-lg-2">
             <select class="form-select" name="selDate" id="selDate">
-                <option>Last 30 Day</option>
+                <option value="24">All Day</option>
+                <option value="30">Last 30 Day</option>
+                <option value="15">Last 15 Day</option>
+                <option value="7">Last 7 Day</option>
             </select>
         </div>
     </div>
@@ -189,7 +192,11 @@
                         </div>
                         <div class="col-md-2">
                             <select class="form-select" name="selStatus" id="selStatus">
-                                <option>Status</option>
+                            <option>Status</option>
+								<option value="01">All Status</option>
+								<option value="00">In progress</option>
+								<option value="11">Completed</option>
+								<option value="22">Delayed</option>
                             </select>
                         </div>
                     </div>
