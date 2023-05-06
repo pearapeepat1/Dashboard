@@ -1,5 +1,6 @@
 <nav id="sidebar" class="sidebar js-sidebar">
-    <div class="sidebar-content js-simplebar">
+    <div class="sidebar-content js-simplebar" ><!--style="background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 33%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);"-->
         <a class="sidebar-brand"  >
             <h1><span class="align-middle text-white txt-b" >SangNgaan</span></h1>
         </a>
