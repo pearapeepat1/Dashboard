@@ -24,29 +24,36 @@
                                 <label for="manager" class="form-label">
                                     <h6 class="txt-b">Person in charge :</h6>
                                 </label>
+                                <!--<div class="row">
+                                    <div class="col-md-12">
+                                        <label for="startdate" class="form-label">Position : </label>
+                                        <select class="selectpicker col-lg-9"  multiple>
+                                            <option>Toronto</option>
+                                            <option>Bucharest</option>
+                                            <option>Paris</option>
+                                        </select>
+                                        <button type="button" class="btn btn-primary">add</button>
+                                    </div>
+                                </div>-->
                                 <div class="row">
-                                    <div class="col-md-5">
-                                        <label for="startdate" class="form-label">Position</label>
-                                        <form action="" method="post">
-                                            <select data-placeholder="Select your Library" name="program[]" class="chzn-select form-label" multiple="multiple" tabindex="6" style="width:200px">
-                                                <option value="html">HTML</option>
-                                                <option value="css">CSS</option>
-                                                <option value="php">PHP</option>
-                                                <option value="javascript">Javascript</option>
-                                                <option value="jquery">JQuery</option>
-                                                <option value="ajax">AJAX</option>
-                                            </select>
-                                        </form>
-                                        <script src="../assets/js/js/jquery-1.8.2.min.js"></script>
+                                    <div class="col-md-12">
+                                        <label for="startdate" class="form-label">Name : </label>
+                                        <select class="selectpicker col-lg-9 "  multiple>
+                                            <option>Rapeepat</option>
+                                            <option>Duangtawan</option>
+                                            <option>Kittisak</option>
+                                        </select>
+                                        <!--<script src="../assets/js/js/jquery-1.8.2.min.js"></script>
                                         <script type="text/javascript" src="../assets/js/js/chosen.jquery.min.js"></script>
                                         <script>
                                             $(".chzn-select").chosen();
                                             $(".chzn-select-deselect").chosen({
                                                 allow_single_deselect: true
                                             });
-                                        </script>
+                                        </script>-->
+                                         <!--<button type="button" class="btn btn-primary">add</button>-->
                                     </div>
-                                    <div class="col-md-5 ms-auto">
+                                    <!--<div class="col-md-5 ms-auto">
                                         <label for="duedate" class="form-label">Name</label>
                                         <form action="" method="post">
                                             <select data-placeholder="Select your Library" name="program[]" class="chzn-select form-label" multiple="multiple" tabindex="6" style="width:200px">
@@ -64,17 +71,13 @@
                                                 allow_single_deselect: true
                                             });
                                         </script>
-                                    </div>
-                                    <div class="col-md-2 ms-auto">
-                                        <br>
-                                        <button type="button" class="btn btn-primary">add</button>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <!--<div class="mb-3">
                                 <textarea class="form-control" id="myTextbox" disabled></textarea>
-                            </div>
-                            <!--<div class="mb-3" class="form-label">
+                            </div>-->
+                            <div class="mb-3" class="form-label">
                                 <label for="topic" class="form-label">Topic</label>
                                 <div class="form-group">
                                     <form name="add_name" id="add_name">
@@ -87,11 +90,10 @@
                                     </form>
                                 </div>
                                 <div class="col-md-1"></div>
-                            </div>-->
-
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
                             <button type="button" class="btn btn-primary">Save</button>
                         </div>
                     </div>
@@ -171,8 +173,8 @@
         </div>
     </div>
 </div>
-<div class="container py-2">
-    <div class="row py-2">
+<div class="container">
+    <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
@@ -192,11 +194,11 @@
                         </div>
                         <div class="col-md-2">
                             <select class="form-select" name="selStatus" id="selStatus">
-                            <option>Status</option>
-								<option value="01">All Status</option>
-								<option value="00">In progress</option>
-								<option value="11">Completed</option>
-								<option value="22">Delayed</option>
+                                <option>Status</option>
+                                <option value="01">All Status</option>
+                                <option value="00">In progress</option>
+                                <option value="11">Completed</option>
+                                <option value="22">Delayed</option>
                             </select>
                         </div>
                     </div>
