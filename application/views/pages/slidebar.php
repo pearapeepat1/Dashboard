@@ -2,7 +2,9 @@
     <div class="sidebar-content js-simplebar" ><!--style="background: rgb(2,0,36);
 background: radial-gradient(circle, rgba(2,0,36,1) 33%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);"-->
         <a class="sidebar-brand"  >
+            <a class="sidebar-link" href="http://127.0.0.1/DashboardProject/Dashboard/dashboard">
             <h1><span class="align-middle text-white txt-b" >SangNgaan</span></h1>
+            </a>
         </a>
 
         <ul class="sidebar-nav">

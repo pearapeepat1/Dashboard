@@ -25,10 +25,11 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Project</p>
-							<h4 class="my-1 text-info txt-b">25/100</h4>
+							<h4 class="my-1 text-info txt-b"><div id="sumProject"> 25/100</div></h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
 						</div>
+						<!--<button type="submit" class="btn btn-success" id="btnSub" onclick="btnSub()">Submit</button>-->
 					</div>
 				</div>
 			</div>
@@ -232,6 +233,24 @@
 		</div>
 	</div>
 </div>
+<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Multiselect #04</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4 d-flex justify-content-center align-items-center">
+					<select class="selectpicker" multiple>
+	          <option>Toronto</option>
+	          <option>Bucharest</option>
+	          <option>Paris</option>
+	        </select>
+				</div>
+			</div>
+		</div>
+	</section>
 <?php
 $value = 1;
 if ($value == 00) {

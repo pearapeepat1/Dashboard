@@ -61,6 +61,7 @@ class Dashboard extends CI_Controller {
     {
         $result = $this->dashboard->get_Projectcount();
         echo json_encode($result);
+        $this->session->set_userdata('Projectcount', $result[0]["cnt_project"]);
     }
 
     ##count person
