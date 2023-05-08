@@ -25,11 +25,11 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Project</p>
-							<h4 class="my-1 text-info txt-b"><div id="sumProject"></div></h4>
+							<h4 class="my-1 text-info txt-b"><div id="sumProject"> 25/100</div></h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
 						</div>
-						<button type="submit" class="btn btn-success" id="btnSub" onclick="btnSub()">Submit</button>
+						<!--<button type="submit" class="btn btn-success" id="btnSub" onclick="btnSub()">Submit</button>-->
 					</div>
 				</div>
 			</div>
