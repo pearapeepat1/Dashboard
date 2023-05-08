@@ -19,7 +19,13 @@ function manage() {
 }
 
 
-
+document.addEventListener("DOMContentLoaded", function() {
+    setInterval(() => {
+        var datetime = new Date();
+        //console.log(datetime);
+        document.getElementById("time").textContent = datetime; //it will print on html page
+    }, 1000);
+});
 const container = document.getElementById('input-cont');
 
 // Call addInput() function on button click
