@@ -82,29 +82,42 @@ class Dashboard extends CI_Controller {
     ##count time day
     public function showtimecount_day()
     {
-        $result = $this->dashboard->get_Timecount_hour();
+        $result = $this->dashboard->get_Timecount_day();
         echo json_encode($result);
 
     }
 
+      ## query person
+    public function show_Person()
+    {
+        $result = $this->dashboard->get_Person();
+        echo json_encode($result);
+    }
 
-    ## query person
+    ## query position
     public function show_Prosition()
     {
-        $result = $this->dashboard->get_position();
+        $result = $this->dashboard->get_Position();
         echo json_encode($result);
     }
 
-
-
-
-
-
-    public function showProjectList()
+    ## query status project
+    public function show_Projectsta()
     {
-        $result = $this->dashboard->ProjectList();
+        $result = $this->dashboard->get_Projectsta();
         echo json_encode($result);
     }
+
+
+
+
+
+
+    // public function showProjectList()
+    // {
+    //     $result = $this->dashboard->ProjectList();
+    //     echo json_encode($result);
+    // }
 
     public function checkLoginDb()
 	{
@@ -113,15 +126,6 @@ class Dashboard extends CI_Controller {
 		$result = $this->Login->checkLoginDb($data);
 		echo json_encode($result);
 	}
-
-
-
-
-    public function index(){
-        // $this->load
-        $this->load->database();
-        echo "erwerwerw";
-    }
 
    
 
