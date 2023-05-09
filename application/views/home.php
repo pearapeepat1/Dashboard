@@ -25,11 +25,10 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Project</p>
-							<h4 class="my-1 text-info txt-b"><div id="sumProject"> 25/100</div></h4>
+							<h4 class="my-1 text-info txt-b"><div id="sumProject"></div></h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
 						</div>
-						<!--<button type="submit" class="btn btn-success" id="btnSub" onclick="btnSub()">Submit</button>-->
 					</div>
 				</div>
 			</div>
@@ -41,7 +40,7 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Resources</p>
-							<h4 class="my-1 text-danger txt-b">85/90</h4>
+							<h4 class="my-1 text-danger txt-b"><div id="sumPerson"></div></h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-users"></i>
 						</div>
@@ -55,8 +54,8 @@
 				<div class="card-body">
 					<div class="d-flex align-items-center">
 						<div>
-							<p class="mb-0 text-secondary txt-b">Time Spent</p>
-							<h4 class="my-1 text-success txt-b">752 H</h4>
+							<p class="mb-0 text-secondary txt-b">Time Spent/H</p>
+							<h4 class="my-1 text-success txt-b" id="sumTime"></h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bi bi-clock-history"></i>
 						</div>
@@ -190,7 +189,7 @@
 						<div class="col">
 							<div class="row">
 								<center>
-									<h4 class="txt-b">24</h4>
+									<h4 class="txt-b" id="sumProjecT" ></h4>
 								</center>
 							</div>
 							<div class="row">

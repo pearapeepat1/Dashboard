@@ -42,8 +42,24 @@ class Dashboard extends CI_Controller {
         $this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
         // $this->data['tblProjectList'] = $this->Show_model->ProjectList();
         //$this->ShowProjectList();
+        
 		$this->render_view('home');
 	}
+    public function callApi(){
+        $url=$_GET["url"];
+ 
+        $ch =curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        $data = json_decode($output, true);
+        // $data = $output;
+        // print_r($output);
+        if(empty($data)){
+            echo "NO DATA";
+        }
+        echo $data;
+    }
+
 
     public function manage()
 	{
@@ -61,7 +77,6 @@ class Dashboard extends CI_Controller {
     {
         $result = $this->dashboard->get_Projectcount();
         echo json_encode($result);
-        $this->session->set_userdata('Projectcount', $result[0]["cnt_project"]);
     }
 
     ##count person

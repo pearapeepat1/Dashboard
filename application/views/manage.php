@@ -118,7 +118,7 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary txt-b">Total Project</p>
-                            <h4 class="my-1 text-info txt-b">25/100</h4>
+							<h4 class="my-1 text-info txt-b"><div id="sumProject"></div></h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
                         </div>
@@ -133,7 +133,7 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary txt-b">Total Resources</p>
-                            <h4 class="my-1 text-danger txt-b">85/90</h4>
+							<h4 class="my-1 text-danger txt-b"><div id="sumPerson"></div></h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-users"></i>
                         </div>
@@ -148,7 +148,7 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary txt-b">Time Spent</p>
-                            <h4 class="my-1 text-success txt-b">752 H</h4>
+							<h4 class="my-1 text-success txt-b"><div id="sumTime"></div></h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bi bi-clock-history"></i>
                         </div>

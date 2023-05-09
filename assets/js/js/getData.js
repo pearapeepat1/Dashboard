@@ -1,19 +1,110 @@
-$('#btnSub').click(() =>{
+
+    showProjectCounT()
+    showProjectCount()
+    showPersonCount()
+    showTimeCount()
+
+
+function showProjectCount() {
+
     $.ajax({
         url: base_url('Dashboard/showProjectcount'),
+        type:'GET',
         data:{
             format:'json'
         },
-        error(){
-            $('#sumProject').html('Error');
-        },
-        dataType:'jsonp',
-        success(data){
-            let Count = $('<h1>').text(data.cnt_project[0]);
+        dataType:'json',
+        success: function(data){
+            console.log(data);
+            let Count = $('<h4 class="my-1 text-info txt-b">').text(data[0].cnt_project);
             $('#sumProject')
                 .append(Count);
         },
-        type:'GET'
+        // error(){
+        //     $('#sumProject').html('Error');
+        // },
+        
     });
-} )
+}
+function showProjectCounT() {
 
+    $.ajax({
+        url: base_url('Dashboard/showProjectcount'),
+        type:'GET',
+        data:{
+            format:'json'
+        },
+        dataType:'json',
+        success: function(data){
+            console.log(data);
+            let Count = $('<h4 class="txt-b">').text(data[0].cnt_project);
+            $('#sumProjecT')
+                .append(Count);
+        },
+    });
+}
+function showProjectCount2() {
+
+    $.ajax({
+        url: base_url('Dashboard/showProjectcount'),
+        type:'GET',
+        data:{
+            format:'json'
+        },
+        dataType:'json',
+        success: function(data){
+            console.log(data);
+            let Count = $('<h4 class="my-1 text-info txt-b">').text(data[0].cnt_project);
+            $('#sumProject2')
+                .append(Count);
+        },
+        // error(){
+        //     $('#sumProject').html('Error');
+        // },
+        
+    });
+}
+
+function showPersonCount() {
+
+    $.ajax({
+        url: base_url('Dashboard/showPersoncount'),
+        type:'GET',
+        data:{
+            format:'json'
+        },
+        dataType:'json',
+        success: function(data){
+            console.log(data);
+            let Count = $('<h4 class="my-1 text-danger txt-b">').text(data[0].cnt_person);
+            $('#sumPerson')
+                .append(Count);
+        },
+        // error(){
+        //     $('#sumProject').html('Error');
+        // },
+        
+    });
+}
+function showTimeCount() {
+var url= "http://192.168.99.159/DashboardProject/test/test2";
+    $.ajax({
+        url: base_url("Dashboard/callApi?url="+url),
+        type:'GET',
+        // data:{
+        //     format:'json'
+        // },
+        // dataType:'json',
+        success: function(data){
+            alert(data);
+            // let Count = $('<h4 class="my-1 text-success txt-b">').text(data[0].time_hour);
+            // let CountSet = Count
+            // $('#sumTime')
+            //     .append(CountSet);
+        },
+        // error(){
+        //     $('#sumProject').html('Error');
+        // },
+        
+    });
+}

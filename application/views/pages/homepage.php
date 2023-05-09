@@ -48,6 +48,11 @@
 			{footer}
 		</div>
 	</div>
+	<script>
+		function base_url(url) {
+			return '<?php echo $base_url; ?>' + url;
+		}
+	</script>
 	<script src="../assets/js/js/app.js"></script>
 	<script src="../assets/js/js/table.js"></script>
 	<script src="../assets/js/js/chart.js"></script>
@@ -66,11 +71,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
-	<script>
-		function base_url(url) {
-			return '<?php echo $base_url; ?>' + url;
-		}
-	</script>
+	
 	{another_js}
 </body>
 
