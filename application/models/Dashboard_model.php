@@ -60,14 +60,28 @@ class Dashboard_model extends CI_Model
     }
 
 
-
-
-    public function get_position(){
-        $sql = "EXEC [dbo].[query_preson]";
+    ## query person
+    public function get_Person(){
+        $sql = "EXEC [dbo].[query_person]";
         $query = $this->db->query($sql);
 
         return $query->result();
     }
     
+    ## query position
+    public function get_Position(){
+        $sql = "EXEC [dbo].[query_position]";
+        $query = $this->db->query($sql);
+
+        return $query->result();
+    }
+    
+
+   
+
+
+    
+
+
     
 }
