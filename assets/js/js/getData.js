@@ -4,7 +4,7 @@
     showPersonCount()
     showTimeCount()
 
-
+const url= "http://172.21.64.115/DashboardProject/test/test2";
 function showProjectCount() {
 
     $.ajax({
@@ -87,24 +87,43 @@ function showPersonCount() {
     });
 }
 function showTimeCount() {
-var url= "http://192.168.99.159/DashboardProject/test/test2";
     $.ajax({
-        url: base_url("Dashboard/callApi?url="+url),
+        url: base_url('Dashboard/showTimecount_hour'),
         type:'GET',
-        // data:{
-        //     format:'json'
-        // },
-        // dataType:'json',
+       data:{
+             format:'json'
+         },
+         dataType:'json',
         success: function(data){
-            alert(data);
-            // let Count = $('<h4 class="my-1 text-success txt-b">').text(data[0].time_hour);
-            // let CountSet = Count
-            // $('#sumTime')
-            //     .append(CountSet);
+             let Count = $('<h4 class="my-1 text-success txt-b">').text(data[0].time_hour);
+             let CountSet = Count
+           $('#sumTime')
+                 .append(CountSet);
         },
-        // error(){
-        //     $('#sumProject').html('Error');
-        // },
-        
+     error(){
+             $('#sumProject').html('Error');
+         },
+    
     });
 }
+// function showTimeCount() {
+//     $.ajax({
+//         url: base_url("Dashboard/callApi?url="+url),
+//         type:'GET',
+//         // data:{
+//         //     format:'json'
+//         // },
+//         // dataType:'json',
+//         success: function(data){
+//             alert(data);
+//             // let Count = $('<h4 class="my-1 text-success txt-b">').text(data[0].time_hour);
+//             // let CountSet = Count
+//             // $('#sumTime')
+//             //     .append(CountSet);
+//         },
+//         // error(){
+//         //     $('#sumProject').html('Error');
+//         // },
+        
+//     });
+// }

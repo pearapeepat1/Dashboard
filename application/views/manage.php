@@ -222,10 +222,98 @@
                                     <td>Project A</td>
                                     <td>7</td>
                                     <td>Rapeepat Jaiboon</td>
-                                    <td>Programer</td>
+                                    <td>Front-End</td>
                                     <td>16 may 2023</td>
                                     <td>26 may 2023</td>
+                                    <td class="text-warning">In progress</td>
+                                    <td>
+                                        <form method="post" id="toggleForm">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" class="custom-control-input" id="customSwitch1" name='machine_state'>
+                                                        <label class="custom-control-label" id="statusText" for="customSwitch1"></label>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </td>
+                                    <td><button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Project B</td>
+                                    <td>6</td>
+                                    <td>Kittisak Buabanchong</td>
+                                    <td>Back-End</td>
+                                    <td>8 may 2023</td>
+                                    <td>13 may 2023</td>
                                     <td class="text-danger">Delayed</td>
+                                    <td>
+                                        <form method="post" id="toggleForm">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" class="custom-control-input" id="customSwitch1" name='machine_state'>
+                                                        <label class="custom-control-label" id="statusText" for="customSwitch1"></label>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </td>
+                                    <td><button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Project C</td>
+                                    <td>9</td>
+                                    <td>Duangtawan Poodannguan</td>
+                                    <td>Programer</td>
+                                    <td>2 may 2023</td>
+                                    <td>18 may 2023</td>
+                                    <td class="text-success">Completed</td>
+                                    <td>
+                                        <form method="post" id="toggleForm">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" class="custom-control-input" id="customSwitch1" name='machine_state'>
+                                                        <label class="custom-control-label" id="statusText" for="customSwitch1"></label>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </td>
+                                    <td><button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Project D</td>
+                                    <td>12</td>
+                                    <td>Phatcharin Chantasin</td>
+                                    <td>Programer</td>
+                                    <td>10 may 2023</td>
+                                    <td>23 may 2023</td>
+                                    <td class="text-danger">Delayed</td>
+                                    <td>
+                                        <form method="post" id="toggleForm">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" class="custom-control-input" id="customSwitch1" name='machine_state'>
+                                                        <label class="custom-control-label" id="statusText" for="customSwitch1"></label>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </td>
+                                    <td><button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>Project E</td>
+                                    <td>4</td>
+                                    <td>Rapeepat Jaiboon</td>
+                                    <td>Front-End</td>
+                                    <td>3 may 2023</td>
+                                    <td>26 may 2023</td>
+                                    <td class="text-success">Completed</td>
                                     <td>
                                         <form method="post" id="toggleForm">
                                             <fieldset>

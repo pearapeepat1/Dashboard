@@ -232,6 +232,18 @@
 		</div>
 	</div>
 </div>
+<div class="card ">
+                    <div class="card-header">
+                        <h4>Your Earnings</h4>
+                    </div>
+                    <div class="card-body">
+                        <div id="radialBars"></div>
+                        <div class="text-center mb-5">
+                            <h6>From last month</h6>
+                            <h1 class='text-green'>+$2,134</h1>
+                        </div>
+                    </div>
+                </div>
 <section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
