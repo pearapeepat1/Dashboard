@@ -25,7 +25,9 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Project</p>
-							<h4 class="my-1 text-info txt-b"><div id="sumProject"></div></h4>
+							<h4 class="my-1 text-info txt-b">
+								<div id="sumProject"></div>
+							</h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
 						</div>
@@ -40,7 +42,9 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Resources</p>
-							<h4 class="my-1 text-danger txt-b"><div id="sumPerson"></div></h4>
+							<h4 class="my-1 text-danger txt-b">
+								<div id="sumPerson"></div>
+							</h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-users"></i>
 						</div>
@@ -90,18 +94,20 @@
 							<h3 class="title txt-b text-secondary ">Project Summary</h3>
 						</div>
 						<div class="col-md-3">
-							<select class="form-select" name="selName" id="selName" onchange="getState(this.value)">
-								<option>Project Name</option>
+							<select name="periode" id="periode1" class="browser-default custom-select" tabindex="-1" aria-hidden="true">
+								<?php foreach ($periode as $per) : ?>
+									<option value="<?php echo $per['id_periode'] ?>"><?php echo $per['keterangan'] ?></option>
+								<?php endforeach ?>
 							</select>
 						</div>
 						<div class="col-md-3">
 							<select class="form-select" name="selPerson" id="selPerson">
-								<option>Person in charge</option>
+								<option>All Person in charge</option>
+								<option id="option"></option>
 							</select>
 						</div>
 						<div class="col-md-2">
 							<select class="form-select" name="selStatus" id="selStatus">
-								<option>Status</option>
 								<option value="01">All Status</option>
 								<option value="00">In progress</option>
 								<option value="11">Completed</option>
@@ -110,9 +116,10 @@
 						</div>
 					</div>
 					<div class="py-3">
-						<table id="example" class="display " style="width:100%">
+						<table id="table-master" class="display " style="width:100%">
 							<thead>
 								<tr>
+									<th style="display:none;">#</th>
 									<th>Project Name</th>
 									<th>Person in Charge</th>
 									<th>Due Date</th>
@@ -121,8 +128,8 @@
 									<th>Detail</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
+							<tbody id="tbody">
+								<!--<tr>
 									<td>Project A</td>
 									<td>Rapeepat Jaiboon</td>
 									<td>16 may 2023</td>
@@ -171,7 +178,7 @@
 										<div class="pie animate no-round" style="--p:50;--c:red;--b:5px"> 50%</div>
 									</td>
 									<td><button type="button" class="btn btn-secondary"><i class="bi bi-info-circle"></i> Detail</button></td>
-								</tr>
+								</tr>-->
 							</tbody>
 						</table>
 					</div>
@@ -189,7 +196,7 @@
 						<div class="col">
 							<div class="row">
 								<center>
-									<h4 class="txt-b" id="sumProjecT" ></h4>
+									<h4 class="txt-b" id="sumProjecT"></h4>
 								</center>
 							</div>
 							<div class="row">
@@ -199,7 +206,7 @@
 						<div class="col ">
 							<div class="row">
 								<center>
-									<h4 class="txt-b text-success">15</h4>
+									<h4 class="txt-b text-success" id="pjCompleted"></h4>
 								</center>
 							</div>
 							<div class="row">
@@ -209,7 +216,7 @@
 						<div class="col">
 							<div class="row">
 								<center>
-									<h4 class="txt-b text-warning">5</h4>
+									<h4 class="txt-b text-warning" id="pjinProgres"></h4>
 								</center>
 							</div>
 							<div class="row">
@@ -219,7 +226,7 @@
 						<div class="col">
 							<div class="row">
 								<center>
-									<h4 class="txt-b text-danger">4</h4>
+									<h4 class="txt-b text-danger" id="pjDelayed"></h4>
 								</center>
 							</div>
 							<div class="row ">
@@ -232,50 +239,22 @@
 		</div>
 	</div>
 </div>
-<div class="card ">
-                    <div class="card-header">
-                        <h4>Your Earnings</h4>
-                    </div>
-                    <div class="card-body">
-                        <div id="radialBars"></div>
-                        <div class="text-center mb-5">
-                            <h6>From last month</h6>
-                            <h1 class='text-green'>+$2,134</h1>
-                        </div>
-                    </div>
-                </div>
-<section class="ftco-section">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Multiselect #04</h2>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-4 d-flex justify-content-center align-items-center">
-					<select class="selectpicker" multiple>
-	          <option>Toronto</option>
-	          <option>Bucharest</option>
-	          <option>Paris</option>
-	        </select>
-				</div>
-			</div>
-		</div>
-	</section>
-<?php
-$value = 1;
-if ($value == 00) {
-	$color = 'yellow';
-} elseif ($value == 11) {
-	$color = 'green';
-} else {
-	$color = 'red';
-}
-?>
+
+
+<!-- <?php
+		$value = 1;
+		if ($value == 00) {
+			$color = 'yellow';
+		} elseif ($value == 11) {
+			$color = 'green';
+		} else {
+			$color = 'red';
+		}
+		?>
 <div style="color:<?= $color ?>;">
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua.
-</div>
+</div> -->
 
 <!--<div class="pie" style="--p:20"> 20%</div>
 <div class="pie" style="--p:50;--c:lightgreen;--b:10px"> 50%</div>
@@ -285,6 +264,7 @@ if ($value == 00) {
 
 
 <!--<div class="row py-3" >
+
 		<div class="col-md-3 ">
 			<div class="card " id="sumProject" style="width: 18rem;">
 				<div class="card-body">
@@ -346,3 +326,23 @@ if ($value == 00) {
 			</div>
 		</div>
 	</div>-->
+
+
+<!--<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Multiselect #04</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4 d-flex justify-content-center align-items-center">
+					<select class="selectpicker" multiple>
+	          <option>Toronto</option>
+	          <option>Bucharest</option>
+	          <option>Paris</option>
+	        </select>
+				</div>
+			</div>
+		</div>
+	</section>-->

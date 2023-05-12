@@ -19,13 +19,13 @@ function manage() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    setInterval(() => {
-        var datetime = new Date();
-        //console.log(datetime);
-        document.getElementById("time").textContent = datetime; //it will print on html page
-    }, 1000);
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//     setInterval(() => {
+//         var datetime = new Date();
+//         //console.log(datetime);
+//         document.getElementById("time").textContent = datetime; //it will print on html page
+//     }, 1000);
+// });
 const container = document.getElementById('input-cont');
 
 // Call addInput() function on button click
@@ -54,7 +54,7 @@ $(document).ready(function() {
         addamount += 700;
         console.log('amount: ' + addamount);
         i++;
-        $('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="name[]" placeholder="Enter topic" class="form-control name_list"/></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
+        $('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="name[]" placeholder="Enter topic" class="form-control name_list"/></td><td><td></td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
     });
 
     $(document).on('click', '.btn_remove', function() {

@@ -31,9 +31,7 @@ function getProductDetails() {
     })
 }*/
 
-$(document).ready(function () {
-    $('#example').DataTable();
-});
+
 
 //insert textbox when select in dropdown*****
 /*$(document).ready(function () {
@@ -64,3 +62,43 @@ $(document).ready(function(){
     
     });
     
+
+    // $(document).ready(() => {
+    //     $.ajax({
+    //       method: "get",
+    //       url: "https://api.publicapis.org/entries",
+    //       success: (response) => {
+    //         console.log(response);
+    //         if (response.entries.length > 0) {
+    //           var html = "";
+    //           for (let i = 0; i < response.entries.length; i++) {
+    //             const data = response.entries[i];
+    //             //console.log(data.API);
+    //             html += `
+    //                               <tr>
+    //                                   <th scope="row">${i + 1}</th>
+    //                                   <td>${data.API}</td>
+    //                                   <td>${data.Auth}</td>
+    //                                   <td>${data.Cors}</td>
+    //                                   <td>${data.Category}</td>
+    //                                   <td>
+    //                                       <a href="${
+    //                                         data.Link
+    //                                       }" target="blank" class="btn-sm btn-primary">Link</a>
+    //                                   </td>
+    //                               </tr>`;
+    //           }
+    //           $("#tbody")
+    //             .html(html)
+    //             .promise()
+    //             .done(() => {
+    //               $("#table-master").DataTable();
+    //             });
+    //         }
+    //       },
+    //       error: (err) => {
+    //         console.log(err);
+    //       }
+    //     });
+    //   });
+      

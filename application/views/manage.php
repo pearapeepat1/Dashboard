@@ -22,7 +22,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="manager" class="form-label">
-                                    <h6 class="txt-b">Person in charge :</h6>
+                                    <h6 class="txt-b">Person in charge </h6>
                                 </label>
                                 <!--<div class="row">
                                     <div class="col-md-12">
@@ -38,7 +38,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label for="startdate" class="form-label">Name : </label>
-                                        <select class="selectpicker col-lg-9 "  multiple>
+                                        <select class="selectpicker col-lg-9 " multiple>
                                             <option>Rapeepat</option>
                                             <option>Duangtawan</option>
                                             <option>Kittisak</option>
@@ -51,7 +51,7 @@
                                                 allow_single_deselect: true
                                             });
                                         </script>-->
-                                         <!--<button type="button" class="btn btn-primary">add</button>-->
+                                        <!--<button type="button" class="btn btn-primary">add</button>-->
                                     </div>
                                     <!--<div class="col-md-5 ms-auto">
                                         <label for="duedate" class="form-label">Name</label>
@@ -77,6 +77,19 @@
                             <!--<div class="mb-3">
                                 <textarea class="form-control" id="myTextbox" disabled></textarea>
                             </div>-->
+                            <!-- <div class="row">
+                                <label for="manager" class="form-label">
+                                    <h6 class="txt-b">Schedule</h6>
+                                </label>
+                                <div class="col-lg-6">
+                                    <label for="sDate">Start Date :</label>
+                                    <input type="date" id="sDate" class="form-control" name="sDate">
+                                </div>
+                                <div class="col-lg-6">
+                                <label for="dueDate">Due Date :</label>
+                                    <input type="date" id="dueDate" class="form-control" name="dueDate">
+                                </div>
+                            </div> -->
                             <div class="mb-3" class="form-label">
                                 <label for="topic" class="form-label">Topic</label>
                                 <div class="form-group">
@@ -91,7 +104,9 @@
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>
+
                         </div>
+
                         <div class="modal-footer">
                             <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
                             <button type="button" class="btn btn-primary">Save</button>
@@ -118,7 +133,9 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary txt-b">Total Project</p>
-							<h4 class="my-1 text-info txt-b"><div id="sumProject"></div></h4>
+                            <h4 class="my-1 text-info txt-b">
+                                <div id="sumProject"></div>
+                            </h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
                         </div>
@@ -133,7 +150,9 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary txt-b">Total Resources</p>
-							<h4 class="my-1 text-danger txt-b"><div id="sumPerson"></div></h4>
+                            <h4 class="my-1 text-danger txt-b">
+                                <div id="sumPerson"></div>
+                            </h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-users"></i>
                         </div>
@@ -148,7 +167,9 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary txt-b">Time Spent</p>
-							<h4 class="my-1 text-success txt-b"><div id="sumTime"></div></h4>
+                            <h4 class="my-1 text-success txt-b">
+                                <div id="sumTime"></div>
+                            </h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bi bi-clock-history"></i>
                         </div>
@@ -210,7 +231,7 @@
                                     <th>Step</th>
                                     <th>Person in Charge</th>
                                     <th>Positon</th>
-                                    <th>sweetalert2 Date</th>
+                                    <th>Start Date</th>
                                     <th>Due Date</th>
                                     <th>Status </th>
                                     <th>Action</th>
@@ -334,4 +355,4 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>z

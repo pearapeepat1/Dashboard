@@ -1,24 +1,41 @@
-$(document).ready(function() {
-    var pieData = [{
-            value: 15 / 24 * 100,
-            color: "#D5D8DC"
-        },
-        {
-            value: 15,
-            color: "#3F9F3F"
-        }, {
-            value: 5,
-            color: "#F1C40F"
-        }, {
-            value: 4,
-            color: "#C0392B"
-        },
+showProjectinPie()
 
-    ];
-
-    var myPie = new Chart(document.getElementById("pieOverall").getContext("2d")).Doughnut(pieData, { percentageInnerCutout: 80 });
-});
-
+function showProjectinPie() {
+var url= API_URL+"Dashboard/show_Projectstaall";
+    $.ajax({
+      method: "get",
+      url: base_url("Dashboard/callApi?url="+url),
+      data:{
+        format:'json',
+    },
+      dataType:'Json',
+      success: (data) => {
+        // var Completed = $(data[0].summary);
+        // var inProgres = $(data[1].summary);
+        // var Delayed = $(data[2].summary);
+        //     var pieData = [
+            {
+                value: 3,
+                color: "#3F9F3F"
+            }, {
+                value: 4,
+                color: "#F1C40F"
+            }, {
+                value: 4,
+                color: "#C0392B"
+            },
+    
+        ];
+    
+        var myPie = new Chart(document.getElementById("pieOverall").getContext("2d")).Doughnut(pieData, { percentageInnerCutout: 80 });
+    
+          
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+}
 /*!
  * Chart.js
  * http://chartjs.org/

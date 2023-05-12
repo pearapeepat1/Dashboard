@@ -57,7 +57,7 @@ class Dashboard extends CI_Controller {
         if(empty($data)){
             echo "NO DATA";
         }
-        echo $data;
+        echo json_encode($data);
     }
 
 
