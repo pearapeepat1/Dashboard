@@ -1,23 +1,51 @@
-function manage() {
-    Swal.fire({
-        title: 'Login Form',
-        html: `<input type="text" id="username" class="swal2-input" placeholder="Username"><input type="password" id="password" class="swal2-input" placeholder="Password">`,
-        confirmButtonText: 'Sign in',
-        focusConfirm: false,
-        preConfirm: () => {
-            const password = Swal.getPopup().querySelector('#password').value
-            if (!password) {
-                Swal.showValidationMessage(`Please enter username & password`)
+
+$('#btnLogin').click(function() {
+
+    let formData = $('#formLogin').serialize();
+    let username = $('input[name="username"]').val();
+    let password = $('input[name="password"]').val();
+    if (username == "") {
+        $('#err_in1').text("Insert Username!");
+        $('#username').focus();
+        return false;
+    }
+    if (password == "") {
+        $('#err_in2').text("Insert Password!");
+        $('#password').focus();
+        return false;
+    }
+    var url= API_URL+"Login/chk_login?username="+ username +"&password=" + password;
+    $.ajax({
+        url: base_url("Dashboard/callApiLogin"),
+        type: 'GET',
+        data: {
+            url:url,
+            username: username,
+            password: password,
+        },
+        dataType: 'json',
+        success: function(res) {
+            console.log(res);
+            if (res.result == true) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    html: res.message,
+                    timer: 3000
+                }).then(() => {
+                    window.location.href = 'http://127.0.0.1/DashboardProject/Dashboard/manage';
+                })
+
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error Login!',
+                    html: res.message,
+                })
             }
-            return { password: password }
-
         }
-    }).then(() => {
-        window.location.href = base_url('Dashboard/manage')
     })
-
-}
-
+})
 
 // document.addEventListener("DOMContentLoaded", function() {
 //     setInterval(() => {

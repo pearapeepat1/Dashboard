@@ -25,9 +25,7 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Project</p>
-							<h4 class="my-1 text-info txt-b">
-								<div id="sumProject"></div>
-							</h4>
+							<h4 class="my-1 text-info txt-b"><div id="sumProject"></div></h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
 						</div>
@@ -42,9 +40,7 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Resources</p>
-							<h4 class="my-1 text-danger txt-b">
-								<div id="sumPerson"></div>
-							</h4>
+							<h4 class="my-1 text-danger txt-b"><div id="sumPerson"></div></h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-users"></i>
 						</div>
@@ -94,24 +90,21 @@
 							<h3 class="title txt-b text-secondary ">Project Summary</h3>
 						</div>
 						<div class="col-md-3">
-							<select name="periode" id="periode1" class="browser-default custom-select" tabindex="-1" aria-hidden="true">
-								<?php foreach ($periode as $per) : ?>
-									<option value="<?php echo $per['id_periode'] ?>"><?php echo $per['keterangan'] ?></option>
-								<?php endforeach ?>
+							<select class="form-select" name="selName" id="selName"  onchange="getval(this);">
+								<option >All Project</option>
 							</select>
 						</div>
 						<div class="col-md-3">
-							<select class="form-select" name="selPerson" id="selPerson">
+							<select class="form-select" name="selPerson" id="selPerson" onchange="getval(this);">
 								<option>All Person in charge</option>
-								<option id="option"></option>
 							</select>
 						</div>
 						<div class="col-md-2">
-							<select class="form-select" name="selStatus" id="selStatus">
+							<select class="form-select" name="selStatus" id="selStatus" onchange="getval(this);">
 								<option value="01">All Status</option>
-								<option value="00">In progress</option>
+								<!-- <option value="00">In progress</option>
 								<option value="11">Completed</option>
-								<option value="22">Delayed</option>
+								<option value="22">Delayed</option> -->
 							</select>
 						</div>
 					</div>
@@ -189,14 +182,12 @@
 			<div class="card">
 				<div class="card-body">
 					<h3 class="title txt-b text-secondary">Overall Progress</h3>
-					<div class="chart chart-sm py-3">
-						<center><canvas id="pieOverall" height="300" width="300"></canvas></center>
-					</div>
+						<center><canvas id="myChart"></canvas></center>
 					<div class="row py-3">
 						<div class="col">
 							<div class="row">
 								<center>
-									<h4 class="txt-b" id="sumProjecT"></h4>
+									<h4 class="txt-b" id="sumProjecT" ></h4>
 								</center>
 							</div>
 							<div class="row">
@@ -242,15 +233,15 @@
 
 
 <!-- <?php
-		$value = 1;
-		if ($value == 00) {
-			$color = 'yellow';
-		} elseif ($value == 11) {
-			$color = 'green';
-		} else {
-			$color = 'red';
-		}
-		?>
+$value = 1;
+if ($value == 00) {
+	$color = 'yellow';
+} elseif ($value == 11) {
+	$color = 'green';
+} else {
+	$color = 'red';
+}
+?>
 <div style="color:<?= $color ?>;">
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua.
@@ -328,7 +319,7 @@
 	</div>-->
 
 
-<!--<section class="ftco-section">
+	<!--<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">

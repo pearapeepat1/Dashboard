@@ -60,7 +60,19 @@ class Dashboard extends CI_Controller {
         echo json_encode($data);
     }
 
-
+    public function callApiLogin(){
+        $url= $_GET["url"];
+        $username= $_GET["username"];
+        $password= $_GET["password"];
+        $ch =curl_init($url."username=".$username."&password=".$password);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        echo  $output;
+        // if(empty($data)){
+        //     echo "NO DATA";
+        // }
+        // echo json_encode($data);
+    }
     public function manage()
 	{
         //$this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
