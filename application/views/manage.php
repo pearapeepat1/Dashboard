@@ -303,10 +303,13 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th style="display:none;" scope="col">#</th>
+                                    <th scope="col">Project Name</th>
+                                    <th scope="col">Task Detail</th>
+                                    <th scope="col">Start Date</th>
+                                    <th scope="col">Due Date</th>
+                                    <th scope="col">Assignee</th>
+                                    <th scope="col">Position</th>
                                 </tr>
                             </thead>
                             <tbody>
