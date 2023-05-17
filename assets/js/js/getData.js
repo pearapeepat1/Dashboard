@@ -10,9 +10,10 @@ $(() => {
     showProjectDrop()
     showNameDrop()
     showStatusDrop()
-    getval(sel)
     showProjectlistManage()
 
+
+//------------------------------------------show  Project Count ---------------------------------------------------
 function showProjectCount() {
     var url= API_URL+"Dashboard/showProjectcount";
     $.ajax({
@@ -23,7 +24,7 @@ function showProjectCount() {
         },
         dataType:'json',
         success: function(data){
-            console.log(data);
+            //console.log(data);
             let Count = $('<h4 class="my-1 text-info txt-b">').text(data[0].cnt_project);
             $('#sumProject')
                 .append(Count);
@@ -34,6 +35,8 @@ function showProjectCount() {
         
     });
 }
+
+//------------------------------------------show  Project Count in div Overall Progress  ---------------------------------------------------
 function showProjectCounT() {
     var url= API_URL+"Dashboard/showProjectcount";
     $.ajax({
@@ -44,7 +47,7 @@ function showProjectCounT() {
         },
         dataType:'json',
         success: function(data){
-            console.log(data);
+            //console.log(data);
             let Count = $('<h4 class="txt-b">').text(data[0].cnt_project);
             $('#sumProjecT')
                 .append(Count);
@@ -54,28 +57,8 @@ function showProjectCounT() {
         },
     });
 }
-// function showProjectCount2() {
 
-//     $.ajax({
-//         url: base_url('Dashboard/showProjectcount'),
-//         type:'GET',
-//         data:{
-//             format:'json'
-//         },
-//         dataType:'json',
-//         success: function(data){
-//             console.log(data);
-//             let Count = $('<h4 class="my-1 text-info txt-b">').text(data[0].cnt_project);
-//             $('#sumProject2')
-//                 .append(Count);
-//         },
-//         error(){
-//             $('#sumProject2').html('Error');
-//         },
-        
-//     });
-// }
-
+//------------------------------------------Show Person Count ---------------------------------------------------
 function showPersonCount() {
     var url= API_URL+"Dashboard/showPersoncount";
     $.ajax({
@@ -86,7 +69,7 @@ function showPersonCount() {
         },
         dataType:'json',
         success: function(data){
-            console.log(data);
+            //console.log(data);
             let Count = $('<h4 class="my-1 text-danger txt-b">').text(data[0].cnt_person);
             $('#sumPerson')
                 .append(Count);
@@ -97,6 +80,8 @@ function showPersonCount() {
         
     });
 }
+
+//------------------------------------------Show Time Count ---------------------------------------------------
 function showTimeCount() {
     var url= API_URL+"Dashboard/showTimecount_hour";
         $.ajax({
@@ -111,9 +96,9 @@ function showTimeCount() {
                 $('#sumTime')
                     .append(Count);
             },
-            // error(){
-            //     $('#sumTime').html('Error');
-            // },
+            error(){
+                $('#sumTime').html('Error');
+            },
             
         });
     }
@@ -138,6 +123,7 @@ var url= API_URL+"Dashboard/show_Projectstaall";
         
     });
 }
+//------------------------------------------Show Count Project in progress ---------------------------------------------------
 function showProjectinProgres() {
     var url= API_URL+"Dashboard/show_Projectstaall";
         $.ajax({
@@ -180,6 +166,7 @@ function showProjectinProgres() {
         }
 
 
+//------------------------------------------Table Project Dashboard page ---------------------------------------------------
 function showProjectlist() {
     var url= API_URL+"Dashboard/showProjectList";
     $.ajax({
@@ -187,7 +174,7 @@ function showProjectlist() {
       url: base_url("Dashboard/callApi?url="+url),
       dataType:'Json',
       success: (response) => {
-        console.log(response);
+       // console.log(response);
         if (response.entries.length > 0) {
         //alert("length > 0");
           var html = "";
@@ -195,12 +182,20 @@ function showProjectlist() {
             const data = response.entries[i];
            //alert(data.ip_project_name);
            const show_status = data.ip_status_project;
+           const show_progress = data.percents;
            if(show_status == 0){
-             var status_rusult = '<p class="text-success">Completed</p>';
+             var status_rusult = '<span class="badge rounded-pill bg-success "><i class="bi bi-stars"></i> Completed</span>';
            }else if(show_status == 1){
-            var status_rusult = '<p class="text-warning">in progress</p>';
+            var status_rusult = '<span class="badge rounded-pill bg-warning "><i class="bi bi-stars"></i> In &nbsp;progress</span>';
            }else{
-            var status_rusult = '<p class="text-danger">Delayed</p>';
+            var status_rusult = '<span class="badge rounded-pill bg-danger  blink"><i class="bi bi-stars"></i> Delayed</span>';
+           }
+           if(show_progress==100){
+            var status_color = 'green';
+           }else if(show_progress < 100 && show_status == 2 ){
+            var status_color = 'red';
+           }else{
+            var status_color = 'orange';
            }
             html += `
                     <tr>
@@ -209,8 +204,8 @@ function showProjectlist() {
                         <td>${data.ip_person_in_charge}</td>
                         <td>${data.due_date}</td>
                         <td>${status_rusult}</td>
-                        <td><div class="pie animate no-round" style="--p:80;--c:red;--b:5px">80%</div></td>
-                        <td><button type="button" class="btn btn-secondary btnDel" data-id="${data.ip_id}><i class="bi bi-info-circle"></i> Detail</button></td>
+                        <td><div class="pie animate no-round " style="--p:${data.percents};--c:${status_color};--b:4px" >${data.percents}%</div></td>
+                        <td><p class="btn btnDel text-center" id="btnDetail" data-id="${data.ip_id}><i class="bi bi-info-circle"></i><i class="bi bi-grid-fill "></i></p></td>
                     </tr>`;
           }
           $("#tbody")
@@ -226,48 +221,65 @@ function showProjectlist() {
       }
     });
   };
+
+
+
+//  button Insert
+ $('#btnDetail').click(function() {
+  var url= API_URL+"Dashboard/showProjectList";
+  let id = $(this).attr('data-id');
+  console.log(id);
+  $.ajax({
+       url: base_url("Dashboard/callApi?url="+url),
+      type: 'GET',
+      data: {
+          ProId: id,
+      },
+      dataType: 'json',
+      success: function(result) {
+          //tableAjax3.ajax.reload();
+      }
+  });
+})
+
+//------------------------------------------Table Project Management page ---------------------------------------------------
   function showProjectlistManage() {
     var url= API_URL+"Manage/show_projectlist";
+    console.log(url);
     $.ajax({
       method: "get",
       url: base_url("Dashboard/callApi?url="+url),
       dataType:'Json',
       success: (response) => {
-        console.log(response);
         if (response.entries.length > 0) {
           var html = "";
           for (let i = 0; i < response.entries.length; i++) {
-            const data = response.entries[i];
-           const show_status = data.ip_status_project;
-           if(show_status == 0){
-            var status_rusult = '<p class="text-success">Completed</p>';
-          }else if(show_status == 1){
-           var status_rusult = '<p class="text-warning">in progress</p>';
-          }else{
-           var status_rusult = '<p class="text-danger">Delayed</p>';
-          }
+            const data = response.entries[i]; 
+            const show_status = data.ip_status_project;
+            if(show_status == 0){
+              var status_rusult = '<span class="badge rounded-pill bg-success "><i class="bi bi-stars"></i> Completed</span>';
+            }else if(show_status == 1){
+             var status_rusult = '<span class="badge rounded-pill bg-warning "><i class="bi bi-stars"></i> In &nbsp;progress</span>';
+            }else{
+             var status_rusult = '<span class="badge rounded-pill bg-danger  blink"><i class="bi bi-stars"></i> Delayed</span>';
+            }         
             html += `
                     <tr>
                         <td style="display:none;">${data.ip_id}</td>
                         <td>${data.ip_project_name}</td>
                         <td>${data.ip_project_step}</td>
                         <td>${data.ip_person_in_charge}</td>
-                        <td>${data.ip_position}</td>
                         <td>${data.star_date}</td>
                         <td>${data.due_date}</td>
                         <td>${status_rusult}</td>
-                        <td> <form method="post" id="toggleForm">
-                        <fieldset>
-                            <div class="form-group">
-                                <div class="custom-control custom-switch">
-                                    <input type="checkbox" class="custom-control-input" id="customSwitch1" name='machine_state'>
-                                    <label class="custom-control-label" id="statusText" for="customSwitch1"></label>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </form></td>
-                        <td><button type="button" class="btn btn-secondary btnDel" data-id="${data.ip_id}><i class="bi bi-info-circle"></i> Detail</button></td>
-                    </tr>`;
+                        <td>
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                          </div>
+                      </td>
+                      <td><p class="btn btnDel text-center" id="btnDetail" data-id="${data.ip_id}><i class="bi bi-info-circle"></i><i class="bi bi-pencil-square "></i></p></td>
+                      </tr>`;
           }
           $("#tbodY")
             .html(html)
@@ -282,6 +294,8 @@ function showProjectlist() {
       }
     });
   };
+
+//------------------------------------------Deropdown Person in chart ---------------------------------------------------
   function showProjectDrop() {
     var url= API_URL+"Dashboard/show_Person";
     $.ajax({
@@ -292,9 +306,9 @@ function showProjectlist() {
     },
       dataType:'Json',
       success: function (data)  {
-        console.log(data.entries);
+       // console.log(data.entries);
         $.each(data.entries, function(index, value) {
-            $('#selPerson').append(" <option value ='" + value.su_id + "'>'" + value.su_username + "'</option>")
+            $('#selPerson').append(" <option value ='" + value.su_username + "'>'" + value.su_username + "'</option>")
         })
         
       },
@@ -302,8 +316,8 @@ function showProjectlist() {
     });
   };
 
-
-  function showNameDrop() {
+//------------------------------------------Deropdown Peoject Name ---------------------------------------------------
+function showNameDrop() {
     var url= API_URL+"Dashboard/showProjectList";
     $.ajax({
       method: "get",
@@ -313,9 +327,10 @@ function showProjectlist() {
     },
       dataType:'Json',
       success: function (data)  {
-        console.log(data.entries);
+        //console.log(data.entries);
         $.each(data.entries, function(index, value) {
-            $('#selName').append(" <option value ='" + value.su_id + "'>'" + value.ip_project_name + "'</option>")
+          const projectName = value.ip_project_name;
+            $('#selName').append(" <option value ='" + projectName + "'>'" + projectName + "'</option>")
         })
         
       },
@@ -323,7 +338,7 @@ function showProjectlist() {
     });
   };
 
-  
+//------------------------------------------Deropdown Status ---------------------------------------------------
   function showStatusDrop() {
     var url= API_URL+"Dashboard/show_Eachstatus";
     $.ajax({ 
@@ -334,7 +349,7 @@ function showProjectlist() {
     },
       dataType:'Json',
       success: function (data)  {
-        console.log(data.entries);
+       // console.log(data.entries);
         $.each(data.entries, function(index, value) {
             const status = value.ip_status_project;
             if(status == 0){
@@ -352,78 +367,119 @@ function showProjectlist() {
     });
   };
 
-  $('select').on('change', function() {
-    alert( this.value );
-  });
+//------------------------------------------Test Button get ID ---------------------------------------------------
 
-  $(function() {
-  $('#colorselector').change(function(){
-    $('.colors').hide();
-    $('#' + $(this).val()).show();
-  });
-});
-
- //button Delete
- $(document).on('click', '.btnDel', function() {
-    var url= API_URL+"Dashboard/showProjectList";
-    let id = $(this).attr('data-id');
-    alert(id);     
-    $.ajax({
-        url: base_url("Dashboard/callApi?url="+url),
-        type: 'GET',
-        data: {
-            ProId: id,
-        },
-        dataType: 'json',
-        success: function(result) {
-
-        }
-    });
-})
-// $(document).ready(function(){
-//     $('#table-master').DataTable();
-//     $("#selProject").on('change', function(){
-//       var value = $(this).val();
-//       var url= API_URL+"Dashboard/showProjectList";
-//       $.ajax({
-//         url: base_url("Dashboard/callApi?url="+url),
-//         type: 'POST',
-//         data: 'request='+value,
-//         success:function(data)
-//         {
-//         $("#tampil_kriteria").html(data);
-//         $('#table-master').DataTable();
-//         },
-//       });
-//     });
-//   });
-
-//   function showProjectlist() {
-//     var url= API_URL+"Dashboard/showProjectList";
-//     $.ajax({
-//       method: "get",
-//       url: base_url("Dashboard/callApi?url="+url),
-//       dataSrc:'',
-//       success: (response) => {
-//         console.log(response);
-//         response.forEach(element => {
-//             html += `
-//                     <tr>
-//                         <td>${element["ip_project_name"]}</td>
-//                         <td>${element.ip_person_in_charge}</td>
-//                         <td>${element.due_date}</td>
-//                         <td>${element.due_date}</td>
-//                     </tr>`;
-//                 });
-//                 $('#table-master tbody').html(html);
-
-
-//                 let table2 = new DataTable('#table-master');
-         
+  // $(document).on('click', '.btnDetail', function() {
+//   let id = $(this).attr('data-id');
+//   console.log(id);
+//   $.ajax({
+//       url: base_url('Dashboard/DelData'),
+//       type: 'GET',
+//       data: {
+//           ProId: id,
 //       },
-//       error: (err) => {
-//         console.log(err);
+//       dataType: 'json',
+//       success: function(result) {
+
 //       }
-//     });
-//   };
+//   });
+// })
+
+
+//------------------------------------------Test Fillter by Dropdown List ---------------------------------------------------
+
+//   $('#selName').on('change', function() {
+// 		$('#table-master').dataTable().fnDestroy()
+// 		let getName = $(this).val();
+// 		let getPerson = $('#selPerson').val();
+// 		let getStatus = $('#selStatusn').val();
+// 		list_table(getName, 0, 0, getPerson);
+// 	});
+
+
+// 	function list_table(str_date, start, end, str_dep) {
+// 		var url = API_URL + "Dashboard/showProjectList";
+// 		var historyTable = $('#table-master').DataTable({
+// 			ajax: {
+// 				type: 'POST',
+// 				url: base_url("Dashboard/callApi?url=" + url),
+// 				data: {
+// 					project_name:ip_project_name,
+// 					person_in_charge: ip_person_in_charge,
+// 					due_date:due_date,
+// 					status_project:ip_status_project
+// 				}
+// 			},
+// 			columnDefs: [{
+// 				searchable: true,
+// 				orderable: false,
+// 				targets: 0,
+// 			}, ],
+// 			bSort: false,
+// 			order: [
+// 				[1, 'asc']
+// 			],
+// 			columns: [{
+// 					className: 'text-center',
+// 					data: 'ip_project_name'
+// 				},
+// 				{
+// 					className: 'text-center',
+// 					data: 'ip_person_in_charge'
+// 				},
+// 				{
+// 					className: 'text-center',
+// 					data: 'due_date'
+// 				},
+// 				{
+// 					className: 'text-center',
+// 					data: 'ip_status_project'
+// 				},
+// 			]
+// 		});
+// 		historyTable.on('order.dt search.dt', function() {
+// 			let i = 1;
+// 			historyTable.cells(null, 0, {
+// 				search: 'applied',
+// 				order: 'applied'
+// 			}).every(function(cell) {
+// 				this.data(i++);
+// 			});
+// 		}).draw();
+// 	}
+// })
+
+//----------------------------------------------------test datatable-------------------------------------------------
+// let tableAjax3 = $('#tblPHM').DataTable({
+//   ajax: {
+//       url: base_url('Dashboard/ReportPHM'),
+//       dataSrc: '',
+//   },
+//   columns: [{
+//           data: 'pds_code',
+//       },
+//       {
+//           data: 'pds_name',
+//       },
+//       {
+//           data: 'pds_price',
+//       },
+//       {
+//           data: 'pds_qty',
+//       }, {
+//           data: null,
+//           render: function(row) {
+//               return `<button class="btn btn-success btnEdit" type="button" data-id="${row.pds_code}"><i class="bi bi-pencil-square"></i></button>`;
+//           }
+//       },
+//       {
+//           data: null,
+//           render: function(row) {
+//               return `<button class="btn btn-danger btnDel" type="button" data-id="${row.pds_code}"><i class="bi bi-trash3-fill"></i></button>`;
+//           }
+//       }
+
+//   ],
+// })
+
 })

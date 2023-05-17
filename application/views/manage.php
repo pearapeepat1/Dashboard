@@ -4,116 +4,7 @@
             <h2 class="text-dark txt-b">Dashboard</h2>
         </div>
         <div class="col-lg-2">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="bi bi-plus-lg txt-b"></i> Add Project
-            </button>
-            <!-- Modal -->
-            <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title txt-b" id="exampleModalLabel">Add Project</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Project Name</label>
-                                <input type="text" class="form-control" id="inpName" placeholder="Project name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="manager" class="form-label">
-                                    <h6 class="txt-b">Person in charge </h6>
-                                </label>
-                                <!--<div class="row">
-                                    <div class="col-md-12">
-                                        <label for="startdate" class="form-label">Position : </label>
-                                        <select class="selectpicker col-lg-9"  multiple>
-                                            <option>Toronto</option>
-                                            <option>Bucharest</option>
-                                            <option>Paris</option>
-                                        </select>
-                                        <button type="button" class="btn btn-primary">add</button>
-                                    </div>
-                                </div>-->
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label for="startdate" class="form-label">Name : </label>
-                                        <select class="selectpicker col-lg-9 " multiple>
-                                            <option>Rapeepat</option>
-                                            <option>Duangtawan</option>
-                                            <option>Kittisak</option>
-                                        </select>
-                                        <!--<script src="../assets/js/js/jquery-1.8.2.min.js"></script>
-                                        <script type="text/javascript" src="../assets/js/js/chosen.jquery.min.js"></script>
-                                        <script>
-                                            $(".chzn-select").chosen();
-                                            $(".chzn-select-deselect").chosen({
-                                                allow_single_deselect: true
-                                            });
-                                        </script>-->
-                                        <!--<button type="button" class="btn btn-primary">add</button>-->
-                                    </div>
-                                    <!--<div class="col-md-5 ms-auto">
-                                        <label for="duedate" class="form-label">Name</label>
-                                        <form action="" method="post">
-                                            <select data-placeholder="Select your Library" name="program[]" class="chzn-select form-label" multiple="multiple" tabindex="6" style="width:200px">
-                                                <option value="html">Duangtawan</option>
-                                                <option value="css">Phatcahrin</option>
-                                                <option value="php">Kittisak</option>
-                                                <option value="javascript">Rapeepat</option>
-                                            </select>
-                                        </form>
-                                        <script src="../assets/js/js/jquery-1.8.2.min.js"></script>
-                                        <script type="text/javascript" src="../assets/js/js/chosen.jquery.min.js"></script>
-                                        <script>
-                                            $(".chzn-select").chosen();
-                                            $(".chzn-select-deselect").chosen({
-                                                allow_single_deselect: true
-                                            });
-                                        </script>
-                                    </div>-->
-                                </div>
-                            </div>
-                            <!--<div class="mb-3">
-                                <textarea class="form-control" id="myTextbox" disabled></textarea>
-                            </div>-->
-                            <!-- <div class="row">
-                                <label for="manager" class="form-label">
-                                    <h6 class="txt-b">Schedule</h6>
-                                </label>
-                                <div class="col-lg-6">
-                                    <label for="sDate">Start Date :</label>
-                                    <input type="date" id="sDate" class="form-control" name="sDate">
-                                </div>
-                                <div class="col-lg-6">
-                                <label for="dueDate">Due Date :</label>
-                                    <input type="date" id="dueDate" class="form-control" name="dueDate">
-                                </div>
-                            </div> -->
-                            <div class="mb-3" class="form-label">
-                                <label for="topic" class="form-label">Topic</label>
-                                <div class="form-group">
-                                    <form name="add_name" id="add_name">
-                                        <table class="table table-bordered table-hover" id="dynamic_field">
-                                            <tr>
-                                                <td><input type="text" name="topic[]" placeholder="Enter topic" class="form-control total_amount" /></td>
-                                                <td><button type="button" name="add" id="add" class="btn btn-primary">Add More</button></td>
-                                            </tr>
-                                        </table>
-                                    </form>
-                                </div>
-                                <div class="col-md-1"></div>
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-                            <button type="button" class="btn btn-primary">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
         </div>
         <div class="col-lg-2">
             <select class="form-select" name="selDate" id="selDate">
@@ -227,7 +118,6 @@
                                     <th>Project Name</th>
                                     <th>Step</th>
                                     <th>Person in Charge</th>
-                                    <th>Positon</th>
                                     <th>Start Date</th>
                                     <th>Due Date</th>
                                     <th>Status </th>
@@ -236,7 +126,7 @@
                                 </tr>
                             </thead>
                             <tbody id="tbodY">
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -244,3 +134,19 @@
             </div>
         </div>
     </div>
+
+
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    ...
+  </div>
+</div>
+
+    
+    

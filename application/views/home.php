@@ -1,5 +1,16 @@
+<!-- <div class="spinner-wrapper">
+	<div id="page-loading">
+		<div class="three-balls">
+			<div class="ball ball1"></div>
+			<div class="ball ball2"></div>
+			<div class="ball ball3"></div>
+		</div>
+	</div>
+</div> -->
+<link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
 <div class="container py-2">
-	<div class="row py-2">
+	<div class="row py-2 ">
 		<div class="col-lg-8">
 			<h2 class="text-dark txt-b">Dashboard</h2>
 		</div>
@@ -25,7 +36,9 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Project</p>
-							<h4 class="my-1 text-info txt-b"><div id="sumProject"></div></h4>
+							<h4 class="my-1 text-info txt-b">
+								<div id="sumProject"></div>
+							</h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
 						</div>
@@ -40,7 +53,9 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0 text-secondary txt-b">Total Resources</p>
-							<h4 class="my-1 text-danger txt-b"><div id="sumPerson"></div></h4>
+							<h4 class="my-1 text-danger txt-b">
+								<div id="sumPerson"></div>
+							</h4>
 						</div>
 						<div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-users"></i>
 						</div>
@@ -82,34 +97,31 @@
 </div>
 <div class="container">
 	<div class="row ">
-		<div class="col-md-8">
+		<div class="col-lg-8">
 			<div class="card">
 				<div class="card-body">
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-lg-4">
 							<h3 class="title txt-b text-secondary ">Project Summary</h3>
 						</div>
-						<div class="col-md-3">
-							<select class="form-select" name="selName" id="selName"  onchange="getval(this);">
-								<option >All Project</option>
+						<div class="col-lg-3">
+							<select class="form-select " name="selName" id="selName">
+								<option>All Project</option>
 							</select>
 						</div>
-						<div class="col-md-3">
-							<select class="form-select" name="selPerson" id="selPerson" onchange="getval(this);">
+						<div class="col-lg-3">
+							<select class="form-select" name="selPerson" id="selPerson">
 								<option>All Person in charge</option>
 							</select>
 						</div>
-						<div class="col-md-2">
-							<select class="form-select" name="selStatus" id="selStatus" onchange="getval(this);">
+						<div class="col-lg-2">
+							<select class="form-select" name="selStatus" id="selStatus">
 								<option value="01">All Status</option>
-								<!-- <option value="00">In progress</option>
-								<option value="11">Completed</option>
-								<option value="22">Delayed</option> -->
 							</select>
 						</div>
 					</div>
 					<div class="py-3">
-						<table id="table-master" class="display " style="width:100%">
+						<table id="table-master" class="display table-borderless " style="width:100%">
 							<thead>
 								<tr>
 									<th style="display:none;">#</th>
@@ -131,46 +143,6 @@
 										<div class="pie animate no-round" style="--p:50;--c:red;--b:5px"> 50%</div>
 									</td>
 									<td><button type="button" class="btn btn-secondary"><i class="bi bi-info-circle"></i> Detail</button></td>
-								</tr>
-								<tr>
-									<td>ProjectB</td>
-									<td>Rapeepat Jaiboon</td>
-									<td>16 may 2023</td>
-									<td class="text-success">Completed</td>
-									<td>
-										<div class="pie animate no-round" style="--p:100;--c:lightgreen;--b:5px">100%</div>
-									</td>
-									<td><button type="button" class="btn btn-secondary"><i class="bi bi-info-circle"></i> Detail</button></td>
-								</tr>
-								<tr>
-									<td>ProjectC</td>
-									<td>Rapeepat Jaiboon</td>
-									<td>16 may 2023</td>
-									<td class="text-warning">In progress</td>
-									<td>
-										<div class="pie animate no-round" style="--p:30;--c:yellow;--b:5px">30%</div>
-									</td>
-									<td><button type="button" class="btn btn-secondary"><i class="bi bi-info-circle"></i> Detail</button></td>
-								</tr>
-								<tr>
-									<td>ProjectD</td>
-									<td>Rapeepat Jaiboon</td>
-									<td>16 may 2023</td>
-									<td class="text-success">Completed</td>
-									<td>
-										<div class="pie animate no-round" style="--p:100;--c:lightgreen;--b:5px"> 100%</div>
-									</td>
-									<td><button type="button" class="btn btn-secondary"><i class="bi bi-info-circle"></i> Detail</button></td>
-								</tr>
-								<tr>
-									<td>ProjectE</td>
-									<td>Rapeepat Jaiboon</td>
-									<td>16 may 2023</td>
-									<td class="text-danger">Delayed</td>
-									<td>
-										<div class="pie animate no-round" style="--p:50;--c:red;--b:5px"> 50%</div>
-									</td>
-									<td><button type="button" class="btn btn-secondary"><i class="bi bi-info-circle"></i> Detail</button></td>
 								</tr>-->
 							</tbody>
 						</table>
@@ -178,16 +150,18 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-lg-4">
 			<div class="card">
 				<div class="card-body">
 					<h3 class="title txt-b text-secondary">Overall Progress</h3>
-						<center><canvas id="myChart"></canvas></center>
-					<div class="row py-3">
+					<div class="chart-container" style="position: relative; ">
+						<canvas id="pieOverall"></canvas>
+					</div>
+					<div class="row ">
 						<div class="col">
 							<div class="row">
 								<center>
-									<h4 class="txt-b" id="sumProjecT" ></h4>
+									<h4 class="txt-b" id="sumProjecT"></h4>
 								</center>
 							</div>
 							<div class="row">
@@ -228,20 +202,23 @@
 				</div>
 			</div>
 		</div>
+
+		
 	</div>
 </div>
 
 
+
 <!-- <?php
-$value = 1;
-if ($value == 00) {
-	$color = 'yellow';
-} elseif ($value == 11) {
-	$color = 'green';
-} else {
-	$color = 'red';
-}
-?>
+		$value = 1;
+		if ($value == 00) {
+			$color = 'yellow';
+		} elseif ($value == 11) {
+			$color = 'green';
+		} else {
+			$color = 'red';
+		}
+		?>
 <div style="color:<?= $color ?>;">
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua.
@@ -319,7 +296,7 @@ if ($value == 00) {
 	</div>-->
 
 
-	<!--<section class="ftco-section">
+<!--<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
