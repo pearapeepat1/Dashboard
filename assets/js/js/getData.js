@@ -11,7 +11,11 @@ $(() => {
     showNameDrop()
     showStatusDrop()
     showProjectlistManage()
-
+    showPositionDrop()
+    selPersontDrop()
+    showNameDrop2()
+    selPersontDrop3()
+    showPositionDrop3() 
 
 //------------------------------------------show  Project Count ---------------------------------------------------
 function showProjectCount() {
@@ -245,7 +249,7 @@ function showProjectlist() {
 //------------------------------------------Table Project Management page ---------------------------------------------------
   function showProjectlistManage() {
     var url= API_URL+"Manage/show_projectlist";
-    console.log(url);
+    // alert(url);
     $.ajax({
       method: "get",
       url: base_url("Dashboard/callApi?url="+url),
@@ -315,6 +319,86 @@ function showProjectlist() {
       
     });
   };
+//------------------------------------------Deropdown Person in chart 2---------------------------------------------------
+function selPersontDrop() {
+  var url= API_URL+"Dashboard/show_Person";
+  $.ajax({
+    method: "get",
+    url: base_url("Dashboard/callApi?url="+url),
+    data:{
+      format:'json'
+  },
+    dataType:'Json',
+    success: function (data)  {
+     // console.log(data.entries);
+      $.each(data.entries, function(index, value) {
+          $('#selPerson2').append(" <option value ='" + value.su_username + "'>'" + value.su_username + "'</option>")
+      })
+      
+    },
+    
+  });
+};
+//------------------------------------------Deropdown Person in chart 3---------------------------------------------------
+function selPersontDrop3() {
+  var url= API_URL+"Dashboard/show_Person";
+  $.ajax({
+    method: "get",
+    url: base_url("Dashboard/callApi?url="+url),
+    data:{
+      format:'json'
+  },
+    dataType:'Json',
+    success: function (data)  {
+     // console.log(data.entries);
+      $.each(data.entries, function(index, value) {
+          $('#selPerson3').append(" <option value ='" + value.su_username + "'>'" + value.su_username + "'</option>")
+      })
+      
+    },
+    
+  });
+};
+//------------------------------------------Deropdown Position---------------------------------------------------
+function showPositionDrop() {
+  var url= API_URL+"Dashboard/show_Prosition";
+  $.ajax({
+    method: "get",
+    url: base_url("Dashboard/callApi?url="+url),
+    data:{
+      format:'json'
+  },
+    dataType:'Json',
+    success: function (data)  {
+     // console.log(data.entries);
+      $.each(data.entries, function(index, value) {
+          $('#selPosition').append(" <option value ='" + value.mp_name + "'>'" + value.mp_name + "'</option>")
+      })
+      
+    },
+    
+  });
+};
+//------------------------------------------Deropdown Position 2---------------------------------------------------
+function showPositionDrop3() {
+  var url= API_URL+"Dashboard/show_Prosition";
+  $.ajax({
+    method: "get",
+    url: base_url("Dashboard/callApi?url="+url),
+    data:{
+      format:'json'
+  },
+    dataType:'Json',
+    success: function (data)  {
+     // console.log(data.entries);
+      $.each(data.entries, function(index, value) {
+          $('#selPosition3').append(" <option value ='" + value.mp_name + "'>'" + value.mp_name + "'</option>")
+      })
+      
+    },
+    
+  });
+};
 
 //------------------------------------------Deropdown Peoject Name ---------------------------------------------------
 function showNameDrop() {
@@ -337,6 +421,27 @@ function showNameDrop() {
       
     });
   };
+  //------------------------------------------Deropdown Peoject Name 2---------------------------------------------------
+function showNameDrop2() {
+  var url= API_URL+"Dashboard/showProjectList";
+  $.ajax({
+    method: "get",
+    url: base_url("Dashboard/callApi?url="+url),
+    data:{
+      format:'json'
+  },
+    dataType:'Json',
+    success: function (data)  {
+      //console.log(data.entries);
+      $.each(data.entries, function(index, value) {
+        const projectName = value.ip_project_name;
+          $('#selProject2').append(" <option value ='" + projectName + "'>'" + projectName + "'</option>")
+      })
+      
+    },
+    
+  });
+};
 
 //------------------------------------------Deropdown Status ---------------------------------------------------
   function showStatusDrop() {
