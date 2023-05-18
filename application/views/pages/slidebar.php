@@ -29,7 +29,7 @@ background: radial-gradient(circle, rgba(2,0,36,1) 33%, rgba(9,9,121,1) 100%, rg
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
-        <div class="modal-content border-start border-0 border-5 border-success">
+        <div class="modal-content border-start border-5 border-5 border-success">
             <div class="modal-body ">
             <button type="button" class="close txt-b" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

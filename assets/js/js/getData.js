@@ -282,7 +282,7 @@ function showProjectlist() {
                             <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                           </div>
                       </td>
-                      <td><p class="btn btnDel text-center" id="btnDetail" data-id="${data.ip_id}><i class="bi bi-info-circle"></i><i class="bi bi-pencil-square "></i></p></td>
+                      <td><p class="btn btnDel text-center"  onclick="myFunction() id="btnDetail" data-id="${data.ip_id}><i class="bi bi-info-circle"></i><i class="bi bi-pencil-square "></i></p></td>
                       </tr>`;
           }
           $("#tbodY")
@@ -299,6 +299,83 @@ function showProjectlist() {
     });
   };
 
+
+
+//------------------------------------------ Disable switch ------------------------------------------------------------
+$("#id_chk").change(() => {
+  if($("#id_chk").is(":checked")) {
+        const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        console.log("checked");
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelled',
+          'Your imaginary file is safe :)',
+          'error'
+        )
+      }
+    })
+    
+  } else {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        console.log("unchecked");
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelled',
+          'Your imaginary file is safe :)',
+          'error'
+        )
+      }
+    })
+  }
+});
 //------------------------------------------Deropdown Person in chart ---------------------------------------------------
   function showProjectDrop() {
     var url= API_URL+"Dashboard/show_Person";
@@ -312,7 +389,7 @@ function showProjectlist() {
       success: function (data)  {
        // console.log(data.entries);
         $.each(data.entries, function(index, value) {
-            $('#selPerson').append(" <option value ='" + value.su_username + "'>'" + value.su_username + "'</option>")
+            $('#selPerson').append(" <option value ='" + value.su_id + "'>'" + value.su_username + "'</option>")
         })
         
       },
