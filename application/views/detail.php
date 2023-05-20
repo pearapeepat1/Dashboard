@@ -76,96 +76,139 @@
                             <div class="row">
                                 <span class="fs-5 txt-b text-dark">Person in charge</span>
                             </div>
-                            <div class="col">
-                            <div class="row">Rapeepat J.</div>
-                            <div class="row">Kittisak B.</div>
-                            <div class="row">Duangtawan P.</div>
-                            <div class="row">Phatcharin C.</div>
-                            </div>
+                            <!-- Canvas circle progress bar -->
+                            <!-- <div class="canvas-wrap">
+                                <canvas id="canvas" width="300" height="300"></canvas>
+                                <span id="procent"></span>
+                            </div> -->
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body bg-success p-2 text-dark bg-opacity-10">
-                    <div class="row">
-                        <span class="fs-3 txt-b text-dark">Progress</span>
-                    </div>
-                    <div>
-                        <canvas id="horizontal-bar-chart"></canvas>
-                    </div>
+    <!-- Canvas circle progress bar -->
+    <!-- <script>
+        window.onload = function() {
+            var can = document.getElementById('canvas'),
+                spanProcent = document.getElementById('procent'),
+                c = can.getContext('2d');
+
+            var posX = can.width / 2,
+                posY = can.height / 2,
+                fps = 1000 / 200,
+                procent = 0,
+                oneProcent = 360 / 100,
+                result = oneProcent * 64;
+
+            c.lineCap = 'round';
+            arcMove();
+
+            function arcMove() {
+                var deegres = 0;
+                var acrInterval = setInterval(function() {
+                    deegres += 1;
+                    c.clearRect(0, 0, can.width, can.height);
+                    procent = deegres / oneProcent;
+
+                    spanProcent.innerHTML = procent.toFixed();
+
+                    c.beginPath();
+                    c.arc(posX, posY, 70, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + 360));
+                    c.strokeStyle = '#b1b1b1';
+                    c.lineWidth = '10';
+                    c.stroke();
+
+                    c.beginPath();
+                    c.strokeStyle = '#3949AB';
+                    c.lineWidth = '10';
+                    c.arc(posX, posY, 70, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + deegres));
+                    c.stroke();
+                    if (deegres >= result) clearInterval(acrInterval);
+                }, fps);
+
+            }
+
+
+        }
+    </script> -->
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body bg-success p-2 text-dark bg-opacity-10">
+                <div class="row">
+                    <span class="fs-3 txt-b text-dark">Progress</span>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body bg-success p-2 text-dark bg-opacity-10">
-                    <div class="row">
-                        <span class="fs-3 txt-b text-dark">Overdue Task</span>
-                    </div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Time left</th>
-                                <th scope="col">Stap</th>
-                                <th scope="col">Deadline</th>
-                                <th scope="col">Person in charge</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="text-warning"><i class="bi bi-circle-fill"></i> 3 Days </td>
-                                <td>Development</td>
-                                <td>23-05-22</td>
-                                <td>Rapeepat</td>
-                            </tr>
-                            <tr>
-                                <td class="text-success"><i class="bi bi-circle-fill"></i> 7 Days </td>
-                                <td>Design</td>
-                                <td>23-05-22</td>
-                                <td>Rapeepat</td>
-                            </tr>
-                            <tr>
-                                <td class="text-danger"><i class="bi bi-circle-fill"></i> 1 Days </td>
-                                <td>Planning</td>
-                                <td>23-05-22</td>
-                                <td>Rapeepat</td>
-                            </tr>
-                            <tr>
-                                <td class="text-warning"><i class="bi bi-circle-fill"></i> 4 Days </td>
-                                <td>Development</td>
-                                <td>23-05-22</td>
-                                <td>Rapeepat</td>
-                            </tr>
-                            <tr>
-                                <td class="text-success"><i class="bi bi-circle-fill"></i> 12 Days </td>
-                                <td>Planning</td>
-                                <td>23-05-22</td>
-                                <td>Rapeepat</td>
-                            </tr>
-                            <tr>
-                                <td class="text-danger"><i class="bi bi-circle-fill"></i> 1 Days </td>
-                                <td>Planning</td>
-                                <td>23-05-22</td>
-                                <td>Rapeepat</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div>
+                    <canvas id="horizontal-bar-chart"></canvas>
                 </div>
             </div>
         </div>
     </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body bg-success p-2 text-dark bg-opacity-10">
+                <div class="row">
+                    <span class="fs-3 txt-b text-dark">Overdue Task</span>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Time left</th>
+                            <th scope="col">Stap</th>
+                            <th scope="col">Deadline</th>
+                            <th scope="col">Person in charge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-warning"><i class="bi bi-circle-fill"></i> 3 Days </td>
+                            <td>Development</td>
+                            <td>23-05-22</td>
+                            <td>Rapeepat</td>
+                        </tr>
+                        <tr>
+                            <td class="text-success"><i class="bi bi-circle-fill"></i> 7 Days </td>
+                            <td>Design</td>
+                            <td>23-05-22</td>
+                            <td>Rapeepat</td>
+                        </tr>
+                        <tr>
+                            <td class="text-danger"><i class="bi bi-circle-fill"></i> 1 Days </td>
+                            <td>Planning</td>
+                            <td>23-05-22</td>
+                            <td>Rapeepat</td>
+                        </tr>
+                        <tr>
+                            <td class="text-warning"><i class="bi bi-circle-fill"></i> 4 Days </td>
+                            <td>Development</td>
+                            <td>23-05-22</td>
+                            <td>Rapeepat</td>
+                        </tr>
+                        <tr>
+                            <td class="text-success"><i class="bi bi-circle-fill"></i> 12 Days </td>
+                            <td>Planning</td>
+                            <td>23-05-22</td>
+                            <td>Rapeepat</td>
+                        </tr>
+                        <tr>
+                            <td class="text-danger"><i class="bi bi-circle-fill"></i> 1 Days </td>
+                            <td>Planning</td>
+                            <td>23-05-22</td>
+                            <td>Rapeepat</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 </div>
 </div>
-
-
+</div>
 
 
 
@@ -178,9 +221,10 @@
         data: {
             datasets: [{
                 label: '# of Votes',
-                data: [12, 50],
+                data: [12],
             }]
         },
+      
     });
 </script>
 
