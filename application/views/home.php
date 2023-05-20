@@ -9,6 +9,7 @@
 </div> -->
 <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+<div class="container">
 <div class="container py-2">
 	<div class="row py-2 ">
 		<div class="col-lg-8">
@@ -206,7 +207,7 @@
 		
 	</div>
 </div>
-
+</div>
 
 
 <!-- <?php

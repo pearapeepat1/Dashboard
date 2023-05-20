@@ -25,7 +25,6 @@ $('#btnLogin').click(function() {
         },
         dataType: 'json',
         success: function(res) {
-            console.log(res);
             if (res.result == true) {
                 Swal.fire({
                     icon: 'success',

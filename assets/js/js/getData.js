@@ -1,5 +1,5 @@
 $(() => {
-    showProjectCounT()
+  showProjectCounT()
     showProjectCount()
     showPersonCount()
     showTimeCount()
@@ -15,11 +15,12 @@ $(() => {
     selPersontDrop()
     showNameDrop2()
     selPersontDrop3()
-    showPositionDrop3() 
+    showPositionDrop3()
+    checkStap()
 
-//------------------------------------------show  Project Count ---------------------------------------------------
-function showProjectCount() {
-    var url= API_URL+"Dashboard/showProjectcount";
+//------------------------------------------ show  Project Count on Dashboard  page---------------------------------------------------
+function showProjectCount() {                                                                                    
+    var url= API_URL+"Dashboard/showProjectcount";                                                               
     $.ajax({
         url: base_url("Dashboard/callApi?url="+url),
         type:'GET',
@@ -39,8 +40,10 @@ function showProjectCount() {
         
     });
 }
+//----------------------------------------------------------------------------------------------------------------
 
-//------------------------------------------show  Project Count in div Overall Progress  ---------------------------------------------------
+
+//------------------------------------------show  Project Count in div Overall Progress  --------------------------
 function showProjectCounT() {
     var url= API_URL+"Dashboard/showProjectcount";
     $.ajax({
@@ -282,7 +285,7 @@ function showProjectlist() {
                             <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                           </div>
                       </td>
-                      <td><p class="btn btnDel text-center"  onclick="myFunction() id="btnDetail" data-id="${data.ip_id}><i class="bi bi-info-circle"></i><i class="bi bi-pencil-square "></i></p></td>
+                      <td><p class="btn btnDel text-center"  onclick="myFunction()" id="btnDetail" data-id="${data.ip_id}><i class="bi bi-info-circle"></i><i class="bi bi-pencil-square "></i></p></td>
                       </tr>`;
           }
           $("#tbodY")
@@ -389,7 +392,7 @@ $("#id_chk").change(() => {
       success: function (data)  {
        // console.log(data.entries);
         $.each(data.entries, function(index, value) {
-            $('#selPerson').append(" <option value ='" + value.su_id + "'>'" + value.su_username + "'</option>")
+            $('#selPerson').append(`<option value =${value.mey_id}>${value.mey_name}</option>`   )
         })
         
       },
@@ -409,7 +412,7 @@ function selPersontDrop() {
     success: function (data)  {
      // console.log(data.entries);
       $.each(data.entries, function(index, value) {
-          $('#selPerson2').append(" <option value ='" + value.su_username + "'>'" + value.su_username + "'</option>")
+          $('#selPerson2').append(`<option value =${value.mey_name}>${value.mey_name}</option>`)
       })
       
     },
@@ -429,7 +432,7 @@ function selPersontDrop3() {
     success: function (data)  {
      // console.log(data.entries);
       $.each(data.entries, function(index, value) {
-          $('#selPerson3').append(" <option value ='" + value.su_username + "'>'" + value.su_username + "'</option>")
+          $('.selPerson3').append(`<option value =${value.mey_name}>${value.mey_name}</option>`)
       })
       
     },
@@ -449,7 +452,7 @@ function showPositionDrop() {
     success: function (data)  {
      // console.log(data.entries);
       $.each(data.entries, function(index, value) {
-          $('#selPosition').append(" <option value ='" + value.mp_name + "'>'" + value.mp_name + "'</option>")
+          $('#selPosition').append(`<option value =${value.mp_name}>${value.mp_name}</option>`)
       })
       
     },
@@ -469,7 +472,7 @@ function showPositionDrop3() {
     success: function (data)  {
      // console.log(data.entries);
       $.each(data.entries, function(index, value) {
-          $('#selPosition3').append(" <option value ='" + value.mp_name + "'>'" + value.mp_name + "'</option>")
+          $('.selPosition3').append(`<option value =${value.mp_id }>${value.mp_name}</option>`)
       })
       
     },
@@ -491,7 +494,7 @@ function showNameDrop() {
         //console.log(data.entries);
         $.each(data.entries, function(index, value) {
           const projectName = value.ip_project_name;
-            $('#selName').append(" <option value ='" + projectName + "'>'" + projectName + "'</option>")
+            $('#selName').append(`<option value =${projectName }">${projectName}</option>`)
         })
         
       },
@@ -500,7 +503,7 @@ function showNameDrop() {
   };
   //------------------------------------------Deropdown Peoject Name 2---------------------------------------------------
 function showNameDrop2() {
-  var url= API_URL+"Dashboard/showProjectList";
+  var url= API_URL+"Manage/show_projectlist";
   $.ajax({
     method: "get",
     url: base_url("Dashboard/callApi?url="+url),
@@ -512,7 +515,7 @@ function showNameDrop2() {
       //console.log(data.entries);
       $.each(data.entries, function(index, value) {
         const projectName = value.ip_project_name;
-          $('#selProject2').append(" <option value ='" + projectName + "'>'" + projectName + "'</option>")
+          $('#selProject2').append(`<option value =${value.ip_id } ">"${projectName }</option>`)
       })
       
     },
@@ -541,7 +544,39 @@ function showNameDrop2() {
             }else{
                 var show_status = 'Delayed';
             }
-            $('#selStatus').append(" <option value ='" + status + "'>'" + show_status + "'</option>")
+            $('#selStatus').append(`<option value =${ value.ip_status_project }>${show_status}</option>`)
+        })
+        
+      },
+      
+    });
+  };
+  //------------------------------------------ check test ---------------------------------------------------
+  function checkStap() {
+    var url= API_URL+"Addproject/show_Mststep";
+    $.ajax({ 
+      method: "get",
+      url: base_url("Dashboard/callApi?url="+url),
+      data:{
+        format:'json'
+    },
+      dataType:'Json',
+      success: function (data)  {
+       // console.log(data.entries);
+        $.each(data.entries, function(index, value) {
+            $('#frmCheckBox').append(`<div class="container"><div class="row py-2">
+            <input class="form-check-input text-danger chkMaster" type="checkbox" value="${value.ms_id}">
+            <div class="col-md-6 text-break fs-6 fw-semibold text-dark">
+               Stap : ${value.ms_id} ${value.ms_name}
+            </div>
+            <div class="col-md-3">
+            <input type="date"  class="form-control strDateAdd">
+            </div>
+            <div class="col-md-3 text-success">
+            <input type="date"  class="form-control dueDateAdd">
+            </div>
+         </div>
+            </div>`)
         })
         
       },
@@ -549,6 +584,73 @@ function showNameDrop2() {
     });
   };
 
+  // $('#frmCheckBox').append(`<div class="container"><div class="row py-2">
+  // <div class="row">
+  // <input class="form-check-input chkMaster" type="checkbox" value="${value.ms_id}">
+  // <div class="col-lg txt-b">
+  // Stap : ${value.ms_id}
+  // </div>
+  // <div class="col-lg-10">
+  // <label class"form-check-label txt-b fs-4 text-success">${value.ms_name}</label>
+  // </div>
+  // </div>
+  // <div class="col-sm-3">
+  // <input type="date"  class="form-control strDateAdd">
+  // </div>
+  // <div class="col-sm-3">
+  // <input type="date"  class="form-control dueDateAdd">
+  // </div>
+  // <div class="col-sm-3">
+  // <select class="form-select selPerson3">
+  // <option value="">Assignee</option></select>
+  // </div>
+  // <div class="col-sm-3">
+  // <select class="form-select selPosition3">
+  // <option value="">Position</option></select>
+  // </div></div>
+  // </div>`)
+//------------------------------------------ check box create project -------------------------------------------
+$("#Send_Invite").click(function() {
+  var form_data = {
+      Opportunity_Id: $('#Opportunity_Id').val(),
+      Educator_Id: $('#Educator_Id').val(),
+      Educator_Classes: $('[name="Educator_Classes[]"]').serialize(),
+      ajax: '1'
+  };
+  var url= API_URL+"Addproject/show_Mststep";
+  $.ajax({
+    url: base_url("Dashboard/callApi?url="+url),
+    type: 'get',
+      data: form_data,
+      success: function(data) {
+          $('#response').html(data);
+      }
+  });
+
+  return false;
+})
+//---------------------------------------- 2- ----------------------------------
+$(document).ready(function() {
+  $('#submit').click(function() {
+      var insert = [];
+      $('.get_value').each(function() {
+          if ($(this).is(":checked")) {
+              insert.push($(this).val());
+          }
+      });
+      insert = insert.toString();
+      $.ajax({
+          url: "insert.php",
+          method: "POST",
+          data: {
+              insert: insert
+          },
+          success: function(data) {
+              alert(data);
+          }
+      });
+  });
+});
 //------------------------------------------Test Button get ID ---------------------------------------------------
 
   // $(document).on('click', '.btnDetail', function() {

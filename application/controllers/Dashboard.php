@@ -47,7 +47,6 @@ class Dashboard extends CI_Controller {
 	}
     public function callApi(){
         $url=$_GET["url"];
- 
         $ch =curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = curl_exec($ch);
@@ -59,7 +58,71 @@ class Dashboard extends CI_Controller {
         }
         echo json_encode($data);
     }
+    public function callApiInsert(){
+//$url=$_GET["url"];
+        $a = $this->callApiWithPost("http://172.21.64.115/APIDashboardProject/Dashboard/callApiTest", ["k"=>"123"]);
 
+        echo $a;
+        exit;
+        // $ch =curl_init($url."projectame=".$projectname."&assignee=".$assignee."&position=".str_replace(" ","_",$position));
+
+        // $ch =curl_init($url);
+        // $ch =curl_init("http://127.0.0.1/DashboardProject/Dashboard/callApiInsert?array");
+        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // $output = curl_exec($ch);
+        // echo  $output;
+
+        // if(empty($data)){
+        //     echo "NO DATA";
+        // }
+        // echo json_encode($data);
+    }
+    function callApiWithPost($url, $data) {
+        // Initialize curl
+        $ch = curl_init($url);
+        
+        // Set the request method to POST
+        curl_setopt($ch, CURLOPT_POST, 1);
+        
+        // Set the request data
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        
+        // Set other options as needed, such as headers
+        
+        // Execute the request
+        $response = curl_exec($ch);
+        
+        // Check for errors
+        if ($response === false) {
+            $error = curl_error($ch);
+            curl_close($ch);
+            throw new Exception("API request failed: " . $error);
+        }
+        
+        // Close curl
+        curl_close($ch);
+        
+        // Return the API response
+        return $response;
+    }
+    
+    public function callApiAddTask(){
+        $url=$_GET["url"];
+        $selProject2=$_GET["selProject2"];
+        $addTask=$_GET["addTask"];
+        $strDateAdd=$_GET["strDateAdd"];
+        $dueDateAdd=$_GET["dueDateAdd"];
+        $selPerson3=$_GET["selPerson3"];
+        $selPosition3=$_GET["selPosition3"];
+        $ch =curl_init($url."selProject2=".$selProject2."&addTask=".$addTask."&strDateAdd=".$strDateAdd."&dueDateAdd=".$dueDateAdd."&selPerson3=".$selPerson3."&selPosition3=".$selPosition3);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        echo  $output;
+        // if(empty($data)){
+        //     echo "NO DATA";
+        // }
+        // echo json_encode($data);
+    }
     public function callApiLogin(){
         $url= $_GET["url"];
         $username= $_GET["username"];
@@ -80,9 +143,11 @@ class Dashboard extends CI_Controller {
         //$this->ShowProjectList();
 		$this->render_view('manage');
 	}
-    
-
-
+    public function detail()
+	{
+        
+		$this->render_view('detail');
+	}
 
     ##count project
     public function showProjectcount()
