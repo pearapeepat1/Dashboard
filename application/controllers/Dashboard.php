@@ -179,6 +179,30 @@ class Dashboard extends CI_Controller
         // }
         // echo json_encode($data);
     }
+    // function send_api_request()
+    // {
+    //     // กำหนด URL ของ API
+    //     $url = 'http://172.21.64.115/APIDashboardProject/';
+
+    //     // กำหนดข้อมูลที่จะส่ง
+    //     $data = array(
+    //         'param1' => 'value1',
+    //         'param2' => 'value2'
+    //     );
+
+    //     // ส่งคำขอ POST ผ่าน curl
+    //     $response = curl_post($url, $data);
+
+    //     // ตรวจสอบสถานะการตอบกลับ
+    //     if ($response !== false) {
+    //         // ดึงข้อมูลผลลัพธ์ในรูปแบบ JSON
+    //         $result = json_decode($response, true);
+    //         // ประมวลผลผลลัพธ์ต่อไป
+    //         print_r($result);
+    //     } else {
+    //         echo 'เกิดข้อผิดพลาดในการส่งคำขอ API';
+    //     }
+    // }
     public function manage()
     {
         //$this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";

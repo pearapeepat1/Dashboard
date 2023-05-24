@@ -40,35 +40,21 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
 <script src="https://phpcoder.tech/multiselect/js/jquery.multiselect.js"></script>
 <link rel="stylesheet" href="https://phpcoder.tech/multiselect/css/jquery.multiselect.css">
-<div class="container">
+<div class="container bg-dashboard">
     <div class="container py-2">
         <div class="row py-2">
             <div class="col-lg-6">
                 <h3 class="text-success txt-b " style="font-family: b Biger Over;">M a n a g e m e n t</h3>
             </div>
             <div class="col-lg-2">
-                <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Create Project</button> -->
-                <!-- Button trigger modal -->
-                <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><i class="bi bi-clipboard-plus"></i> Create Project</a>
-                <!-- <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <div class="wrap">
+                    <button class="button"data-bs-toggle="modal" data-bs-toggle="modal" href="#exampleModalToggle" role="button"> Create Project</button>
                 </div>
-                <div class="offcanvas-body">
-                    <div class="row g-3">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             </div>
             <div class="col-lg-2">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="bi bi-clipboard-plus"></i> Create Stap</button>
+                <div class="wrap">
+                    <button class="button"data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"> Create Stap</button>
+                </div>
             </div>
             <div class="col-lg-2">
                 <select class="form-select" name="selDate" id="selDate">
@@ -149,10 +135,11 @@
             </div>
         </div>
     </div>
+    
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="bg-white">
+                <div class="bg-white raduis-div">
                     <div class="card-body">
                         <div class="container">
                             <div class="row py-3">
@@ -176,7 +163,7 @@
                                 </div>
                             </div>
                             <div class="py-3">
-                                <table id="tblManage" class="display " style="width:100%">
+                                <table id="tblManage" class="display table" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th style="display:none;">#</th>
@@ -639,7 +626,7 @@
                     <form>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Stap:</label>
-                            <input type="text" class="form-control" id="recipient-name" placeholder="Enter stap name">
+                            <input type="text" class="form-control" id="recipient-name" placeholder="Enter stap name" required>
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Description:</label>
@@ -744,7 +731,7 @@
                     // console.log(arrayTest);
                     // let strArray = array.toString()
                     // console.log(array);
-                    var ids = [ projectname, chkBox, strDate,dueDate],
+                    var ids = [projectname, chkBox, strDate, dueDate],
                         formatted = `(${ids.map(v => JSON.stringify(v.toString())).join(', ')})`;
                     console.log(formatted);
                     var url = API_URL + "Addproject/add_project?projectName=" + projectname.replaceAll(" ", "%20") + "&chkBox=" + [chkBox] + "&strDate=" + [strDate] + "&dueDate=" + [dueDate];

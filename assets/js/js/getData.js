@@ -12,20 +12,17 @@ $(() => {
       showProjectDrop()
       showNameDrop()
       showStatusDrop()
-      showProjectlistManage()
       showPositionDrop()
       selPersontDrop()
       showNameDrop2()
       selPersontDrop3()
       showPositionDrop3()
       checkStap()
+      showProjectlistManage()
       setInterval(() => {
-        showProjectlistManage()
-        onToggle()
-      }, 1000);
-  
- 
-
+      onToggle()
+    }, 1000);
+       
 //------------------------------------------ show  Project Count on Dashboard  page---------------------------------------------------
 function showProjectCount() {                                                                                    
     var url= API_URL+"Dashboard/showProjectcount";                                                               
@@ -292,7 +289,7 @@ $(document).on('click','.btnDetail', function() {
                         <td>
                         <center><form class="toggleForm">
                           <div class="form-check form-switch">
-                           <h5><input class="form-check-input  customSwitch" type="checkbox" role="switch" data-id="${data.ip_id}" id="customSwitch_${data.ip_id} " ${statusFlag}></h5> 
+                           <h5><input class="form-check-input customSwitch" type="checkbox" role="switch" data-id="${data.ip_id}" id="customSwitch_${data.ip_id} " ${statusFlag}></h5> 
                           </div>
                           </form></center> 
                       </td>
@@ -399,7 +396,9 @@ function onToggle() {
               'Cancelled',
               'Your imaginary file is safe :)',
               'error'
-            )
+            ).then(()=>{
+              location.reload()
+            })
           }
         })
     } else {
@@ -462,7 +461,9 @@ function onToggle() {
             'Cancelled',
             'Your imaginary file is safe :)',
             'error'
-          )
+          ).then(()=>{
+            location.reload()
+          })
         }
       })
     }
@@ -834,9 +835,11 @@ function showNameDrop2() {
        // console.log(data.entries);
         $.each(data.entries, function(index, value) {
             $('#frmCheckBox').append(`<div class="container"><div class="row py-2">
-            <input class="form-check-input text-danger chkMaster" type="checkbox" value="${value.ms_id}">
-            <div class="col-md-6 text-break fs-6 fw-semibold text-dark">
-               Stap : ${value.ms_id} ${value.ms_name}
+            <div class="col-md-2 txt-b">
+             <h2><input class="form-check-input text-danger chkMaster" type="checkbox" value="${value.ms_id}"></h2>Stap : ${value.ms_id}
+            </div>
+            <div class="col-md-4 text-break fs-6 fw-semibold text-dark">
+              <i class="bi bi-stars text-warning txt-b"></i></i> <mark>${value.ms_name}</mark>
             </div>
             <div class="col-md-3">
             <input type="date"  class="form-control strDateAdd">
@@ -1018,5 +1021,6 @@ $(document).ready(function() {
 
 //   ],
 // })
+
 
 })

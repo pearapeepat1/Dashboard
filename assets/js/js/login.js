@@ -30,7 +30,7 @@ $('#btnLogin').click(function() {
                     icon: 'success',
                     title: 'Success!',
                     html: res.message,
-                    timer: 3000
+                    timer: 1500
                 }).then(() => {
                     window.location.href = 'http://127.0.0.1/DashboardProject/Dashboard/manage';
                 })

@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="container">
+<div class="container ">
+    <div class="container bg-dashboard">
         <div class="row py-4">
             <div class="col-lg-2">
                 <center>

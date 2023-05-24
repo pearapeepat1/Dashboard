@@ -9,7 +9,7 @@
 </div> -->
 <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
-<div class="container">
+<div class="container bg-dashboard">
 <div class="container py-2">
 	<div class="row py-2 ">
 		<div class="col-lg-8">
@@ -99,7 +99,7 @@
 <div class="container">
 	<div class="row ">
 		<div class="col-lg-8">
-			<div class="bg-white">
+			<div class="bg-white raduis-div">
 				<div class="card-body">
 					<div class="container">
 					<div class="row py-3">
