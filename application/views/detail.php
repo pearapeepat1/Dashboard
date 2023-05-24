@@ -1,288 +1,157 @@
 <div class="container">
     <div class="container">
-        <!-- <div class="row py-5">
-            <div class="col-lg-10">
-                <h3 class="text-dark txt-b" style="font-family: b Biger Over;"><span class="text-success ">P r o j e c t</span>&nbsp; <span class="text-secondary text-opacity-85">S u m m a y</span>&nbsp; <span class="text-success text-opacity-75">D e t a i l</span></h3>
+        <div class="row py-4">
+            <div class="col-lg-2">
+                <center>
+                    <h2 class="my-1 text-success txt-b"><span id="ralTime"></span></h2>
+                </center>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <center>
+                        <h3 class="text-dark txt-b" style="font-family: b Biger Over;"><span class="text-success ">P r o j e c t</span>&nbsp; <span class="text-secondary">S u m m a y</span>&nbsp; <span class="text-success ">D e t a i l</span></h3>
+                    </center>
+                </div>
+                <div class="row">
+                    <center>
+                        <h3 class="text-dark txt-b"><span class="projectName text-dark">Dashboard management</span></h3>
+                    </center>
+                </div>
             </div>
             <div class="col-lg-2">
-                <button type="button" class="btn btn-secondary"><i class="bi bi-house"></i> Home</button>
-            </div>
-        </div> -->
-        <div class="row py-3">
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="crad-body bg-success p-2 text-dark bg-opacity-25"">
-                        <div class=" row fs-4 fw-bolder">
-                        <center>Projected </center>
-                    </div>
-                    <div class="row fs-4 fw-semibold">
-                        <center>Lunch Date</center>
-                    </div>
-                    <div class="row fs-1">
-                        <center><i class="bi bi-flag-fill text-success"></i></center>
-                    </div>
-                    <div class="row fs-2 fw-bolder">
-                        <center>107 Days</center>
-                    </div>
-                    <div class="row fs-5">
-                        <center>Friday December 15</center>
-                    </div>
-                </div>
+               <a href="http://127.0.0.1/DashboardProject/Dashboard/dashboard"> <button type="button" class="btn btn-secondary"><i class="bi bi-house"></i> Home</button></a>
             </div>
         </div>
-        <div class="col-lg-9">
-            <div>
-                <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" aria-label="Success example" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-            </div>
-            <div class="row py-2">
-                <div class="col-lg-3">
-                    <div class="row">
-                        <span class="fs-3 fw-semibold text-secondary">Planning</span>
-                    </div>
-                    <div class="chart-container" style="position: relative; height:20vh; width:70vw">
-                        <canvas id="chartPlane"></canvas>
-                    </div>
-                    <div class="row">
-                        <center><span class="fs-5  text-secondary">Completed</span> </center>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="row">
-                        <span class="fs-3 fw-semibold text-secondary">Design</span>
-                    </div>
-                    <div class="chart-container" style="position: relative; height:20vh; width:70vw">
-                        <canvas id="chartDesign"></canvas>
-                    </div>
-                    <div class="row">
-                        <center><span class="fs-5  text-secondary">Completed</span> </center>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="row">
-                        <span class="fs-3 fw-semibold text-secondary">Development</span>
-                    </div>
-                    <div class="chart-container" style="position: relative; height:20vh; width:70vw">
-                        <canvas id="chartDev"></canvas>
-                    </div>
-                    <div class="row">
-                        <center><span class="fs-5  text-secondary">Completed</span> </center>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="crad-body bg-success p-2 text-dark bg-opacity-10">
-                            <div class="row">
-                                <span class="fs-5 txt-b text-dark">Person in charge</span>
-                            </div>
-                            <!-- Canvas circle progress bar -->
-                            <!-- <div class="canvas-wrap">
-                                <canvas id="canvas" width="300" height="300"></canvas>
-                                <span id="procent"></span>
-                            </div> -->
-
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" aria-label="Example with label" style="width: 67%;" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100">67%</div>
                         </div>
                     </div>
+                    <div class="col-lg-2 text-success txt-b">
+                        <i class="bi bi-flag-fill"></i> Completed
+                    </div>
+                </div>
+                <div class="row py-3  ">
+                    <div class="col-lg-3 card bg-white set-pading"><br>
+                        <center>
+                            <h5 class="text-success  txt-b " style="font-family: b Biger Over;">P l a n n i n g </h5>
+                        </center>
+                        <div id="chartPlane"></div>
+                        <div class=" badge text-bg-success "><i class="bi bi-check-circle-fill"></i> Completed</div>
+                    </div>
+                    <div class="col-lg-3 card bg-white set-pading-crad"><br>
+                        <center>
+                            <h5 class="text-success txt-b" style="font-family: b Biger Over;">D e s i g n</h5>
+                        </center>
+                        <div id="chartDesign"></div>
+                        <div class=" badge text-bg-warning "><i class="bi bi-patch-exclamation-fill"></i> in progess</div>
+                    </div>
+                    <div class="col-lg-3 bg-white card set-pading-crad"><br>
+                        <center>
+                            <h5 class="text-success txt-b " style="font-family: b Biger Over;">D e v e l o p</h5>
+                        </center>
+                        <div id="chartDev"></div>
+                        <div class=" badge text-bg-warning "><i class="bi bi-patch-exclamation-fill"></i> in progess</div>
+                    </div>
+                    <div class="col-lg-2 bg-white card set-pading-crad"><br>
+                        <center>
+                            <h5 class="text-success txt-b " style="font-family: b Biger Over;">T e s t</h5>
+                        </center>
+                        <div id="chartTest"></div>
+                        <div class=" badge text-bg-warning  set-test-top"><i class="bi bi-patch-exclamation-fill"></i> in progess</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="card">
+                    <center><br>
+                        <h5 class="text-success  txt-b " style="font-family: b Biger Over;">O v e r a l l</h5>
+                    </center>
+                    <div class="crad-body p-2 text-dark bg-opacity-25">
+                        <div id="chartHalfOverall"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body ">
+                        <div class="row">
+                            <span class="fs-3 txt-b text-dark">Progress</span>
+                        </div>
+                        <div id="barStap">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <span class="fs-3 txt-b text-dark">Overdue Task</span>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Time left</th>
+                                    <th scope="col">Stap</th>
+                                    <th scope="col">Deadline</th>
+                                    <th scope="col">Person in charge</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-warning"><i class="bi bi-circle-fill"></i> 3 Days </td>
+                                    <td>Development</td>
+                                    <td>23-05-22</td>
+                                    <td>Rapeepat</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-success"><i class="bi bi-circle-fill"></i> 7 Days </td>
+                                    <td>Design</td>
+                                    <td>23-05-22</td>
+                                    <td>Rapeepat</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-danger"><i class="bi bi-circle-fill"></i> 1 Days </td>
+                                    <td>Planning</td>
+                                    <td>23-05-22</td>
+                                    <td>Rapeepat</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-warning"><i class="bi bi-circle-fill"></i> 4 Days </td>
+                                    <td>Development</td>
+                                    <td>23-05-22</td>
+                                    <td>Rapeepat</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-success"><i class="bi bi-circle-fill"></i> 12 Days </td>
+                                    <td>Planning</td>
+                                    <td>23-05-22</td>
+                                    <td>Rapeepat</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-danger"><i class="bi bi-circle-fill"></i> 1 Days </td>
+                                    <td>Planning</td>
+                                    <td>23-05-22</td>
+                                    <td>Rapeepat</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Canvas circle progress bar -->
-    <!-- <script>
-        window.onload = function() {
-            var can = document.getElementById('canvas'),
-                spanProcent = document.getElementById('procent'),
-                c = can.getContext('2d');
-
-            var posX = can.width / 2,
-                posY = can.height / 2,
-                fps = 1000 / 200,
-                procent = 0,
-                oneProcent = 360 / 100,
-                result = oneProcent * 64;
-
-            c.lineCap = 'round';
-            arcMove();
-
-            function arcMove() {
-                var deegres = 0;
-                var acrInterval = setInterval(function() {
-                    deegres += 1;
-                    c.clearRect(0, 0, can.width, can.height);
-                    procent = deegres / oneProcent;
-
-                    spanProcent.innerHTML = procent.toFixed();
-
-                    c.beginPath();
-                    c.arc(posX, posY, 70, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + 360));
-                    c.strokeStyle = '#b1b1b1';
-                    c.lineWidth = '10';
-                    c.stroke();
-
-                    c.beginPath();
-                    c.strokeStyle = '#3949AB';
-                    c.lineWidth = '10';
-                    c.arc(posX, posY, 70, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + deegres));
-                    c.stroke();
-                    if (deegres >= result) clearInterval(acrInterval);
-                }, fps);
-
-            }
-
-
-        }
-    </script> -->
-</div>
-<div class="row">
-    <div class="col-lg-6">
-        <div class="card">
-            <div class="card-body bg-success p-2 text-dark bg-opacity-10">
-                <div class="row">
-                    <span class="fs-3 txt-b text-dark">Progress</span>
-                </div>
-                <div>
-                    <canvas id="horizontal-bar-chart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6">
-        <div class="card">
-            <div class="card-body bg-success p-2 text-dark bg-opacity-10">
-                <div class="row">
-                    <span class="fs-3 txt-b text-dark">Overdue Task</span>
-                </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Time left</th>
-                            <th scope="col">Stap</th>
-                            <th scope="col">Deadline</th>
-                            <th scope="col">Person in charge</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-warning"><i class="bi bi-circle-fill"></i> 3 Days </td>
-                            <td>Development</td>
-                            <td>23-05-22</td>
-                            <td>Rapeepat</td>
-                        </tr>
-                        <tr>
-                            <td class="text-success"><i class="bi bi-circle-fill"></i> 7 Days </td>
-                            <td>Design</td>
-                            <td>23-05-22</td>
-                            <td>Rapeepat</td>
-                        </tr>
-                        <tr>
-                            <td class="text-danger"><i class="bi bi-circle-fill"></i> 1 Days </td>
-                            <td>Planning</td>
-                            <td>23-05-22</td>
-                            <td>Rapeepat</td>
-                        </tr>
-                        <tr>
-                            <td class="text-warning"><i class="bi bi-circle-fill"></i> 4 Days </td>
-                            <td>Development</td>
-                            <td>23-05-22</td>
-                            <td>Rapeepat</td>
-                        </tr>
-                        <tr>
-                            <td class="text-success"><i class="bi bi-circle-fill"></i> 12 Days </td>
-                            <td>Planning</td>
-                            <td>23-05-22</td>
-                            <td>Rapeepat</td>
-                        </tr>
-                        <tr>
-                            <td class="text-danger"><i class="bi bi-circle-fill"></i> 1 Days </td>
-                            <td>Planning</td>
-                            <td>23-05-22</td>
-                            <td>Rapeepat</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 </div>
 </div>
 </div>
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    const ctx = document.getElementById('chartPlane');
-
-    new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                label: '# of Votes',
-                data: [12],
-            }]
-        },
-      
-    });
-</script>
-
-
-<script>
-    const cta = document.getElementById('chartDesign');
-
-    new Chart(cta, {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                label: '# of Votes',
-                data: [2, 3],
-                borderWidth: 1
-            }]
-        },
-
-    });
-</script>
-
-<script>
-    const ctb = document.getElementById('chartDev');
-
-    new Chart(ctb, {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                label: '# of Votes',
-                data: [3, 5],
-            }]
-        },
-
-    });
-</script>
-
-<script>
-    new Chart(document.getElementById("horizontal-bar-chart"), {
-        type: 'bar',
-        data: {
-            labels: ["Elephant", "Horse", "Tiger", "Lion", "Jaguar"],
-            datasets: [{
-                label: "Animals count",
-                backgroundColor: ["#196F3D", "#1E8449",
-                    "#229954", "#27AE60", "#52BE80"
-                ],
-                data: [478, 267, 829, 1732, 1213]
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            legend: {
-                display: false
-            },
-            title: {
-                display: true,
-                text: 'Chart JS Horizontal Bar Chart Example'
-            }
-        }
-    });
-</script>
-</script>
+</div>
+</div>

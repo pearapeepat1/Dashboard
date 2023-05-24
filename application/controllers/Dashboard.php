@@ -1,8 +1,9 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
-	private $another_css;
+class Dashboard extends CI_Controller
+{
+    private $another_css;
     private $another_js;
     private $data;
     public function __construct()
@@ -13,7 +14,7 @@ class Dashboard extends CI_Controller {
         $this->load->library('session');
 
         $this->data["base_url"] = base_url();
-  
+
         $result['base_url'] = base_url();
         $result['site_url'] = site_url();
 
@@ -24,10 +25,10 @@ class Dashboard extends CI_Controller {
         $this->footer = $result;
 
 
-        $this->load->model('dashboard_model','dashboard');
+        $this->load->model('dashboard_model', 'dashboard');
     }
 
-	protected function render_view($path)
+    protected function render_view($path)
     {
         $this->data['header'] = $this->parser->parse('pages/navbar', $this->header, TRUE);
         $this->data['slide_bar'] = $this->parser->parse('pages/slidebar', $this->slide_bar, TRUE);
@@ -37,84 +38,53 @@ class Dashboard extends CI_Controller {
         $this->data['another_js'] = $this->another_js;
         $this->parser->parse('pages/homepage', $this->data);
     }
-	public function dashboard()
-	{
+    public function dashboard()
+    {
         $this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
         // $this->data['tblProjectList'] = $this->Show_model->ProjectList();
         //$this->ShowProjectList();
-        
-		$this->render_view('home');
-	}
-    public function callApi(){
-        $url=$_GET["url"];
-        $ch =curl_init($url);
+
+        $this->render_view('home');
+    }
+    public function callApi()
+    {
+        $url = $_GET["url"];
+        $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = curl_exec($ch);
         $data = json_decode($output, true);
         // $data = $output;
         // print_r($output);
-        if(empty($data)){
+        if (empty($data)) {
             echo "NO DATA";
         }
         echo json_encode($data);
     }
-    public function callApiInsert(){
-//$url=$_GET["url"];
-        $a = $this->callApiWithPost("http://172.21.64.115/APIDashboardProject/Dashboard/callApiTest", ["k"=>"123"]);
+    // public function callApiInsert()
+    // {
+    //     $url=$_GET["url"];
+    //     // $a = $this->callApiWithPost("http://172.21.64.115/APIDashboardProject/Dashboard/callApiTest", ["k" => "123"]);
 
-        echo $a;
-        exit;
-        // $ch =curl_init($url."projectame=".$projectname."&assignee=".$assignee."&position=".str_replace(" ","_",$position));
+    //     // echo $a;
+    //     // exit;
+    //     // $ch =curl_init($url."projectame=".$projectname."&assignee=".$assignee."&position=".str_replace(" ","_",$position));
 
-        // $ch =curl_init($url);
-        // $ch =curl_init("http://127.0.0.1/DashboardProject/Dashboard/callApiInsert?array");
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        // $output = curl_exec($ch);
-        // echo  $output;
+    //     // $ch =curl_init($url);
+    //     // $ch =curl_init("http://127.0.0.1/DashboardProject/Dashboard/callApiInsert?array");
+    //     // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //     // $output = curl_exec($ch);
+    //     // echo  $output;
 
-        // if(empty($data)){
-        //     echo "NO DATA";
-        // }
-        // echo json_encode($data);
-    }
-    function callApiWithPost($url, $data) {
-        // Initialize curl
+    //     // if(empty($data)){
+    //     //     echo "NO DATA";
+    //     // }
+    //     // echo json_encode($data);
+    // }
+
+    public function callApiInsert()
+    {
+        $url = $_GET["url"];
         $ch = curl_init($url);
-        
-        // Set the request method to POST
-        curl_setopt($ch, CURLOPT_POST, 1);
-        
-        // Set the request data
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        
-        // Set other options as needed, such as headers
-        
-        // Execute the request
-        $response = curl_exec($ch);
-        
-        // Check for errors
-        if ($response === false) {
-            $error = curl_error($ch);
-            curl_close($ch);
-            throw new Exception("API request failed: " . $error);
-        }
-        
-        // Close curl
-        curl_close($ch);
-        
-        // Return the API response
-        return $response;
-    }
-    
-    public function callApiAddTask(){
-        $url=$_GET["url"];
-        $selProject2=$_GET["selProject2"];
-        $addTask=$_GET["addTask"];
-        $strDateAdd=$_GET["strDateAdd"];
-        $dueDateAdd=$_GET["dueDateAdd"];
-        $selPerson3=$_GET["selPerson3"];
-        $selPosition3=$_GET["selPosition3"];
-        $ch =curl_init($url."selProject2=".$selProject2."&addTask=".$addTask."&strDateAdd=".$strDateAdd."&dueDateAdd=".$dueDateAdd."&selPerson3=".$selPerson3."&selPosition3=".$selPosition3);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = curl_exec($ch);
         echo  $output;
@@ -123,11 +93,84 @@ class Dashboard extends CI_Controller {
         // }
         // echo json_encode($data);
     }
-    public function callApiLogin(){
-        $url= $_GET["url"];
-        $username= $_GET["username"];
-        $password= $_GET["password"];
-        $ch =curl_init($url."username=".$username."&password=".$password);
+    public function callApiInsertStap()
+    {
+        $url = $_GET["url"];
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        echo  $output;
+        // if(empty($data)){
+        //     echo "NO DATA";
+        // }
+        // echo json_encode($data);
+    }
+    public function callApiUpdateStatus()
+    {
+        $url = $_GET["url"];
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        echo  $output;
+        // if(empty($data)){
+        //     echo "NO DATA";
+        // }
+        // echo json_encode($data);
+    }
+    function callApiWithPost($url, $data)
+    {
+        // Initialize curl
+        $ch = curl_init($url);
+
+        // Set the request method to POST
+        curl_setopt($ch, CURLOPT_POST, 1);
+
+        // Set the request data
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+        // Set other options as needed, such as headers
+
+        // Execute the request
+        $response = curl_exec($ch);
+
+        // Check for errors
+        if ($response === false) {
+            $error = curl_error($ch);
+            curl_close($ch);
+            throw new Exception("API request failed: " . $error);
+        }
+
+        // Close curl
+        curl_close($ch);
+
+        // Return the API response
+        return $response;
+    }
+
+    public function callApiAddTask()
+    {
+        $url = $_GET["url"];
+        $selProject2 = $_GET["selProject2"];
+        $addTask = $_GET["addTask"];
+        $strDateAdd = $_GET["strDateAdd"];
+        $dueDateAdd = $_GET["dueDateAdd"];
+        $selPerson3 = $_GET["selPerson3"];
+        $selPosition3 = $_GET["selPosition3"];
+        $ch = curl_init($url . "selProject2=" . $selProject2 . "&addTask=" . $addTask . "&strDateAdd=" . $strDateAdd . "&dueDateAdd=" . $dueDateAdd . "&selPerson3=" . $selPerson3 . "&selPosition3=" . $selPosition3);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        echo  $output;
+        // if(empty($data)){
+        //     echo "NO DATA";
+        // }
+        // echo json_encode($data);
+    }
+    public function callApiLogin()
+    {
+        $url = $_GET["url"];
+        $username = $_GET["username"];
+        $password = $_GET["password"];
+        $ch = curl_init($url . "username=" . $username . "&password=" . $password);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = curl_exec($ch);
         echo  $output;
@@ -137,17 +180,17 @@ class Dashboard extends CI_Controller {
         // echo json_encode($data);
     }
     public function manage()
-	{
+    {
         //$this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
         //$this->data['tblProjectList'] = $this->Show_model->ProjectList();
         //$this->ShowProjectList();
-		$this->render_view('manage');
-	}
+        $this->render_view('manage');
+    }
     public function detail()
-	{
-        
-		$this->render_view('detail');
-	}
+    {
+
+        $this->render_view('detail');
+    }
 
     ##count project
     public function showProjectcount()
@@ -161,7 +204,6 @@ class Dashboard extends CI_Controller {
     {
         $result = $this->dashboard->get_Personcount();
         echo json_encode($result);
-
     }
 
     ##count time hour
@@ -169,7 +211,6 @@ class Dashboard extends CI_Controller {
     {
         $result = $this->dashboard->get_Timecount_hour();
         echo json_encode($result);
-
     }
 
     ##count time day
@@ -177,10 +218,9 @@ class Dashboard extends CI_Controller {
     {
         $result = $this->dashboard->get_Timecount_day();
         echo json_encode($result);
-
     }
 
-      ## query person
+    ## query person
     public function show_Person()
     {
         $result = $this->dashboard->get_Person();
@@ -213,14 +253,10 @@ class Dashboard extends CI_Controller {
     // }
 
     public function checkLoginDb()
-	{
-		$data = $this->input->get(NULL);
-		$this->load->model('Login_model','Login');
-		$result = $this->Login->checkLoginDb($data);
-		echo json_encode($result);
-	}
-
-   
-
-
+    {
+        $data = $this->input->get(NULL);
+        $this->load->model('Login_model', 'Login');
+        $result = $this->Login->checkLoginDb($data);
+        echo json_encode($result);
+    }
 }

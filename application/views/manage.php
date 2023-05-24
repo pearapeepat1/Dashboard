@@ -1,8 +1,50 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid">
+        <div class="col-lg-5">
+        <h3 class="text-success txt-b " style="font-family: b Biger Over;">M a n a g e m e n t</h3> <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class="col-lg-7">
+                    <li class="nav-item">
+                        <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><i class="bi bi-clipboard-plus"></i> Create Project</a>
+                    </li>
+                </div>
+                <div class="col-lg-6">
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="bi bi-clipboard-plus"></i> Create Stap</button>
+                    </li>
+                </div>
+            </ul>
+            <div class="col-lg-4">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav> --> <!-- Styles -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+<!-- Or for RTL support -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+<script src="https://phpcoder.tech/multiselect/js/jquery.multiselect.js"></script>
+<link rel="stylesheet" href="https://phpcoder.tech/multiselect/css/jquery.multiselect.css">
 <div class="container">
     <div class="container py-2">
         <div class="row py-2">
             <div class="col-lg-6">
-                <h2 class="text-dark txt-b">Dashboard</h2>
+                <h3 class="text-success txt-b " style="font-family: b Biger Over;">M a n a g e m e n t</h3>
             </div>
             <div class="col-lg-2">
                 <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Create Project</button> -->
@@ -67,7 +109,7 @@
                                     <div id="sumPerson"></div>
                                 </h4>
                             </div>
-                            <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-users"></i>
+                            <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="bi bi-people-fill"></i>
                             </div>
                         </div>
                     </div>
@@ -110,47 +152,49 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="bg-white">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h3 class="title txt-b text-secondary ">Project Summary</h3>
+                        <div class="container">
+                            <div class="row py-3">
+                                <div class="col-md-4">
+                                    <h3 class="title txt-b text-secondary ">Project Summary</h3>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select" name="selName" id="selName" onchange="getState(this.value)">
+                                        <option>All Project</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select" name="selPerson" id="selPerson">
+                                        <option>All Person in charge</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select class="form-select" name="selStatus" id="selStatus">
+                                        <option>All Status</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <select class="form-select" name="selName" id="selName" onchange="getState(this.value)">
-                                    <option>All Project</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <select class="form-select" name="selPerson" id="selPerson">
-                                    <option>All Person in charge</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <select class="form-select" name="selStatus" id="selStatus">
-                                    <option>All Status</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="py-3">
-                            <table id="tblManage" class="display " style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th style="display:none;">#</th>
-                                        <th>Project Name</th>
-                                        <th>Step</th>
-                                        <th>Person in Charge</th>
-                                        <th>Start Date</th>
-                                        <th>Due Date</th>
-                                        <th>Status </th>
-                                        <th>Action</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbodY">
+                            <div class="py-3">
+                                <table id="tblManage" class="display " style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th style="display:none;">#</th>
+                                            <th>Project Name</th>
+                                            <th>Step</th>
+                                            <th>Project Leader</th>
+                                            <th>Start Date</th>
+                                            <th>Due Date</th>
+                                            <th>Status </th>
+                                            <th>Action</th>
+                                            <th>Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodY">
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -193,27 +237,45 @@
                                         <div class="col-lg-3">
                                             <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Person in Charge</span>
                                         </div>
-                                        <div class="col-lg-3">
-                                            <select class="form-select selPerson3" name="selPerson2" id="selLeaderAdd">
-                                                <option value="">Select Assignee</option>
+                                        <div class="col-lg-9">
+
+                                            <select class="form-select selPerson3" id="multiple-select-field" data-placeholder="Choose anything" multiple>
+
                                             </select>
+                                            <script>
+                                                $('#multiple-select-field').select2({
+                                                    theme: "bootstrap-5",
+                                                    width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                                                    placeholder: $(this).data('placeholder'),
+                                                    closeOnSelect: false,
+                                                });
+                                            </script>
                                         </div>
-                                        <div class="col-lg-2">
+                                        <div class="col-lg-3">
                                             <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Position</span>
                                         </div>
-                                        <div class="col-lg-3">
-                                            <select class="form-select selPosition3" name="selPerson2" id="selPersonAdd">
-                                                <option value="">Position</option>
+                                        <div class="col-lg-9">
+                                            <select class="form-select selPosition3" id="selPersonAdd" name="selPerson2" data-placeholder="Choose anything" multiple>
                                             </select>
                                         </div>
-                                        <div class="col-lg-1">
+                                        <script>
+                                            $('#selPersonAdd').select2({
+                                                theme: "bootstrap-5",
+                                                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                                                placeholder: $(this).data('placeholder'),
+                                                closeOnSelect: false,
+                                            });
+                                        </script>
+                                        <!-- <div class="col-lg-1">
                                             <button class="btn btn-primary" type="submit"> <i class="bi bi-person-add"> </i></button>
-                                        </div>
+                                        </div> -->
                                     </div>
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <input type="text" class="form-control" placeholder="Person in Charge" aria-label="Person in Charge" id="inpPerson">
-                                    </div>
+                                    </div> -->
                                 </form>
+
+
                             </div>
                             <div class="row py-3">
                                 <h3 style="font-family: b Biger Over;">
@@ -243,6 +305,7 @@
                                     <div class="col-lg-2">
                                         <button type="sudmit" class="btn btn-success" id="btnInsertFirst"><i class="bi bi-cloud-download-fill"></i> Save</button>
                                     </div>
+
                                     <!-- <div class="col-lg-2">
                                         <center><button class="btn btn-danger " data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Add Stap</button></center>
                                     </div> -->
@@ -447,7 +510,7 @@
 </div> -->
 
 
-    <div id="myDIV">
+    <div id="myDIV" class="py-5" style="display:none;">
         <div class="container">
             <div class="card">
                 <div class="card-body">
@@ -464,7 +527,7 @@
                                 </h3>
                             </div>
                             <div class="col-lg-1">
-                                <button class="btn btn-success" onclick="myFunction()"><i class="bi bi-x-lg"></i></button>
+                                <button class="btn btn-success" onclick="EditModal()"><i class="bi bi-x-lg"></i></button>
                             </div>
                         </div>
                         <!-- <div class="row">
@@ -597,7 +660,7 @@
 </div>
 <!-- close container -->
 <script>
-    function myFunction() {
+    function EditModal() {
         var x = document.getElementById("myDIV");
         if (x.style.display === "none") {
             x.style.display = "block";
@@ -612,9 +675,10 @@
         $('#btnInsertFirst').on('click', function() {
             var projectname = $('#inpProjectName').val();
             var assignee = $('#selPerson2').val();
-            var position = $('#selPosition').val();
+            var personCharge = $('#multiple-select-field').val();
+            var position = $('#selPersonAdd').val();
             if (projectname != "" && assignee != "") {
-                var url = API_URL + "Addproject/add_project?projectname=" + projectname.replaceAll(" ", "%20") + "&assignee=" + assignee;
+                var url = API_URL + "Addproject/add_project?projectname=" + projectname.replaceAll(" ", "%20") + "&assignee=" + assignee + "&personCharge=" + personCharge + "&position=" + position;
                 console.log(url);
                 $.ajax({
                     url: base_url("Dashboard/callApiInsert"),
@@ -623,6 +687,7 @@
                         url: url,
                         projectname: projectname,
                         assignee: assignee,
+                        personCharge: personCharge,
                         position: position,
                     },
                     dataType: 'json',
@@ -633,15 +698,18 @@
                                 title: 'Success!',
                                 html: res.message,
                                 timer: 3000
+                            }).then(() => {
+                                location.reload();
                             })
                         } else {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Save do not successfull!',
                                 html: res.message,
+                            }).then(() => {
+                                location.reload();
                             })
                         }
-
                     }
                 });
             } else {
@@ -659,34 +727,51 @@
 <script>
     $(document).ready(function() {
         $("#btnInsertFirst").click(function() {
-            var insert = [];
             var array = []
+            var projectname = $('#inpProjectName').val();
             $('.chkMaster').each(function() {
                 if ($(this).is(":checked")) {
-                    console.log()
                     let chkBox = $(this).val()
                     let strDate = $(this).closest('div').find('.strDateAdd').val()
                     let dueDate = $(this).closest('div').find('.dueDateAdd').val()
                     array.push({
+                        projectname: projectname.replaceAll(" ", "%20"),
                         chkBox: chkBox,
                         strDate: strDate,
                         dueDate: dueDate,
                     })
+                    // const arrayTest = [{projectname:projectname, chkBox: chkBox, strDate:strDate, dueDate: dueDate}]
+                    // console.log(arrayTest);
+                    // let strArray = array.toString()
+                    // console.log(array);
+                    var ids = [ projectname, chkBox, strDate,dueDate],
+                        formatted = `(${ids.map(v => JSON.stringify(v.toString())).join(', ')})`;
+                    console.log(formatted);
+                    var url = API_URL + "Addproject/add_project?projectName=" + projectname.replaceAll(" ", "%20") + "&chkBox=" + [chkBox] + "&strDate=" + [strDate] + "&dueDate=" + [dueDate];
+                    // var url = API_URL + "Addproject/add_project?projectData=" + arrayTest ;
+                    // console.log(url);
+                    $.ajax({
+                        url: base_url("Dashboard/callApiInsertStap"),
+                        method: "GET",
+                        data: {
+                            format: 'json'
+                        },
+                        dataType: 'Json',
+                        data: {
+                            url: url,
+                            // array: array,
+                            projectname: projectname,
+                            chkBox: chkBox,
+                            strDate: strDate,
+                            dueDate: dueDate,
+                        },
+                        success: function(data) {
+                            $('#result').html(data);
+                        }
+                    });
                 }
             });
-            console.log(array);
-            insert = insert.toString();
-            var url = API_URL + "Addproject/add_project?chkBox=" + array.chkBox + "&strDate=" + array.strDate + "&dueDate" + array.dueDate;
-            $.ajax({
-                url: base_url("Dashboard/callApiInsert"),
-                method: "GET",
-                data: {
-                    array: array
-                },
-                success: function(data) {
-                    $('#result').html(data);
-                }
-            });
+
         });
     });
 </script>

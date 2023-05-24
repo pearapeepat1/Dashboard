@@ -13,7 +13,7 @@
 <div class="container py-2">
 	<div class="row py-2 ">
 		<div class="col-lg-8">
-			<h2 class="text-dark txt-b">Dashboard</h2>
+			<h3 class="text-success txt-b " style="font-family: b Biger Over;">D a s h b o a r d</h3>
 		</div>
 		<div class="col-lg-2">
 			<h1 class="text-right text-secondary">
@@ -58,7 +58,7 @@
 								<div id="sumPerson"></div>
 							</h4>
 						</div>
-						<div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="fa fa-users"></i>
+						<div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto"><i class="bi bi-people-fill"></i>
 						</div>
 					</div>
 				</div>
@@ -99,9 +99,10 @@
 <div class="container">
 	<div class="row ">
 		<div class="col-lg-8">
-			<div class="card">
+			<div class="bg-white">
 				<div class="card-body">
-					<div class="row">
+					<div class="container">
+					<div class="row py-3">
 						<div class="col-lg-4">
 							<h3 class="title txt-b text-secondary ">Project Summary</h3>
 						</div>
@@ -127,7 +128,7 @@
 								<tr>
 									<th style="display:none;">#</th>
 									<th>Project Name</th>
-									<th>Person in Charge</th>
+									<th>Project Leader</th>
 									<th>Due Date</th>
 									<th>Status </th>
 									<th>Progress</th>
@@ -148,6 +149,7 @@
 							</tbody>
 						</table>
 					</div>
+				</div>
 				</div>
 			</div>
 		</div>

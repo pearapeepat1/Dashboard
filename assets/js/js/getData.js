@@ -1,22 +1,30 @@
 $(() => {
-  showProjectCounT()
-    showProjectCount()
-    showPersonCount()
-    showTimeCount()
-    showProjectlist()
-    showProjectCompleted()
-    showProjectinProgres()
-    showProjectDelayed()
-    showProjectDrop()
-    showNameDrop()
-    showStatusDrop()
-    showProjectlistManage()
-    showPositionDrop()
-    selPersontDrop()
-    showNameDrop2()
-    selPersontDrop3()
-    showPositionDrop3()
-    checkStap()
+
+      
+      showProjectCounT()
+      showProjectCount()
+      showPersonCount()
+      showTimeCount()
+      showProjectlist()
+      showProjectCompleted()
+      showProjectinProgres()
+      showProjectDelayed()
+      showProjectDrop()
+      showNameDrop()
+      showStatusDrop()
+      showProjectlistManage()
+      showPositionDrop()
+      selPersontDrop()
+      showNameDrop2()
+      selPersontDrop3()
+      showPositionDrop3()
+      checkStap()
+      setInterval(() => {
+        showProjectlistManage()
+        onToggle()
+      }, 1000);
+  
+ 
 
 //------------------------------------------ show  Project Count on Dashboard  page---------------------------------------------------
 function showProjectCount() {                                                                                    
@@ -208,11 +216,11 @@ function showProjectlist() {
                     <tr>
                         <td style="display:none;">${data.ip_id}</td>
                         <td>${data.ip_project_name}</td>
-                        <td>${data.ip_person_in_charge}</td>
+                        <td>${data.ip_leader}</td>
                         <td>${data.due_date}</td>
                         <td>${status_rusult}</td>
                         <td><div class="pie animate no-round " style="--p:${data.percents};--c:${status_color};--b:4px" >${data.percents}%</div></td>
-                        <td><p class="btn btnDel text-center" id="btnDetail" data-id="${data.ip_id}><i class="bi bi-info-circle"></i><i class="bi bi-grid-fill "></i></p></td>
+                        <td><a href="http://127.0.0.1/DashboardProject/Dashboard/detail"><p class="btn  text-center btnDetail" id="btnDetail" data-id="${data.ip_id}"><i class="bi bi-search"></i></p></a></td>
                     </tr>`;
           }
           $("#tbody")
@@ -231,20 +239,20 @@ function showProjectlist() {
 
 
 
-//  button Insert
- $('#btnDetail').click(function() {
-  var url= API_URL+"Dashboard/showProjectList";
+//------------------------------------------ Button get ID for Show Detail  ---------------------------------------------------
+
+$(document).on('click','.btnDetail', function() {
   let id = $(this).attr('data-id');
   console.log(id);
   $.ajax({
-       url: base_url("Dashboard/callApi?url="+url),
+      url: base_url('Dashboard/DelData'),
       type: 'GET',
       data: {
           ProId: id,
       },
       dataType: 'json',
       success: function(result) {
-          //tableAjax3.ajax.reload();
+
       }
   });
 })
@@ -269,23 +277,26 @@ function showProjectlist() {
              var status_rusult = '<span class="badge rounded-pill bg-warning "><i class="bi bi-stars"></i> In &nbsp;progress</span>';
             }else{
              var status_rusult = '<span class="badge rounded-pill bg-danger  blink"><i class="bi bi-stars"></i> Delayed</span>';
-            }         
+            } 
+            let statusFlag =  data.ip_status_flg == 1 ? 'checked' : ' '      
+            
             html += `
                     <tr>
                         <td style="display:none;">${data.ip_id}</td>
                         <td>${data.ip_project_name}</td>
                         <td>${data.ip_project_step}</td>
-                        <td>${data.ip_person_in_charge}</td>
+                        <td>${data.ip_leader}</td>
                         <td>${data.star_date}</td>
                         <td>${data.due_date}</td>
                         <td>${status_rusult}</td>
                         <td>
+                        <center><form class="toggleForm">
                           <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                           <h5><input class="form-check-input  customSwitch" type="checkbox" role="switch" data-id="${data.ip_id}" id="customSwitch_${data.ip_id} " ${statusFlag}></h5> 
                           </div>
+                          </form></center> 
                       </td>
-                      <td><p class="btn btnDel text-center"  onclick="myFunction()" id="btnDetail" data-id="${data.ip_id}><i class="bi bi-info-circle"></i><i class="bi bi-pencil-square "></i></p></td>
+                      <td><p class="btn btnDel text-center txt-b btnEdit" data-id="${data.ip_id}" onclick="EditModal()" id="btnDetail"><i class="bi bi-pencil-square text-success fw-bolder"></i></p></td>
                       </tr>`;
           }
           $("#tbodY")
@@ -298,11 +309,269 @@ function showProjectlist() {
       },
       error: (err) => {
         console.log(err);
-      }
+      },
+      
     });
+    
   };
+//------------------------------------------ Taggle button switch ------------------------------------------------------
+
+// function putStatus() {
+//   var url= API_URL+"Manage/show_projectlist";
+//   $.ajax({
+//       type: "GET",
+//       url: base_url("Dashboard/callApi?url="+url),
+//       dataType:'Json',
+//       // data: {toggle_select: true},
+//       success: function (response) {
+//         for (let i = 0; i < response.entries.length; i++) {
+//           const data = response.entries[i]; 
+//           if (data.ip_status_flg == 1) {
+//               $('#customSwitch').prop('checked', true);
+//               // statusText(1);
+//           } else {
+//               $('#customSwitch').prop('checked', false);
+//               // statusText(0);
+//           }
+//       }
+//     }
+//   });
+// }
+function onToggle() {
+  $('.toggleForm :checkbox').change(function () {
+    let id = $(this).attr('data-id');
+    if (this.checked) {
+        const swalWithBootstrapButtons = Swal.mixin({
+          customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+          },
+          buttonsStyling: false
+        })
+        swalWithBootstrapButtons.fire({
+          title: 'Are you sure?',
+          text: "You won't be chang Status",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, chang it!',
+          cancelButtonText: 'No, cancel!',
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            var status = '1';
+            var url= API_URL+"Manage/update_flg?projectID="+id + "&Status="+status;
+            $.ajax({
+                type: "GET",
+                url: base_url("Dashboard/callApiUpdateStatus"),
+                data: {
+                  url:url,
+                  id:id,
+                  status:status,
+                },
+                dataType: 'json',
+                success: function (res) {
+                    if (res.result==true) {
+                      Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                      }).then(()=>{
+                        location.reload()
+                      })
+                    }else{
+                      Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Save chang error!',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                    }
+                }
+            });
+          } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+          ) {
+            swalWithBootstrapButtons.fire(
+              'Cancelled',
+              'Your imaginary file is safe :)',
+              'error'
+            )
+          }
+        })
+    } else {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You won't be chang Status",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, chang it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          var status = '0';
+          var url= API_URL+"Manage/update_flg?projectID="+id + "&Status="+status;
+          console.log(url);
+          $.ajax({
+              type: "GET",
+              url: base_url("Dashboard/callApiUpdateStatus"),
+              data: {
+                url:url,
+                id:id,
+                status:status,
+              },
+              dataType: 'json',
+              success: function (res) {
+                  if (res.result==true) {
+                    Swal.fire({
+                      position: 'top-end',
+                      icon: 'success',
+                      title: 'Your work has been saved',
+                      showConfirmButton: false,
+                      timer: 1500
+                    }).then(()=>{
+                      location.reload()
+                    })
+                  }else{
+                    Swal.fire({
+                      position: 'top-end',
+                      icon: 'error',
+                      title: 'Save chang error!',
+                      showConfirmButton: false,
+                      timer: 1500
+                    })
+                  }
+              }
+          });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Your imaginary file is safe :)',
+            'error'
+          )
+        }
+      })
+    }
+});
+}
+//   $(document).on('click','.toggleForm', function() {
+//     let id = $(this).attr('data-id');
+//     const swalWithBootstrapButtons = Swal.mixin({
+//       customClass: {
+//         confirmButton: 'btn btn-success',
+//         cancelButton: 'btn btn-danger'
+//       },
+//       buttonsStyling: false
+//     })
+//     swalWithBootstrapButtons.fire({
+//       title: 'Are you sure?',
+//       text: "You won't be chang Status",
+//       icon: 'warning',
+//       showCancelButton: true,
+//       confirmButtonText: 'Yes, chang it!',
+//       cancelButtonText: 'No, cancel!',
+//       reverseButtons: true
+//     }).then((result) => {
+//       if (result.isConfirmed) {
+//         Swal.fire({
+//           position: 'top-end',
+//           icon: 'success',
+//           title: 'Your work has been saved',
+//           showConfirmButton: false,
+//           timer: 1500,
+//         }).then(() => {
+//           // location.reload();
+//         })
+//         // console.log(id); 
+//         // var url= API_URL+"Manage/update_flg?projectID="+id + "&Status=";
+//         // console.log(url);
+//         // $.ajax({
+//         //     type: "GET",
+//         //     url: base_url("Dashboard/callApi"),
+//         //     data: {
+//         //       url:url,
+//         //       id:id,
+//         //     },
+//         //     success: function (result) {
+//         //         console.log(result);
+//         //     }
+//         // });
+//       } else if (
+//         /* Read more about handling dismissals below */
+//         result.dismiss === Swal.DismissReason.cancel
+//       ) {
+//         swalWithBootstrapButtons.fire(
+//           'Cancelled',
+//           'Your imaginary file is safe :)',
+//           'error'
+//         )
+//       }
+//     })
+// })
 
 
+
+//------------------------------------------ Button get ID for Edit  ---------------------------------------------------
+
+  $(document).on('click','.btnEdit', function() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+      text: "Do you want to Edit",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let id = $(this).attr('data-id');
+        console.log(id);
+        $.ajax({
+            url: base_url('Dashboard/DelData'),
+            type: 'GET',
+            data: {
+                ProId: id,
+            },
+            dataType: 'json',
+            success: function(result) {
+      
+            }
+        });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelled',
+          'Your imaginary file is safe :)',
+          'error'
+        )
+      }
+    })
+
+})
 
 //------------------------------------------ Disable switch ------------------------------------------------------------
 $("#id_chk").change(() => {
@@ -472,7 +741,7 @@ function showPositionDrop3() {
     success: function (data)  {
      // console.log(data.entries);
       $.each(data.entries, function(index, value) {
-          $('.selPosition3').append(`<option value =${value.mp_id }>${value.mp_name}</option>`)
+          $('.selPosition3').append(`<option value =${value.mp_name }>${value.mp_name}</option>`)
       })
       
     },
@@ -651,23 +920,7 @@ $(document).ready(function() {
       });
   });
 });
-//------------------------------------------Test Button get ID ---------------------------------------------------
 
-  // $(document).on('click', '.btnDetail', function() {
-//   let id = $(this).attr('data-id');
-//   console.log(id);
-//   $.ajax({
-//       url: base_url('Dashboard/DelData'),
-//       type: 'GET',
-//       data: {
-//           ProId: id,
-//       },
-//       dataType: 'json',
-//       success: function(result) {
-
-//       }
-//   });
-// })
 
 
 //------------------------------------------Test Fillter by Dropdown List ---------------------------------------------------
