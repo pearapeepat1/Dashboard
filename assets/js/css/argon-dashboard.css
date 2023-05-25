@@ -27599,3 +27599,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
         color: #fff;
         transform: translateY(-7px);
       }
+      .datepicker {
+background-color: #fff ;
+color: #333 ;
+}

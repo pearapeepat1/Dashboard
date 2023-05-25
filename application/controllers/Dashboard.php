@@ -60,6 +60,14 @@ class Dashboard extends CI_Controller
         }
         echo json_encode($data);
     }
+    public function callApiDetail()
+    {
+        $url = $_GET["url"];
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        echo  $output;
+    }   
     // public function callApiInsert()
     // {
     //     $url=$_GET["url"];

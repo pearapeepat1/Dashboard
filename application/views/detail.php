@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="col-lg-2">
-               <a href="http://127.0.0.1/DashboardProject/Dashboard/dashboard"> <button type="button" class="btn btn-secondary"><i class="bi bi-house"></i> Home</button></a>
+                <a href="http://127.0.0.1/DashboardProject/Dashboard/dashboard"> <button type="button" class="btn btn-secondary"><i class="bi bi-house"></i> Home</button></a>
             </div>
         </div>
         <div class="row">
@@ -84,8 +84,20 @@
                         <div class="row">
                             <span class="fs-3 txt-b text-dark">Progress</span>
                         </div>
-                        <div id="barStap">
-                        </div>
+                        <table id="tblStap" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>code</th>
+                                    <th>Stap project</th>
+                                    <th>Name</th>
+                                    <th>Name</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyStap">
+
+                            </tbody>
+                        </table>
 
                     </div>
                 </div>

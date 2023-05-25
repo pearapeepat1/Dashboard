@@ -43,7 +43,7 @@
 		<div class="main bg">
 
 			{page_content}
-			{footer}
+			<!-- {footer} -->
 		</div>
 	</div>
 	<script>

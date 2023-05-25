@@ -1,6 +1,4 @@
 $(() => {
-
-      
       showProjectCounT()
       showProjectCount()
       showPersonCount()
@@ -19,6 +17,8 @@ $(() => {
       showPositionDrop3()
       checkStap()
       showProjectlistManage()
+      tblDetailStap()
+      
       setInterval(() => {
       onToggle()
     }, 1000);
@@ -114,7 +114,7 @@ function showTimeCount() {
             
         });
     }
-
+//-------------------------------------show Project Completed ---------------------------------------------------------------
 function showProjectCompleted() {
 var url= API_URL+"Dashboard/show_Projectstaall";
     $.ajax({
@@ -156,6 +156,7 @@ function showProjectinProgres() {
             
         });
     }
+//---------------------------------------  show Project Delayed --------------------------------------------------------------
     function showProjectDelayed() {
         var url= API_URL+"Dashboard/show_Projectstaall";
             $.ajax({
@@ -176,8 +177,6 @@ function showProjectinProgres() {
                 
             });
         }
-
-
 //------------------------------------------Table Project Dashboard page ---------------------------------------------------
 function showProjectlist() {
     var url= API_URL+"Dashboard/showProjectList";
@@ -186,7 +185,7 @@ function showProjectlist() {
       url: base_url("Dashboard/callApi?url="+url),
       dataType:'Json',
       success: (response) => {
-       // console.log(response);
+       console.log(response);
         if (response.entries.length > 0) {
         //alert("length > 0");
           var html = "";
@@ -217,14 +216,16 @@ function showProjectlist() {
                         <td>${data.due_date}</td>
                         <td>${status_rusult}</td>
                         <td><div class="pie animate no-round " style="--p:${data.percents};--c:${status_color};--b:4px" >${data.percents}%</div></td>
-                        <td><a href="http://127.0.0.1/DashboardProject/Dashboard/detail"><p class="btn  text-center btnDetail" id="btnDetail" data-id="${data.ip_id}"><i class="bi bi-search"></i></p></a></td>
+                        <td><p class="btn text-center btnDetail" id="btnDetail" data-id="${data.ip_id}" onclick="showDetail()" "> <i class="bi bi-search"></i> </p> </td>
                     </tr>`;
           }
           $("#tbody")
             .html(html)
             .promise()
             .done(() => {
-              $("#table-master").DataTable();
+              $("#table-master").DataTable({
+                scrollX: true,
+              });
             });
          }
       },
@@ -234,26 +235,58 @@ function showProjectlist() {
     });
   };
 
-
+// <a href="http://127.0.0.1/DashboardProject/Dashboard/detail"></a>
 
 //------------------------------------------ Button get ID for Show Detail  ---------------------------------------------------
-
 $(document).on('click','.btnDetail', function() {
   let id = $(this).attr('data-id');
-  console.log(id);
-  $.ajax({
-      url: base_url('Dashboard/DelData'),
-      type: 'GET',
-      data: {
-          ProId: id,
-      },
-      dataType: 'json',
-      success: function(result) {
-
-      }
-  });
+  alert(id);
+  tblDetailStap(id)
+  ChartPlane(id)
+  chartDesign(id)
+  chartDev(id)
+  chartHalfOverall(id)
+  chartTest(id)
 })
 
+//---------------------------------------------table stap detail page ----------------------------------------------------------
+function tblDetailStap(data) {
+  var url= API_URL+"Detail/show_project_step?projectID="+data;
+  $.ajax({
+      url: base_url('Dashboard/callApiDetail'),
+      type: 'GET',
+      dataType:'Json',
+      data: {
+        url:url,
+        ProId: data,
+      },
+      success: (response) => {
+        if (response.entries.length > 0) {
+          var html = "";
+          for (let i = 0; i < response.entries.length; i++) {
+            const data = response.entries[i]; 
+            html += `
+                    <tr>
+                        <td>${data.ip_project_name}</td>
+                        <td>${data.ms_name}</td>
+                        <td>${data.ips_est_start_date}</td>
+                        <td>${data.ips_est_end_date}</td>
+                        <td>${data.ips_person_in_charge}</td>
+                      </tr>`;
+          }
+          $("#tbodyStap")
+            .html(html)
+            .promise()
+            .done(() => {
+              $("#tblStap").DataTable({
+                scrollX: true,
+              });
+              
+            });
+         }
+      }
+  });
+}
 //------------------------------------------Table Project Management page ---------------------------------------------------
   function showProjectlistManage() {
     var url= API_URL+"Manage/show_projectlist";
@@ -286,7 +319,7 @@ $(document).on('click','.btnDetail', function() {
                         <td>${data.star_date}</td>
                         <td>${data.due_date}</td>
                         <td>${status_rusult}</td>
-                        <td>
+                        <td class="text-center">
                         <center><form class="toggleForm">
                           <div class="form-check form-switch">
                            <h5><input class="form-check-input customSwitch" type="checkbox" role="switch" data-id="${data.ip_id}" id="customSwitch_${data.ip_id} " ${statusFlag}></h5> 
@@ -300,7 +333,10 @@ $(document).on('click','.btnDetail', function() {
             .html(html)
             .promise()
             .done(() => {
-              $("#tblManage").DataTable();
+              $("#tblManage").DataTable({
+                scrollX: true,
+              });
+              
             });
          }
       },
@@ -842,10 +878,10 @@ function showNameDrop2() {
               <i class="bi bi-stars text-warning txt-b"></i></i> <mark>${value.ms_name}</mark>
             </div>
             <div class="col-md-3">
-            <input type="date"  class="form-control strDateAdd">
+            <input type="date"  class="form-control  datepicker strDateAdd">
             </div>
             <div class="col-md-3 text-success">
-            <input type="date"  class="form-control dueDateAdd">
+            <input type="date"  class="form-control  datepicker dueDateAdd">
             </div>
          </div>
             </div>`)
@@ -881,49 +917,6 @@ function showNameDrop2() {
   // <option value="">Position</option></select>
   // </div></div>
   // </div>`)
-//------------------------------------------ check box create project -------------------------------------------
-$("#Send_Invite").click(function() {
-  var form_data = {
-      Opportunity_Id: $('#Opportunity_Id').val(),
-      Educator_Id: $('#Educator_Id').val(),
-      Educator_Classes: $('[name="Educator_Classes[]"]').serialize(),
-      ajax: '1'
-  };
-  var url= API_URL+"Addproject/show_Mststep";
-  $.ajax({
-    url: base_url("Dashboard/callApi?url="+url),
-    type: 'get',
-      data: form_data,
-      success: function(data) {
-          $('#response').html(data);
-      }
-  });
-
-  return false;
-})
-//---------------------------------------- 2- ----------------------------------
-$(document).ready(function() {
-  $('#submit').click(function() {
-      var insert = [];
-      $('.get_value').each(function() {
-          if ($(this).is(":checked")) {
-              insert.push($(this).val());
-          }
-      });
-      insert = insert.toString();
-      $.ajax({
-          url: "insert.php",
-          method: "POST",
-          data: {
-              insert: insert
-          },
-          success: function(data) {
-              alert(data);
-          }
-      });
-  });
-});
-
 
 
 //------------------------------------------Test Fillter by Dropdown List ---------------------------------------------------
@@ -1024,3 +1017,350 @@ $(document).ready(function() {
 
 
 })
+
+
+ChartPlane()
+chartDesign()
+chartDev()
+chartHalfOverall()
+chartTest()
+
+
+ 
+function ChartPlane() {
+  var options = {
+    series: [100],
+    chart: {
+        height: 250,
+        type: 'radialBar',
+        toolbar: {
+            show: true
+        }
+    },
+    plotOptions: {
+        radialBar: {
+            startAngle: -135,
+            endAngle: 225,
+            hollow: {
+                margin: 0,
+                size: '70%',
+                background: '#fff',
+                image: undefined,
+                imageOffsetX: 0,
+                imageOffsetY: 0,
+                position: 'front',
+                dropShadow: {
+                    enabled: true,
+                    top: 5,
+                    left: 0,
+                    blur: 4,
+                    opacity: 0.24
+                }
+            },
+            track: {
+                background: '#fff',
+                strokeWidth: '67%',
+                margin: 0, // margin is in pixels
+                dropShadow: {
+                    enabled: true,
+                    top: -3,
+                    left: 0,
+                    blur: 4,
+                    opacity: 0.35
+                }
+            },
+
+            dataLabels: {
+                show: true,
+                name: {
+                    offsetY: -20,
+                    show: true,
+                    color: '#888',
+                    fontSize: '20px'
+                },
+                value: {
+                    formatter: function(val) {
+                        return parseInt(val);
+                    },
+                    color: '#111',
+                    fontSize: '60px',
+                    show: true,
+                }
+            }
+        }
+    },
+    fill: {
+        type: 'gradient',
+        gradient: {
+            shade: 'dark',
+            type: 'horizontal',
+            shadeIntensity: 0.5,
+            gradientToColors: ['#ABE5A1'],
+            inverseColors: true,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 100]
+        }
+    },
+    stroke: {
+        lineCap: 'round'
+    },
+    labels: ['Percent'],
+};
+
+var chart = new ApexCharts(document.querySelector("#chartPlane"), options);
+chart.render();
+}
+
+
+function chartDesign(data) {
+  console.log('data chartDesign'+data);
+  var options = {
+    series: [40],
+    chart: {
+        height: 250,
+        type: 'radialBar',
+        toolbar: {
+            show: true
+        }
+    },
+    plotOptions: {
+        radialBar: {
+            startAngle: -135,
+            endAngle: 225,
+            hollow: {
+                margin: 0,
+                size: '70%',
+                background: '#fff',
+                image: undefined,
+                imageOffsetX: 0,
+                imageOffsetY: 0,
+                position: 'front',
+                dropShadow: {
+                    enabled: true,
+                    top: 3,
+                    left: 0,
+                    blur: 4,
+                    opacity: 0.24
+                }
+            },
+            track: {
+                background: '#fff',
+                strokeWidth: '67%',
+                margin: 0, // margin is in pixels
+                dropShadow: {
+                    enabled: true,
+                    top: -3,
+                    left: 0,
+                    blur: 4,
+                    opacity: 0.35
+                }
+            },
+
+            dataLabels: {
+                show: true,
+                name: {
+                  offsetY: -20,
+                  show: true,
+                    color: '#888',
+                    fontSize: '20px'
+                },
+                value: {
+                    formatter: function(val) {
+                        return parseInt(val);
+                    },
+                    color: '#111',
+                    fontSize: '60px',
+                    show: true,
+                }
+            }
+        }
+    },
+    fill: {
+        type: 'gradient',
+        gradient: {
+            shade: 'dark',
+            type: 'horizontal',
+            shadeIntensity: 0.5,
+            gradientToColors: ['#ABE5A1'],
+            inverseColors: true,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 100]
+        }
+    },
+    stroke: {
+        lineCap: 'round'
+    },
+    labels: ['Percent'],
+};
+
+var chart = new ApexCharts(document.querySelector("#chartDesign"), options);
+chart.render();
+}
+
+
+function chartDev() {
+  var options = {
+    series: [75],
+    chart: {
+        height: 250,
+        type: 'radialBar',
+        toolbar: {
+            show: true
+        }
+    },
+    plotOptions: {
+        radialBar: {
+            startAngle: -135,
+            endAngle: 225,
+            hollow: {
+                margin: 0,
+                size: '70%',
+                background: '#fff',
+                image: undefined,
+                imageOffsetX: 0,
+                imageOffsetY: 0,
+                position: 'front',
+                dropShadow: {
+                    enabled: true,
+                    top: 3,
+                    left: 0,
+                    blur: 4,
+                    opacity: 0.24
+                }
+            },
+            track: {
+                background: '#fff',
+                strokeWidth: '67%',
+                margin: 0, // margin is in pixels
+                dropShadow: {
+                    enabled: true,
+                    top: -3,
+                    left: 0,
+                    blur: 4,
+                    opacity: 0.35
+                }
+            },
+
+            dataLabels: {
+                show: true,
+                name: {
+                  offsetY: -20,
+                  show: true,
+                    color: '#888',
+                    fontSize: '20px'
+                },
+                value: {
+                    formatter: function(val) {
+                        return parseInt(val);
+                    },
+                    color: '#111',
+                    fontSize: '60px',
+                    show: true,
+                }
+            }
+        }
+    },
+    fill: {
+        type: 'gradient',
+        gradient: {
+            shade: 'dark',
+            type: 'horizontal',
+            shadeIntensity: 0.5,
+            gradientToColors: ['#ABE5A1'],
+            inverseColors: true,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 100]
+        }
+    },
+    stroke: {
+        lineCap: 'round'
+    },
+    labels: ['Percent'],
+};
+
+var chart = new ApexCharts(document.querySelector("#chartDev"), options);
+chart.render();
+}
+
+
+function chartHalfOverall() {
+     
+  var options = {
+    series: [67],
+    chart: {
+    height: 350,
+    type: 'radialBar',
+    offsetY: -10
+  },
+  plotOptions: {
+    radialBar: {
+      startAngle: -135,
+      endAngle: 135,
+      dataLabels: {
+        name: {
+          fontSize: '16px',
+          color: undefined,
+          offsetY: 120
+        },
+        value: {
+          offsetY: 76,
+          fontSize: '22px',
+          color: undefined,
+          formatter: function (val) {
+            return val + "%";
+          }
+        }
+      }
+    }
+  },
+  fill: {
+    type: 'gradient',
+    gradient: {
+        shade: 'dark',
+        shadeIntensity: 0.15,
+        inverseColors: false,
+        opacityFrom: 1,
+        opacityTo: 1,
+        stops: [0, 50, 65, 91]
+    },
+  },
+  stroke: {
+    dashArray: 4
+  },
+  labels: ['Overall Progress'],
+  };
+
+
+
+  var chart = new ApexCharts(document.querySelector("#chartHalfOverall"), options);
+  chart.render();
+
+}
+
+function chartTest() {
+  var options = {
+    series: [70],
+    chart: {
+    height: 180,
+    type: 'radialBar',
+  },
+  plotOptions: {
+    radialBar: {
+      hollow: {
+        size: '50%',
+      }
+    },
+  },
+  labels: ['Testing'],
+  };
+
+
+  var chart = new ApexCharts(document.querySelector("#chartTest"), options);
+  chart.render();
+}
+
+
+
