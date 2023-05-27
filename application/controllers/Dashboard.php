@@ -41,6 +41,8 @@ class Dashboard extends CI_Controller
     public function dashboard()
     {
         $this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
+        $this->another_js .= "<script src='" . base_url() . "/assets/js/js/pieChart.js'></script>";
+        // $this->another_js .= "<script src='" . base_url() . "/assets/js/js/getData.js'></script>";
         // $this->data['tblProjectList'] = $this->Show_model->ProjectList();
         //$this->ShowProjectList();
 
@@ -91,15 +93,53 @@ class Dashboard extends CI_Controller
 
     public function callApiInsert()
     {
-        $url = $_GET["url"];
+        $url = $_POST["url"];
+        // print_r($_POST);
+        // exit;
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = curl_exec($ch);
-        echo  $output;
+        // echo  $output;
+        $result = $this->curPostRequest('Addproject/add_project', ['data' => serialize($_POST)]);
         // if(empty($data)){
         //     echo "NO DATA";
         // }
         // echo json_encode($data);
+        print_r($result);
+    }
+    function curPostRequest($enpoint, $param_data, $is_array = true, $associative = false){
+        /* Endpoint */
+        $url = 'http://172.21.64.115/APIDashboardProject/' . $enpoint;
+    
+        /* eCurl */
+        $curl = curl_init($url);
+    
+        /* Data */
+        $data = (array) $param_data;
+    
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+    
+        /* Set JSON data to POST */
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+    
+        /* Define content type */
+        // curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+    
+        /* Return json */
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    
+        /* make request */
+        $result = curl_exec($curl);
+        if (curl_errno($curl)) {
+            echo 'cURL error: ' . curl_error($curl);
+            exit;
+        }
+    
+        /* close curl */
+        curl_close($curl);
+    
+        return $is_array ? json_decode($result, $associative) : $result;
     }
     public function callApiInsertStap()
     {
@@ -213,10 +253,19 @@ class Dashboard extends CI_Controller
     // }
     public function manage()
     {
+        // $this->another_js .= "<script src='" . base_url() . "/assets/js/js/getData.js'></script>";
+        $this->another_js .= "<script src='" . base_url() . "/assets/js/js/manage.js'></script>"; 
         //$this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
         //$this->data['tblProjectList'] = $this->Show_model->ProjectList();
         //$this->ShowProjectList();
         $this->render_view('manage');
+    }
+    public function test()
+    {
+        //$this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
+        //$this->data['tblProjectList'] = $this->Show_model->ProjectList();
+        //$this->ShowProjectList();
+        $this->render_view('test');
     }
     public function detail()
     {
@@ -277,7 +326,6 @@ class Dashboard extends CI_Controller
 
 
 
-
     // public function showProjectList()
     // {
     //     $result = $this->dashboard->ProjectList();
@@ -286,6 +334,7 @@ class Dashboard extends CI_Controller
 
     public function checkLoginDb()
     {
+        $this->another_js .= "<script src='" . base_url() . "/assets/js/js/getData.js'></script>";
         $data = $this->input->get(NULL);
         $this->load->model('Login_model', 'Login');
         $result = $this->Login->checkLoginDb($data);

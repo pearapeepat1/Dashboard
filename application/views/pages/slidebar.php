@@ -3,7 +3,7 @@
 background: radial-gradient(circle, rgba(2,0,36,1) 33%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);"-->
         <a class="sidebar-brand">
             <a class="sidebar-link" href="http://127.0.0.1/DashboardProject/Dashboard/dashboard">
-                <h1><span class="align-middle text-white txt-b">SangNgaan</span></h1>
+                <h1><span class="align-middle text-white txt-b ">SangNgaan</span></h1>
             </a>
         </a>
 
@@ -35,7 +35,7 @@ background: radial-gradient(circle, rgba(2,0,36,1) 33%, rgba(9,9,121,1) 100%, rg
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <div class="container">
-                <h3 class="modal-title txt-b text-success" id="exampleModalLongTitle" style="font-family: b Biger Over;"><center>L o g i n </center></h3>
+                <h3 class="modal-title txt-b text-success txt-shadow-head" id="exampleModalLongTitle" style="font-family: b Biger Over;"><center>L o g i n </center></h3>
                     <form action="" id="formLogin">
                         <div class="row py-3">
                             <div class="col-lg-1 ">

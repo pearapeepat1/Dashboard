@@ -27,33 +27,23 @@
             </div>
         </div>
     </div>
-</nav> --> <!-- Styles -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-<!-- Or for RTL support -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+</nav> --><!-- Styles -->
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
-<script src="https://phpcoder.tech/multiselect/js/jquery.multiselect.js"></script>
-<link rel="stylesheet" href="https://phpcoder.tech/multiselect/css/jquery.multiselect.css">
-<div class="container bg-dashboard">
+
+<div class="container bg-contain">
     <div class="container py-2">
         <div class="row py-2">
             <div class="col-lg-6">
-                <h3 class="text-success txt-b " style="font-family: b Biger Over;">M a n a g e m e n t</h3>
+                <h3 class="text-success txt-b txt-shadow-head" style="font-family: b Biger Over;">M a n a g e m e n t</h3>
             </div>
             <div class="col-lg-2">
-            <div class="wrap">
-                    <button class="button"data-bs-toggle="modal" data-bs-toggle="modal" href="#exampleModalToggle" role="button"> Create Project</button>
+                <div class="wrap">
+                    <button class="button" data-bs-toggle="modal" data-bs-toggle="modal" href="#exampleModalToggle" role="button"> Create Project</button>
                 </div>
             </div>
             <div class="col-lg-2">
                 <div class="wrap">
-                    <button class="button"data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"> Create Stap</button>
+                    <button class="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"> Create Stap</button>
                 </div>
             </div>
             <div class="col-lg-2">
@@ -135,7 +125,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -147,12 +137,12 @@
                                     <h3 class="title txt-b text-secondary ">Project Summary</h3>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-select" name="selName" id="selName" onchange="getState(this.value)">
+                                    <select class="form-select selName" name="selName" id="selName" onchange="getState(this.value)">
                                         <option>All Project</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-select" name="selPerson" id="selPerson">
+                                    <select class="form-select selPerson" name="selPerson" id="selPerson">
                                         <option>All Person in charge</option>
                                     </select>
                                 </div>
@@ -191,15 +181,15 @@
 
         <div class="modal fade " id="exampleModalToggle" aria-hidden="true" data-bs-backdrop="false" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
             <div class="modal-dialog  modal-lg">
-                <div class="modal-content border-start border-5 border-5 border-success ">
+                <div class="modal-content border-start border-5 border-5 border-success modal-bg ">
                     <div class="modal-header ">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="container">
                             <div class="row">
                                 <h1 style="font-family: b Biger Over;">
-                                    <center><span class="text-success">Create</span> <span class="text-secondary">Project</span></center>
+                                    <center><span class="text-success txt-shadow-2">Create </span><br><span class="text-white txt-shadow-2">Project</span></center>
                                 </h1>
                                 <form action="" id="formInsertProject">
                                     <div class="row g-3 py-3">
@@ -212,23 +202,39 @@
                                     </div>
                                     <div class="row g-3 py-2">
                                         <div class="col-lg-3">
-                                            <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i> Project Leader</span>
+                                            <span class="txt-b"><i class="bi bi-person-hearts text-success"></i> Project Leader</span>
                                         </div>
                                         <div class="col-lg-9">
-                                            <select class="form-select selPerson3" name="selPerson2" id="selPerson2">
-                                                <option value="">Select Assignee</option>
+                                            <select class="form-select " name="selPerson2" id="selPerson2">
+                                                <option value="">Select Project Leader</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="row g-3 py-2">
+                                    <!-- <div class="row g-3 py-2">
                                         <div class="col-lg-3">
                                             <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Person in Charge</span>
                                         </div>
-                                        <div class="col-lg-9">
-
-                                            <select class="form-select selPerson3" id="multiple-select-field" data-placeholder="Choose anything" multiple>
-
+                                        <div class="col-lg-3">
+                                            <select class="form-select selPerson3" id="selPersonAdd">
                                             </select>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Position</span>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <select class="form-select selPosition3 " id="selPositionAdd" name="selPerson2">
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <button type="button" class="btn btn-primary"><i class="bi bi-person-add"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Select you Choose</span>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <select class="form-select selPerson3" id="multiple-select-field" data-placeholder="Choose anything" multiple></select>
                                             <script>
                                                 $('#multiple-select-field').select2({
                                                     theme: "bootstrap-5",
@@ -238,35 +244,41 @@
                                                 });
                                             </script>
                                         </div>
-                                        <div class="col-lg-3">
-                                            <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Position</span>
-                                        </div>
-                                        <div class="col-lg-9">
-                                            <select class="form-select selPosition3" id="selPersonAdd" name="selPerson2" data-placeholder="Choose anything" multiple>
-                                            </select>
-                                        </div>
-                                        <script>
-                                            $('#selPersonAdd').select2({
-                                                theme: "bootstrap-5",
-                                                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-                                                placeholder: $(this).data('placeholder'),
-                                                closeOnSelect: false,
-                                            });
-                                        </script>
-                                        <!-- <div class="col-lg-1">
-                                            <button class="btn btn-primary" type="submit"> <i class="bi bi-person-add"> </i></button>
-                                        </div> -->
-                                    </div>
-                                    <!-- <div class="row">
-                                        <input type="text" class="form-control" placeholder="Person in Charge" aria-label="Person in Charge" id="inpPerson">
                                     </div> -->
+                                    <div class="row g-3 py-3">
+                                        <div class="input_fields_container_part">
+                                            <div class="row formAssignee">
+                                                <div class="col-lg-3">
+                                                    <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Person in Charge 1</span>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <select class="form-select selPerson3 " name="selPerson[]">
+                                                        <option value="  ">Select Person in Charge </option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Position</span>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <select class="form-select selPosition" id="multiple-select-field" data-placeholder="Choose anything" multiple>
+                                                    </select>
+                                                   
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <button class="btn btn-sm btn-primary add_more_button"><i class="bi bi-person-fill-add fs-6"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </form>
-
+                                <script>
+                                    
+                                </script>
 
                             </div>
                             <div class="row py-3">
                                 <h3 style="font-family: b Biger Over;">
-                                    <span class="text-success">Project</span> <span class="text-secondary">Step</span>
+                                    <span class="text-success txt-shadow">Project</span> <span class="text-white txt-shadow-2">Step</span>
                                 </h3>
                                 <div class="row txt-b">
                                     <div class="col-sm-2">
@@ -499,17 +511,17 @@
 
     <div id="myDIV" class="py-5" style="display:none;">
         <div class="container">
-            <div class="card">
+            <div class="bg-white raduis-div">
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-5">
                                 <h1 style="font-family: b Biger Over;">
-                                    <center><span class="text-success">Edits</span><br> <span class="text-secondary">Project</span> <i class="bi bi-pencil-square text-success"></i></center>
+                                    <center><span class="text-success txt-shadow-head">Edits</span><br> <span class="text-secondary txt-shadow-head">Project</span> <i class="bi bi-pencil-square text-success"></i></center>
                                 </h1>
                             </div>
                             <div class="col-lg-6">
-                                <h3 class="txt-b text-primary-emphasis ">
+                                <h3 class="txt-b text-primary-emphasis txt-shadow-head">
                                     Dashboard Management project
                                 </h3>
                             </div>
@@ -648,172 +660,11 @@
 <!-- close container -->
 <script>
     function EditModal() {
-        var x = document.getElementById("myDIV");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('#btnInsertFirst').on('click', function() {
-            var projectname = $('#inpProjectName').val();
-            var assignee = $('#selPerson2').val();
-            var personCharge = $('#multiple-select-field').val();
-            var position = $('#selPersonAdd').val();
-            if (projectname != "" && assignee != "") {
-                var url = API_URL + "Addproject/add_project?projectname=" + projectname.replaceAll(" ", "%20") + "&assignee=" + assignee + "&personCharge=" + personCharge + "&position=" + position;
-                console.log(url);
-                $.ajax({
-                    url: base_url("Dashboard/callApiInsert"),
-                    type: "GET",
-                    data: {
-                        url: url,
-                        projectname: projectname,
-                        assignee: assignee,
-                        personCharge: personCharge,
-                        position: position,
-                    },
-                    dataType: 'json',
-                    success: function(res) {
-                        if (res.result == true) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Success!',
-                                html: res.message,
-                                timer: 3000
-                            }).then(() => {
-                                location.reload();
-                            })
-                        } else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Save do not successfull!',
-                                html: res.message,
-                            }).then(() => {
-                                location.reload();
-                            })
-                        }
-                    }
-                });
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Please fill all the field !',
-                })
-            }
-
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $("#btnInsertFirst").click(function() {
-            var array = []
-            var projectname = $('#inpProjectName').val();
-            $('.chkMaster').each(function() {
-                if ($(this).is(":checked")) {
-                    let chkBox = $(this).val()
-                    let strDate = $(this).closest('div').find('.strDateAdd').val()
-                    let dueDate = $(this).closest('div').find('.dueDateAdd').val()
-                    array.push({
-                        projectname: projectname.replaceAll(" ", "%20"),
-                        chkBox: chkBox,
-                        strDate: strDate,
-                        dueDate: dueDate,
-                    })
-                    // const arrayTest = [{projectname:projectname, chkBox: chkBox, strDate:strDate, dueDate: dueDate}]
-                    // console.log(arrayTest);
-                    // let strArray = array.toString()
-                    // console.log(array);
-                    var ids = [projectname, chkBox, strDate, dueDate],
-                        formatted = `(${ids.map(v => JSON.stringify(v.toString())).join(', ')})`;
-                    console.log(formatted);
-                    var url = API_URL + "Addproject/add_project?projectName=" + projectname.replaceAll(" ", "%20") + "&chkBox=" + [chkBox] + "&strDate=" + [strDate] + "&dueDate=" + [dueDate];
-                    // var url = API_URL + "Addproject/add_project?projectData=" + arrayTest ;
-                    // console.log(url);
-                    $.ajax({
-                        url: base_url("Dashboard/callApiInsertStap"),
-                        method: "GET",
-                        data: {
-                            format: 'json'
-                        },
-                        dataType: 'Json',
-                        data: {
-                            url: url,
-                            // array: array,
-                            projectname: projectname,
-                            chkBox: chkBox,
-                            strDate: strDate,
-                            dueDate: dueDate,
-                        },
-                        success: function(data) {
-                            $('#result').html(data);
-                        }
-                    });
-                }
-            });
-
-        });
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        $('#btnSaveAdd').on('click', function() {
-            var selProject2 = $('#selProject2').val();
-            var addTask = $('#addTask').val();
-            var strDateAdd = $('#strDateAdd').val();
-            var dueDateAdd = $('#dueDateAdd').val();
-            var selPerson3 = $('#selPerson3').val();
-            var selPosition3 = $('#selPosition3').val();
-
-            if (selProject2 != "" && addTask != "" && strDateAdd != "" && dueDateAdd != "" && selPerson3 != "" && selPosition3 != "") {
-                $("#butsave").attr("disabled", "disabled");
-                var url = API_URL + "Addproject/add_project_step?selProject2=" + selProject2 + "&addTask=" + addTask + "&strDateAdd=" + strDateAdd +
-                    "&dueDateAdd=" + dueDateAdd + "&selPerson3=" + selPerson3 + "&selPosition3=" + selPosition3;
-                $.ajax({
-                    url: base_url("Dashboard/callApiAddTask"),
-                    type: "GET",
-                    data: {
-                        url: url,
-                        selProject2: selProject2,
-                        addTask: addTask,
-                        strDateAdd: strDateAdd,
-                        dueDateAdd: dueDateAdd,
-                        selPerson3: selPerson3,
-                        selPosition3: selPosition3,
-                    },
-                    cache: false,
-                    success: function(res) {
-                        if (res.result == true) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Success!',
-                                html: res.message,
-                                timer: 3000
-                            })
-                        } else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Save do not successfull!',
-                                html: res.message,
-                            })
-                        }
-
-                    }
-                });
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Please fill all the field !',
-                })
-            }
-        });
-    });
+			var x = document.getElementById("myDIV");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
 </script>

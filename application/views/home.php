@@ -1,19 +1,10 @@
-<!-- <div class="spinner-wrapper">
-	<div id="page-loading">
-		<div class="three-balls">
-			<div class="ball ball1"></div>
-			<div class="ball ball2"></div>
-			<div class="ball ball3"></div>
-		</div>
-	</div>
-</div> -->
 <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
-<div class="container bg-dashboard" id="DashboardHome">
+<div class="container bg-dashboard " id="DashboardHome">
 	<div class="container py-2">
 		<div class="row py-2 ">
 			<div class="col-lg-8">
-				<h3 class="text-success txt-b " style="font-family: b Biger Over;">D a s h b o a r d</h3>
+				<h3 class="text-success txt-b txt-shadow-head " style="font-family: b Biger Over;">D a s h b o a r d</h3>
 			</div>
 			<div class="col-lg-2">
 				<h1 class="text-right text-secondary">
@@ -104,7 +95,8 @@
 						<div class="container">
 							<div class="row py-3">
 								<div class="col-lg-4">
-									<h3 class="title txt-b text-secondary ">Project Summary</h3>
+									<!-- <h3 class="title txt-b text-secondary">Project Summary</h3> -->
+									<h3 class="txt-b text-secondary">Project&nbsp;Summary</h3>
 								</div>
 								<div class="col-lg-3">
 									<select class="form-select " name="selName" id="selName">
@@ -152,6 +144,7 @@
 						</div>
 					</div>
 				</div>
+				
 			</div>
 			<div class="col-lg-4">
 				<div class="card">
@@ -205,6 +198,7 @@
 					</div>
 				</div>
 			</div>
+			
 
 
 		</div>
@@ -223,12 +217,12 @@
 			<div class="col-lg-8">
 				<div class="row">
 					<center>
-						<h3 class="text-dark txt-b" style="font-family: b Biger Over;"><span class="text-success ">P r o j e c t</span>&nbsp; <span class="text-secondary">S u m m a y</span>&nbsp; <span class="text-success ">D e t a i l</span></h3>
+						<h3 class="text-dark txt-b txt-shadow-head" style="font-family: b Biger Over;"><span class="text-success ">P r o j e c t</span>&nbsp; <span class="text-secondary txt-shadow-head">S u m m a y</span>&nbsp; <span class="text-success txt-shadow-head">D e t a i l</span></h3>
 					</center>
 				</div>
 				<div class="row">
 					<center>
-						<h3 class="text-dark txt-b"><span class="projectName text-dark">Dashboard management</span></h3>
+						<h3 class="text-dark txt-b txt-shadow-head"><span class="projectName text-dark">Dashboard management</span></h3>
 					</center>
 				</div>
 			</div>
@@ -244,35 +238,35 @@
 							<div class="progress-bar bg-success" role="progressbar" aria-label="Example with label" style="width: 67%;" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100">67%</div>
 						</div>
 					</div>
-					<div class="col-lg-2 text-success txt-b">
+					<div class="col-lg-2 text-success txt-b txt-shadow-head">
 						<i class="bi bi-flag-fill"></i> Completed
 					</div>
 				</div>
 				<div class="row py-3  ">
 					<div class="col-lg-3 card bg-white set-pading"><br>
 						<center>
-							<h5 class="text-success  txt-b " style="font-family: b Biger Over;">P l a n n i n g </h5>
+							<h5 class="text-success  txt-b txt-shadow-head" style="font-family: b Biger Over;">P l a n n i n g </h5>
 						</center>
 						<div id="chartPlane"></div>
 						<div class=" badge text-bg-success "><i class="bi bi-check-circle-fill"></i> Completed</div>
 					</div>
 					<div class="col-lg-3 card bg-white set-pading-crad"><br>
 						<center>
-							<h5 class="text-success txt-b" style="font-family: b Biger Over;">D e s i g n</h5>
+							<h5 class="text-success txt-b txt-shadow-head" style="font-family: b Biger Over;">D e s i g n</h5>
 						</center>
 						<div id="chartDesign"></div>
 						<div class=" badge text-bg-warning "><i class="bi bi-patch-exclamation-fill"></i> in progess</div>
 					</div>
 					<div class="col-lg-3 bg-white card set-pading-crad"><br>
 						<center>
-							<h5 class="text-success txt-b " style="font-family: b Biger Over;">D e v e l o p</h5>
+							<h5 class="text-success txt-b txt-shadow-head" style="font-family: b Biger Over;">D e v e l o p</h5>
 						</center>
 						<div id="chartDev"></div>
 						<div class=" badge text-bg-warning "><i class="bi bi-patch-exclamation-fill"></i> in progess</div>
 					</div>
 					<div class="col-lg-2 bg-white card set-pading-crad"><br>
 						<center>
-							<h5 class="text-success txt-b " style="font-family: b Biger Over;">T e s t</h5>
+							<h5 class="text-success txt-b txt-shadow-head" style="font-family: b Biger Over;">T e s t</h5>
 						</center>
 						<div id="chartTest"></div>
 						<div class=" badge text-bg-warning  set-test-top"><i class="bi bi-patch-exclamation-fill"></i> in progess</div>
@@ -282,7 +276,7 @@
 			<div class="col-lg-3">
 				<div class="card">
 					<center><br>
-						<h5 class="text-success  txt-b " style="font-family: b Biger Over;">O v e r a l l</h5>
+						<h5 class="text-success  txt-b txt-shadow-head" style="font-family: b Biger Over;">O v e r a l l</h5>
 					</center>
 					<div class="crad-body p-2 text-dark bg-opacity-25">
 						<div id="chartHalfOverall"></div>
@@ -382,38 +376,41 @@
 </div>
 </div>
 <script>
-	function showDetail() {
-		var x = document.getElementById("DashboardHome");
-		var y = document.getElementById("detailDashboard");
-		if (x.style.display === "none") {
-			let timerInterval
-			Swal.fire({
-				title: 'Auto close alert!',
-				html: 'I will close in <b></b> milliseconds.',
-				timer: 2000,
-				timerProgressBar: true,
-				didOpen: () => {
-					Swal.showLoading()
-					const b = Swal.getHtmlContainer().querySelector('b')
-					timerInterval = setInterval(() => {
-						b.textContent = Swal.getTimerLeft()
-					}, 100)
-				},
-				willClose: () => {
-					clearInterval(timerInterval)
-				}
-			}).then((result) => {
-				/* Read more about handling dismissals below */
-				if (result.dismiss === Swal.DismissReason.timer) {
-					console.log('I was closed by the timer')
-				}
-			})
-			
-		} else {
-			x.style.display = "none";
-			y.style.display = "block";
-		}
-	}
+	var y = document.getElementById("detailDashboard");
+	y.style.display = "none";
+	$(document).on('click', '.btnDetail', function() {
+		let timerInterval
+		Swal.fire({
+			title: 'Plese wait!',
+			html: '<div class="spinner-grow text-primary" role="status"> <span class="visually-hidden">Loading...</span></div><div class="spinner-grow text-secondary" role="status"> <span class="visually-hidden">Loading...</span></div><div class="spinner-grow text-success" role="status"> <span class="visually-hidden">Loading...</span></div><div class="spinner-grow text-danger" role="status"> <span class="visually-hidden">Loading...</span></div><div class="spinner-grow text-warning" role="status"> <span class="visually-hidden">Loading...</span></div><div class="spinner-grow text-info" role="status"> <span class="visually-hidden">Loading...</span></div><div class="spinner-grow text-light" role="status"> <span class="visually-hidden">Loading...</span></div><div class="spinner-grow text-dark" role="status"> <span class="visually-hidden">Loading...</span></div><br>I will close in <b></b> milliseconds.',
+			timer: 2000,
+			timerProgressBar: true,
+			didOpen: () => {
+				Swal.showLoading()
+				const b = Swal.getHtmlContainer().querySelector('b')
+				timerInterval = setInterval(() => {
+					b.textContent = Swal.getTimerLeft()
+				}, 200)
+			},
+			willClose: () => {
+				clearInterval(timerInterval)
+			}
+		}).then((result) => {
+			/* Read more about handling dismissals below */
+			var x = document.getElementById("DashboardHome");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+				y.style.display = "block";
+			}
+			if (result.dismiss === Swal.DismissReason.timer) {
+
+			}
+		})
+
+
+	})
 </script>
 <!-- <script>
     function hideDetail() {
