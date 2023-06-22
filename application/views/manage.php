@@ -1,58 +1,24 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-    <div class="container-fluid">
-        <div class="col-lg-5">
-        <h3 class="text-success txt-b " style="font-family: b Biger Over;">M a n a g e m e n t</h3> <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        </div>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <div class="col-lg-7">
-                    <li class="nav-item">
-                        <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><i class="bi bi-clipboard-plus"></i> Create Project</a>
-                    </li>
-                </div>
-                <div class="col-lg-6">
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="bi bi-clipboard-plus"></i> Create Stap</button>
-                    </li>
-                </div>
-            </ul>
-            <div class="col-lg-4">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</nav> --><!-- Styles -->
-
-
 <div class="container bg-contain">
-    <div class="container py-2">
+    
+    <div>
         <div class="row py-2">
-            <div class="col-lg-6">
-                <h3 class="text-success txt-b txt-shadow-head" style="font-family: b Biger Over;">M a n a g e m e n t</h3>
+            <div class="col-lg-8">
+                <h1 class="text-success txt-b txt-shadow-head">M A N A G E M E N T</h1>
             </div>
             <div class="col-lg-2">
-                <div class="wrap">
-                    <button class="button" data-bs-toggle="modal" data-bs-toggle="modal" href="#exampleModalToggle" role="button"> Create Project</button>
+                <div class="dropdown">
+                    <button class="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-gear-fill fs-5 text-success"></i> SETTING
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" data-bs-toggle="modal" data-bs-toggle="modal" href="#exampleModal">Create Step</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-toggle="modal" href="#crtRes">Create Resources</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-toggle="modal" href="#crtAdmin">Create Admin</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="col-lg-2">
-                <div class="wrap">
-                    <button class="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"> Create Stap</button>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <select class="form-select" name="selDate" id="selDate">
-                    <option value="24">All Day</option>
-                    <option value="30">Last 30 Day</option>
-                    <option value="15">Last 15 Day</option>
-                    <option value="7">Last 7 Day</option>
-                </select>
+                <button type="button" class="btn btn-secondary" id="btnLogOut">L O G O U T <i class="bi bi-box-arrow-in-right"></i></button>
             </div>
         </div>
 
@@ -65,7 +31,7 @@
                             <div>
                                 <p class="mb-0 text-secondary txt-b">Total Project</p>
                                 <h4 class="my-1 text-info txt-b">
-                                    <div id="sumProject"></div>
+                                    <div id="sumProjectMange"></div>
                                 </h4>
                             </div>
                             <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto"><i class="bi bi-briefcase-fill"></i>
@@ -99,7 +65,7 @@
                             <div>
                                 <p class="mb-0 text-secondary txt-b">Time Spent</p>
                                 <h4 class="my-1 text-success txt-b">
-                                    <div id="sumTime"></div>
+                                    <div id="sumTimeManage"></div>
                                 </h4>
                             </div>
                             <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class="bi bi-clock-history"></i>
@@ -126,29 +92,34 @@
         </div>
     </div>
 
-    <div class="container">
+    <div>
         <div class="row">
+            <div class="wrap magin-left-button">
+                <button class="button" data-bs-toggle="modal" data-bs-toggle="modal" href="#exampleModalToggle" role="button"> <i class="bi bi-plus-circle-fill text-danger fs-5"></i> Create</button>
+            </div>
+        </div>
+        <div class="row py-2">
             <div class="col-md-12">
                 <div class="bg-white raduis-div">
                     <div class="card-body">
-                        <div class="container">
+                        <div >
                             <div class="row py-3">
                                 <div class="col-md-4">
-                                    <h3 class="title txt-b text-secondary ">Project Summary</h3>
+                                    <h3 class="title txt-b text-secondary ">Project Management</h3>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-select selName" name="selName" id="selName" onchange="getState(this.value)">
-                                        <option>All Project</option>
+                                    <select class="form-select" id="selProject2">
+                                        <option value="">All Project</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-select selPerson" name="selPerson" id="selPerson">
-                                        <option>All Person in charge</option>
+                                    <select class="form-select " id="selPerson2">
+                                        <option value="">All Leader</option>
                                     </select>
                                 </div>
                                 <div class="col-md-2">
-                                    <select class="form-select" name="selStatus" id="selStatus">
-                                        <option>All Status</option>
+                                    <select class="form-select" id="selStatusManage">
+                                        <option value="">All Status</option>
                                     </select>
                                 </div>
                             </div>
@@ -156,15 +127,15 @@
                                 <table id="tblManage" class="display table" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th style="display:none;">#</th>
-                                            <th>Project Name</th>
-                                            <th>Step</th>
-                                            <th>Project Leader</th>
-                                            <th>Start Date</th>
-                                            <th>Due Date</th>
-                                            <th>Status </th>
-                                            <th>Action</th>
-                                            <th>Edit</th>
+                                            <th class="text-center">No.</th>
+                                            <th class="text-center">Project Name</th>
+                                            <th class="text-center">Step</th>
+                                            <th class="text-center">Project Leader</th>
+                                            <th class="text-center">Start Date</th>
+                                            <th class="text-center">Due Date</th>
+                                            <th class="text-center">Status </th>
+                                            <th class="text-center">Action</th>
+                                            <th class="text-center">Edit</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tbodY">
@@ -188,13 +159,13 @@
                     <div class="modal-body">
                         <div class="container">
                             <div class="row">
-                                <h1 style="font-family: b Biger Over;">
-                                    <center><span class="text-success txt-shadow-2">Create </span><br><span class="text-white txt-shadow-2">Project</span></center>
+                                <h1>
+                                    <center><span class="text-success txt-shadow-head">C R E A T E </span><span class="text-secondary txt-shadow-head">P R O J E C T</span></center>
                                 </h1>
                                 <form action="" id="formInsertProject">
                                     <div class="row g-3 py-3">
                                         <div class="col-lg-3">
-                                            <span class="txt-b"><i class="bi bi-clipboard-fill text-success"></i> Project Name</span>
+                                            <span class="txt-b">Project Name</span>
                                         </div>
                                         <div class="col-lg-9">
                                             <input type="text" class="form-control" placeholder="Project name" aria-label="Project name" id="inpProjectName">
@@ -202,26 +173,16 @@
                                     </div>
                                     <div class="row g-3 py-2">
                                         <div class="col-lg-3">
-                                            <span class="txt-b"><i class="bi bi-person-hearts text-success"></i> Project Leader</span>
+                                            <span class="txt-b">Project Leader</span>
                                         </div>
                                         <div class="col-lg-9">
-                                            <select class="form-select " name="selPerson2" id="selPerson2">
+                                            <select class="form-select " name="selLeader" id="selLeader">
                                                 <option value="">Select Project Leader</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <!-- <div class="row g-3 py-2">
-                                        <div class="col-lg-3">
-                                            <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Person in Charge</span>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <select class="form-select selPerson3" id="selPersonAdd">
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Position</span>
-                                        </div>
-                                        <div class="col-lg-3">
+
+                                    <!-- <div class="col-lg-3">
                                             <select class="form-select selPosition3 " id="selPositionAdd" name="selPerson2">
                                             </select>
                                         </div>
@@ -244,41 +205,44 @@
                                                 });
                                             </script>
                                         </div>
-                                    </div> -->
+                                    </div>  -->
                                     <div class="row g-3 py-3">
+                                    <h3>
+                                <span class="text-success txt-shadow txt-shadow-head">P R O J E C T</span> <span class="text-secondary txt-shadow-head">A S S I G N E E</span>&nbsp;&nbsp;&nbsp;
+                            
+                            </h3>
                                         <div class="input_fields_container_part">
                                             <div class="row formAssignee">
                                                 <div class="col-lg-3">
-                                                    <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Person in Charge 1</span>
+                                                    <span class="txt-b"><i class="bi bi-person"></i>&nbsp;Person&nbsp;In&nbsp;Charge&nbsp;1</span>
                                                 </div>
                                                 <div class="col-lg-3">
-                                                    <select class="form-select selPerson3 " name="selPerson[]">
+                                                    <select class="form-select selPersonCreate ">
                                                         <option value="  ">Select Person in Charge </option>
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-2">
-                                                    <span class="txt-b"><i class="bi bi-person-lines-fill text-success"></i>Position</span>
+                                                    <span class="txt-b">Position</span>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <select class="form-select selPosition" id="multiple-select-field" data-placeholder="Choose anything" multiple>
                                                     </select>
-                                                   
                                                 </div>
                                                 <div class="col-lg-1">
-                                                    <button class="btn btn-sm btn-primary add_more_button"><i class="bi bi-person-fill-add fs-6"></i></button>
+                                                    <button class="btn btn-sm btn-primary add_more_button"><i class="bi bi-person-fill-add fs-5"></i></button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                                 <script>
-                                    
+
                                 </script>
 
                             </div>
                             <div class="row py-3">
-                                <h3 style="font-family: b Biger Over;">
-                                    <span class="text-success txt-shadow">Project</span> <span class="text-white txt-shadow-2">Step</span>
+                                <h3>
+                                    <span class="text-success txt-shadow txt-shadow-head">P R O J E C T</span> <span class="text-secondary txt-shadow-head">S T E P</span>
                                 </h3>
                                 <div class="row txt-b">
                                     <div class="col-sm-2">
@@ -286,17 +250,16 @@
                                     <div class="col-sm-4">
                                     </div>
                                     <div class="col-sm-3">
-                                        <center><span class="text-success"><i class="bi bi-calendar2-plus-fill"></i> START DATE</span></center>
+                                        <span class="text-success text-center"> S T A R T &nbsp; D A T E</span>
                                     </div>
                                     <div class="col-sm-3">
-                                        <center><span class="text-danger"><i class="bi bi-calendar2-check-fill"></i>DUE DATE</span></center>
+                                        <span class="text-danger text-center">D U E &nbsp; D A T E</span>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-check" id="frmCheckBox">
 
                                     </div>
-                                    <!-- <input type="checkbox" id="Educator_Classes" name="Educator_Classes[]" class="Educator_Classes" value="<?php echo $Class_Number; ?>" /> -->
                                 </div>
                                 <div class="row py-2">
                                     <div class="col-lg-10">
@@ -305,318 +268,123 @@
                                         <button type="sudmit" class="btn btn-success" id="btnInsertFirst"><i class="bi bi-cloud-download-fill"></i> Save</button>
                                     </div>
 
-                                    <!-- <div class="col-lg-2">
-                                        <center><button class="btn btn-danger " data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Add Stap</button></center>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" data-bs-backdrop="false" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                <div class="modal-dialog  modal-lg modal-dialog-scrollable ">
-                    <div class="modal-content border-start border-5 border-5 border-success">
-                        <div class="modal-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <h1 style="font-family: b Biger Over;">
-                                <center><span class="text-success">Add</span> <span class="text-secondary">Task</span></center>
-                            </h1>
-                            <form action="">
-                                <div class="container">
-                                    <div class="row g-3 py-2">
-                                        <div class="col-sm-2">
-                                            <span class="txt-b">Project Name</span>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <select class="form-select" name="selProject2" id="selProject2">
-                                                <option value="">Project Name</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-1">
-                                            <span class="txt-b">Task</span>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <input type="text" id="addTask" class="form-control">
-                                        </div>
-                                        <div class="row g-2">
-                                            <div class="col-sm-2">
-                                                <span class="txt-b">Start Date</span>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="date" id="strDateAdd" class="form-control">
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <span class="txt-b">Due Date</span>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="date" id="dueDateAdd" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row g-2 py-3">
-                                        <div class="col-sm-2">
-                                            <span class="txt-b">Assignee</span>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <select class="form-select " name="selPerson3" id="selPerson3">
-                                                <option value="">Assignee</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <span class="txt-b">Position</span>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <select class="form-select" name="selPosition3" id="selPosition3">
-                                                <option value="">Position</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="row g-2">
-                                            <div class="col-sm-8">
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <button type="button" class="btn btn-success" id="btnSaveAdd"><i class="bi bi-plus"></i> Add Task</button>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <button type="reset" class="btn btn-danger" id="btnClear"><i class="bi bi-eraser"></i> Reset</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                            </form>
-                            <div class="row g-2 ">
-                                <table class="table table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th style="display:none;" scope="col">#</th>
-                                            <th scope="col">Task Detail</th>
-                                            <th scope="col">Start Date</th>
-                                            <th scope="col">Due Date</th>
-                                            <th scope="col">Assignee</th>
-                                            <th scope="col">Position</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tbody2">
-                                        <tr>
-                                            <th scope="row">traceability</th>
-                                            <td>15 Mar 23</td>
-                                            <td>24 Apr 23</td>
-                                            <td>Rapeepat J.</td>
-                                            <td class="badge rounded-pill bg-secondary">Front End</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">traceability</th>
-                                            <td>15 Mar 23</td>
-                                            <td>24 Apr 23</td>
-                                            <td>Rapeepat J.</td>
-                                            <td class="badge rounded-pill bg-secondary">Front End</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">traceability</th>
-                                            <td>15 Mar 23</td>
-                                            <td>24 Apr 23</td>
-                                            <td>Rapeepat J.</td>
-                                            <td class="badge rounded-pill bg-secondary">Front End</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">traceability</th>
-                                            <td>15 Mar 23</td>
-                                            <td>24 Apr 23</td>
-                                            <td>Rapeepat J.</td>
-                                            <td class="badge rounded-pill bg-warning">Front End</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">traceability</th>
-                                            <td>15 Mar 23</td>
-                                            <td>24 Apr 23</td>
-                                            <td>Rapeepat J.</td>
-                                            <td class="badge rounded-pill bg-secondary">Front End</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">traceability</th>
-                                            <td>15 Mar 23</td>
-                                            <td>24 Apr 23</td>
-                                            <td>Rapeepat J.</td>
-                                            <td class="badge rounded-pill bg-warning">Front End</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">traceability</th>
-                                            <td>15 Mar 23</td>
-                                            <td>24 Apr 23</td>
-                                            <td>Rapeepat J.</td>
-                                            <td>Front End</td>
-                                        </tr> 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 
 
-
-
-
-    <!-- <label class="switch">
-    <input type="checkbox" class="chk" id="id_chk">
-    <span class="slider"></span>
-</label> -->
-
-    <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-    <div class="offcanvas-header border-start border-5 border-5 border-success">
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div class="container">
-            <div class="row">
-                <h1 style="font-family: b Biger Over;">
-                    <center><span class="text-success">Edits</span> <span class="text-secondary">Project</span></center>
-                </h1>
-            </div>
-        </div>
-        <div class="row py-3">
-            <div class="col-sm-4">
-                <span class="txt-b">Project Name</span>
-            </div>
-            <div class="col-sm-8">
-                <input type="taxt" id="edtProjetcName" class="form-control">
-            </div>
-        </div>
-        <div class="row py-1">
-            <div class="col-sm-4">
-                <span class="txt-b">Project Name</span>
-            </div>
-            <div class="col-sm-8">
-                <input type="taxt" id="edtProjetcName" class="form-control">
-            </div>
-        </div>
-    </div>
-</div> -->
-
-    <!-- <div class="container">
-    <button class="btn btn-success" onclick="myFunction()">Try it</button>
-</div> -->
-
-
-    <div id="myDIV" class="py-5" style="display:none;">
-        <div class="container">
+    <div id="myDIV" class="py-5 editDiv" style="display:none;">
+        <div >
             <div class="bg-white raduis-div">
                 <div class="card-body">
-                    <div class="container">
+                    <div>
                         <div class="row">
-                            <div class="col-lg-5">
+                            <div class="col-lg-4">
                                 <h1 style="font-family: b Biger Over;">
-                                    <center><span class="text-success txt-shadow-head">Edits</span><br> <span class="text-secondary txt-shadow-head">Project</span> <i class="bi bi-pencil-square text-success"></i></center>
+                                    <center><span class="text-success txt-shadow-head">E D I T S</span><br> <span class="text-secondary txt-shadow-head">P R O J E C T</span> <i class="bi bi-pencil-square text-success"></i></center>
                                 </h1>
                             </div>
-                            <div class="col-lg-6">
-                                <h3 class="txt-b text-primary-emphasis txt-shadow-head">
-                                    Dashboard Management project
-                                </h3>
+                            <div class="col-lg-4">
+                                <div class="col-sm">
+                                    <span class="txt-b text-success txt-shadow-head"> Project Name :</span>
+                                    <h1 class="txt-b text-primary-emphasis txt-shadow-head text-uppercase" id="ProjectName">
+                                        <!-- Project Name -->
+                                    </h1>
+                                </div>
+
                             </div>
-                            <div class="col-lg-1">
-                                <button class="btn btn-success" onclick="EditModal()"><i class="bi bi-x-lg"></i></button>
-                            </div>
-                        </div>
-                        <!-- <div class="row">
-                    <div class="col-lg-3">
-                        <h3 style="font-family: b Biger Over;" class="text-success">
-                        Project : 
-                        </h3>
-                    </div>
-                    <div class="col-lg-9">
-                        <h3 class="txt-b text-secondary">
-                            Dashboard Management
-                        </h3>
-                    </div>
-                </div> -->
-                        <div class="row py-4">
-                            <div class="col-sm-2">
-                                <span class="txt-b">Project Name</span>
-                            </div>
-                            <div class="col-sm-3">
-                                <input type="taxt" id="edtProjetcName" class="form-control">
-                            </div>
-                            <div class="col-sm-2">
-                                <span class="txt-b">Person in Charge</span>
-                            </div>
-                            <div class="col-sm-2">
-                                <input type="taxt" id="edtProjetcName" class="form-control">
-                            </div>
-                            <div class="col-sm-1">
-                                <span class="txt-b">Position</span>
-                            </div>
-                            <div class="col-sm-2">
-                                <input type="taxt" id="edtProjetcName" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row g-3 py-2">
-                            <div class="col-lg-12">
-                                <div class="row g-3">
-                                    <div class="col-sm-2">
-                                        <span class="txt-b">Project Name</span>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="taxt" id="edtProjetcName" class="form-control">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <span class="txt-b">Task</span>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <textarea class="form-control" placeholder="Enter project Task here..."></textarea>
-                                    </div>
+                            <div class="col-lg-2">
+                                <div class="col-sm" id="ProjectStatus">
+                                    <!-- Project Status -->
                                 </div>
                             </div>
+                            <div class="col-lg-2">
+                                <button class="btn btn-success saveEdit">S A V E &nbsp;<i class="bi bi-save"></i></button>
+                            </div>
                         </div>
-                        <div class="row g-3 py-2">
-                            <div class="col-lg-12">
-                                <div class="row g-3">
-                                    <div class="col-sm-2">
-                                        <span class="txt-b">Start Date</span>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input type="date" id="strDate" class="form-control">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <span class="txt-b">Due Date</span>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input type="date" id="dueDate" class="form-control">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <button type="button" class="btn btn-success">Save Chang</button>
-                                    </div>
+                        <form action="" id="formEditProject">
+                            <div class="row py-4">
+                                <div class="col-sm-2">
+                                    <span class="txt-b">Project Name</span>
+                                </div>
+                                <div class="col-sm-10" id="inpProjectNameEdit">
+                                    <!-- <input type="taxt" id="edtProjetcName" class="form-control" > -->
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <span class="txt-b">Project Leader</span>
+                                </div>
+                                <div class="col-sm-10">
+                                    <select class="form-select " id="selLeaderEdit"></select>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row py-3">
+                            <h3>
+                                <span class="text-success txt-shadow txt-shadow-head">P R O J E C T</span> <span class="text-secondary txt-shadow-head">A S S I G N E E</span>&nbsp;&nbsp;&nbsp;
+                                <button class="btn add_more_button_Edit ">
+                                    C R E A T E <i class="bi bi-person-fill-add text-success fs-5"></i>
+                                </button>
+                            </h3>
+                            <form action="" id="formEditAssigneeEdit">
+                                <div class="input_fields_Edit">
+                                    <div class="row formEditAssignee">
+                                        <!-- <div class="col-lg-10">
+                                    </div> -->
+                                        <!-- <div class="col-lg-2">
+                                        <button class="btn btn-outline-success add_more_button_Edit">
+                                        Add Person<i class="bi bi-person-fill-add text-success fs-5"></i>
+                                        </button>
+                                    </div> -->
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="stepEdit">
+
                         </div>
                         <div class="row py-1">
-                            <table class="table table-sm" id="table-master">
-                                <thead>
-                                    <tr>
-                                        <th style="display:none;" scope="col">#</th>
-                                        <th scope="col">Task Detail</th>
-                                        <th scope="col">Start Date</th>
-                                        <th scope="col">Due Date</th>
-                                        <th scope="col">Assignee</th>
-                                        <th scope="col">Position</th>
-                                        <th scope="col">Position</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbody">
+                            <h3>
+                                <span class="text-success txt-shadow txt-shadow-head">P R O J E C T</span> <span class="text-secondary txt-shadow-head">S T E P</span>
+                            </h3>
+                            <div class="row txt-b">
+                                <div class="col-sm-3">
+                                </div>
+                                <div class="col-sm-2">
+                                    <center><span class=" ">Start Date</span></center>
+                                </div>
+                                <div class="col-sm-2">
+                                    <center><span class="">Due Date</span></center>
+                                </div>
+                                <div class="col-sm">
+                                    <center><span class=" ">Assignee</span></center>
+                                </div>
+                                <div class="col-sm">
+                                    <center><span class=" ">Position</span></center>
+                                </div>
+                                <div class="col-sm">
+                                    <center><span class=" ">Percent(%)</span></center>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-check" id="frmCheckBoxEdit">
 
-                                </tbody>
-                            </table>
+                                </div>
+                            </div>
+                            <!-- <div class="row py-2">
+                                    <div class="col-lg-10">
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <button type="sudmit" class="btn btn-success" id="btnInsertFirst"><i class="bi bi-cloud-download-fill"></i> Save</button>
+                                    </div>
+
+                                </div> -->
                         </div>
                     </div>
                 </div>
@@ -629,8 +397,8 @@
         <div class="modal-dialog ">
             <div class="modal-content border-start border-5 border-5 border-success">
                 <div class="modal-header">
-                    <h1 style="font-family: b Biger Over;" id="exampleModalLabel">
-                        <center><span class="text-success">Create</span> <span class="text-secondary">Stap</span></center>
+                    <h1 class="txt-shadow-head" id="exampleModalLabel">
+                        <center><span class="text-success">C&nbsp;R&nbsp;A&nbsp;T&nbsp;E</span>&nbsp;&nbsp;<span class="text-secondary">S&nbsp;T&nbsp;E&nbsp;P</span></center>
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -654,17 +422,108 @@
         </div>
     </div>
 
+    <div class="modal fade" id="crtRes" data-bs-backdrop="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content border-start border-5 border-5 border-success">
+                <div class="modal-header">
+                    <h2 class="txt-shadow-head" id="exampleModalLabel">
+                        <center><span class="text-success">C R E A T E</span> <span class="text-secondary">R E S O U R C E S</span></center>
+                    </h2>
+                    <div class="row">
+
+                    </div>
+                    <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formCreateEmp">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Employee ID:</label>
+                            <input type="text" class="form-control" id="empId" placeholder="Enter Enployee ID" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Employee Name:</label>
+                            <input type="text" class="form-control" id="empName" placeholder="Enter Employee name"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Employee Last Name:</label>
+                            <input type="text" class="form-control" id="empLName" placeholder="Enter Employee Last name"></input>
+                        </div>
+                        <!-- <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Employee Default Position:</label>
+                            <select class="form-select selPosition" id="empPosition">
+                                <option value=" ">Choose Position</option>
+                            </select>
+                        </div> -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="btnSaveEmp">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="crtAdmin" data-bs-backdrop="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content border-start border-5 border-5 border-success">
+                <div class="modal-header">
+                    <h2 class="txt-shadow-head" id="exampleModalLabel">
+                        <center><span class="text-success">C R E A T E</span> <span class="text-secondary">A D M I N</span></center>
+                    </h2>
+                    <div class="row">
+
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Enployee ID:</label>
+                            <select class="form-control selPerson" id="adminId">
+                                <option value="">Choose Employee ID</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Employee Name:</label>
+                            <input type="text" class="form-control" placeholder="Employee name" disabled></input>
+                            <div id="appendName"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Create Password:</label>
+                            <input type="password" class="form-control" id="adminPassword" placeholder="Enter Password"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Confirm Password:</label>
+                            <input type="password" class="form-control" id="Crfpassword" placeholder="Confirm Password"></input>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- close container -->
 </div>
 <!-- close container -->
 <script>
     function EditModal() {
-			var x = document.getElementById("myDIV");
-			if (x.style.display === "none") {
-				x.style.display = "block";
-			} else {
-				x.style.display = "none";
-			}
-		}
+        
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    setInterval(() => {
+       $('#myDiv')
+    }, 1000);
 </script>
+

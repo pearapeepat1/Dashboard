@@ -12220,10 +12220,12 @@ screen and (-ms-high-contrast:active) {
     }
 }
 
-.sidebar {
+
+/* .sidebar {
     direction: ltr;
     max-width: 260px;
-    min-width: 260px
+    min-width: 260px;
+    position: fixed
 }
 
 .sidebar,
@@ -12357,7 +12359,7 @@ a.sidebar-link svg {
     color: #e9ecef;
     margin: 1.75rem;
     padding: 1.5rem
-}
+} */
 
 .min-vw-50 {
     min-width: 50vw!important
@@ -27420,4 +27422,8 @@ span.flatpickr-weekday {
 .txt-prep {
     font-weight: bold;
     text-align: center;
+}
+
+text-align: center;
+
 }

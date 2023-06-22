@@ -23337,8 +23337,7 @@
             .rangeMode .flatpickr-day {
                 margin-top: 1px;
             }
-            
-            .flatpickr-weekwrapper {
+            /* .flatpickr-weekwrapper {
                 float: left;
             }
             
@@ -23363,7 +23362,7 @@
                 background: transparent;
                 cursor: default;
                 border: none;
-            }
+            } */
             
             .flatpickr-innerContainer {
                 display: block;
@@ -24201,6 +24200,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
             
             .bg {
                 background: #17202A;
+                /* padding-left: 17%; */
             }
             
             .txt-b {
@@ -24236,7 +24236,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
                 /* the thickness */
                 --c: darkred;
                 /* the color */
-                --w: 40px;
+                --w: 50px;
                 /* the size*/
                 width: var(--w);
                 aspect-ratio: 1/1;
@@ -24244,7 +24244,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
                 display: inline-grid;
                 margin: 5px;
                 place-content: center;
-                font-size: 10px;
+                font-size: 12px;
                 font-weight: bold;
                 font-family: sans-serif;
             }
@@ -24424,8 +24424,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
                 display: inline-block;
                 font-size: 12px;
             }
-            
-            .demo-wrapper {
+            /* .demo-wrapper {
                 display: block;
                 max-width: 300px;
                 margin: 0px auto;
@@ -24438,7 +24437,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
                 padding: 10px 0px;
                 background: #eee;
                 border: 1px solid #ccc;
-            }
+            } */
             
             #pieOverall {
                 max-width: 650px;
@@ -24683,8 +24682,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
                 height: 0;
                 opacity: 0;
             }
-            
-            .slider {
+            /* .slider {
                 position: absolute;
                 cursor: pointer;
                 top: 0;
@@ -24694,19 +24692,31 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
                 background: #adadad;
                 transition: .5s ease-in-out;
                 border-radius: 50px;
+            } */
+            /* .sidebar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                z-index: 1000;
+                display: block;
+                padding: 20px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                background-color: #f5f5f5;
+                border-right: 1px solid #eee;
             }
             
-            .slider:before {
+            .sidebar:before {
                 content: "";
                 position: absolute;
                 width: 40px;
                 height: 40px;
-                top: 5px;
+                top: 80px;
                 left: 5px;
                 background: #fff;
                 border-radius: 50%;
                 transition: 500ms ease-in-out;
-            }
+            } */
             
             .chk:checked+.slider {
                 background: #0984e3;
@@ -24786,7 +24796,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
             
             .modal-bg {
                 /* background-image: url('https://i.pinimg.com/564x/4d/12/df/4d12df8375359ff88ffff86a90870874.jpg'); */
-                background-image: url('https://i.pinimg.com/564x/d8/98/52/d89852678e9fac267c01f6b828167f0f.jpg');
+                /* background-image: url('https://i.pinimg.com/564x/d8/98/52/d89852678e9fac267c01f6b828167f0f.jpg'); */
                 background-repeat: no-repeat;
                 background-size: cover;
             }
@@ -24825,7 +24835,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
                 width: 190px;
                 height: 40px;
                 font-family: 'Roboto', sans-serif;
-                font-size: 12px;
+                font-size: 20px;
                 text-transform: uppercase;
                 letter-spacing: 2.5px;
                 font-weight: 800;
@@ -24857,11 +24867,409 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
             
             .txt-shadow-2 {
                 text-shadow: 1px 4px 6px rgba(6, 8, 8, 1);
+                font-family: 'Saira Stencil One', cursive;
             }
             
             .txt-shadow-head {
                 text-shadow: 2px 2px 0px rgba(255, 255, 255, 1), 5px 4px 0px rgba(0, 0, 0, 0.15);
+                font-family: 'Saira Stencil One', cursive;
             }
             /* .bg-contain {
-                background-image: url("https://i.pinimg.com/564x/8e/ad/55/8ead555593543156f1a84e1bb65aa625.jpg");
+                background-image: url("../assets/js/img/bg-dashboard.jpg");
             } */
+            /* .background-dashboard {
+                background-image: url("../assets/js/img/bg-dashboard.jpg");
+            } */
+            
+            div {
+                font-family: 'Bai Jamjuree', sans-serif;
+            }
+            
+            .magin-left-button {
+                margin-left: 40%;
+            }
+            
+            .swal2-actions {
+                display: flex;
+                gap: 1rem;
+            }
+            
+            .step-progress {
+                position: relative;
+                padding-left: 45px;
+                list-style: none;
+            }
+            
+            .step-progress::before {
+                display: inline-block;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 24px;
+                width: 10px;
+                height: 100%;
+                border-left: 5px solid #1C2833;
+            }
+            
+            .step-progress-item {
+                position: relative;
+                counter-increment: list;
+                padding-top: 10px;
+                padding-left: 15px;
+            }
+            
+            .step-progress-item:not(:last-child) {
+                padding-bottom: 50px;
+            }
+            
+            .step-progress-item::before {
+                display: inline-block;
+                content: '';
+                position: absolute;
+                left: -21px;
+                height: 100%;
+                width: 10px;
+            }
+            
+            .step-progress-item::after {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: -38px;
+                width: 32px;
+                height: 32px;
+                border: 2px solid #ccc;
+                border-radius: 50%;
+                background-color: #fff;
+            }
+            
+            .step-progress-item.current::before {
+                border-left: 5px solid #F1C40F;
+            }
+            
+            .step-progress-item.current::after {
+                background-image: url(https://cdn-icons-png.flaticon.com/512/1828/1828231.png);
+                background-size: 35px 35px;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 50px;
+                height: 50px;
+                top: 0;
+                left: -45px;
+                font-size: 22px;
+                text-align: center;
+                color: #00417b;
+                border: 5px solid #F1C40F;
+                background-color: white;
+            }
+            
+            .step-progress-item.waiting::before {
+                border-left: 5px solid #2980B9;
+            }
+            
+            .step-progress-item.waiting::after {
+                background-image: url(https://cdn-icons-png.flaticon.com/512/1027/1027650.png);
+                background-size: 35px 35px;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 50px;
+                height: 50px;
+                top: 0;
+                left: -45px;
+                font-size: 22px;
+                text-align: center;
+                color: #00417b;
+                border: 5px solid #2980B9;
+                background-color: white;
+            }
+            
+            .step-progress-item.is-done::before {
+                border-left: 5px solid #27AE60;
+            }
+            
+            .step-progress-item.is-done::after {
+                background-image: url(https://cdn0.iconfinder.com/data/icons/shift-free/32/Complete_Symbol-512.png);
+                background-size: 35px 35px;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 50px;
+                height: 50px;
+                top: 0;
+                left: -45px;
+                font-size: 22px;
+                text-align: center;
+                color: #00417b;
+                border: 5px solid #27AE60;
+                background-color: white;
+            }
+            
+            .step-progress-item.delay::before {
+                border-left: 5px solid #C0392B;
+            }
+            
+            .step-progress-item.delay::after {
+                background-image: url(https://cdn-icons-png.flaticon.com/128/6814/6814082.png);
+                background-size: 35px 35px;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 50px;
+                height: 50px;
+                top: 0;
+                left: -45px;
+                font-size: 22px;
+                text-align: center;
+                color: #00417b;
+                border: 5px solid #C0392B;
+                background-color: white;
+            }
+            
+            .step-progress strong {
+                display: block;
+            }
+            
+            .pieOver {
+                --p: 20;
+                /* the percentage */
+                --b: 15px;
+                /* the thickness */
+                --c: darkred;
+                /* the color */
+                --w: 200px;
+                /* the size*/
+                width: var(--w);
+                aspect-ratio: 1/1;
+                position: relative;
+                display: inline-grid;
+                margin: 5px;
+                place-content: center;
+                font-size: 50px;
+                font-weight: bold;
+                font-family: sans-serif;
+            }
+            
+            .pieOver:before,
+            .pieOver:after {
+                content: "";
+                position: absolute;
+                border-radius: 50%;
+            }
+            
+            .pieOver:before {
+                inset: 0;
+                background: radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b) var(--b) no-repeat, conic-gradient(var(--c) calc(var(--p)*1%), #0000 0);
+                -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+                mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+            }
+            
+            .pieOver:after {
+                inset: calc(50% - var(--b)/2);
+                background: var(--c);
+                transform: rotate(calc(var(--p)*3.6deg - 90deg)) translate(calc(var(--w)/2 - 50%));
+            }
+            
+            .pieStep {
+                --p: 20;
+                /* the percentage */
+                --b: 15px;
+                /* the thickness */
+                --c: darkred;
+                /* the color */
+                --w: 90px;
+                /* the size*/
+                width: var(--w);
+                aspect-ratio: 1/1;
+                position: relative;
+                display: inline-grid;
+                margin: 5px;
+                place-content: center;
+                font-size: 30px;
+                font-weight: bold;
+                font-family: sans-serif;
+            }
+            
+            .pieStep:before,
+            .pieStep:after {
+                content: "";
+                position: absolute;
+                border-radius: 50%;
+            }
+            
+            .pieStep:before {
+                inset: 0;
+                background: radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b) var(--b) no-repeat, conic-gradient(var(--c) calc(var(--p)*1%), #0000 0);
+                -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+                mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+            }
+            
+            .pieStep:after {
+                inset: calc(50% - var(--b)/2);
+                background: var(--c);
+                transform: rotate(calc(var(--p)*3.6deg - 90deg)) translate(calc(var(--w)/2 - 50%));
+            }
+            
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+            .inner {
+                position: absolute;
+                margin: auto;
+                width: 50px;
+                height: 95px;
+                top: 0px;
+                left: 0px;
+                bottom: 0px;
+                right: 0px;
+            }
+            
+            .inner>div {
+                width: 50px;
+                height: 50px;
+                background-color: rgba(255, 255, 255, 0.7);
+                border-radius: 100%;
+                position: absolute;
+                transition: all 0.5s ease;
+            }
+            
+            .inner>div:first-child {
+                margin-left: -27px;
+                animation: one 1.5s linear 1;
+            }
+            
+            .inner>div:nth-child(2) {
+                margin-left: 27px;
+                animation: two 1.5s linear 1;
+            }
+            
+            .inner>div:nth-child(3) {
+                margin-top: 54px;
+                margin-left: -27px;
+                animation: four 1.5s linear 1;
+            }
+            
+            .inner>div:nth-child(4) {
+                margin-top: 54px;
+                margin-left: 27px;
+                animation: three 1.5s linear 1;
+            }
+            
+            @keyframes one {
+                0% {
+                    transform: scale(1);
+                }
+                25% {
+                    transform: scale(0.3);
+                }
+                50% {
+                    transform: scale(1);
+                }
+                75% {
+                    transform: scale(1.4);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+            
+            @keyframes two {
+                0% {
+                    transform: scale(1.4);
+                }
+                25% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(0.3);
+                }
+                75% {
+                    transform: scale(1);
+                }
+                100% {
+                    transform: scale(1.4);
+                }
+            }
+            
+            @keyframes three {
+                0% {
+                    transform: scale(1);
+                }
+                25% {
+                    transform: scale(1.4);
+                }
+                50% {
+                    transform: scale(1);
+                }
+                75% {
+                    transform: scale(0.3);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+            
+            @keyframes four {
+                0% {
+                    transform: scale(0.3);
+                }
+                25% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.4);
+                }
+                75% {
+                    transform: scale(1);
+                }
+                100% {
+                    transform: scale(0.3);
+                }
+            }
+            
+            .inner>div.done {
+                margin-left: 0px;
+                margin-top: 27px;
+            }
+            
+            .inner>div.page {
+                transform: scale(40);
+            }
+            
+            .pageLoad {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100vh;
+                background-color: #0A0A0A;
+                transition: all 0.3s ease;
+                z-index: 2;
+            }
+            
+            .pageLoad.off {
+                opacity: 0;
+                pointer-events: none;
+            }
+            
+            h1 {
+                text-indent: 5%;
+            }
+            
+            body,
+            html {
+                margin: 0px;
+                background-color: white;
+                overflow: hidden;
+                font-family: 'Open Sans';
+            }
+            
+            body,
+            html.on {
+                overflow: auto;
+            }
+            
+            .nav-fix {
+                position: fixed
+            }
+            
+            .responsive {
+                width: 100%;
+                height: auto;
+            }

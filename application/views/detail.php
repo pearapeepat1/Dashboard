@@ -1,169 +1,112 @@
-<div class="container ">
-    <div class="container bg-dashboard">
-        <div class="row py-4">
-            <div class="col-lg-2">
-                <center>
-                    <h2 class="my-1 text-success txt-b"><span id="ralTime"></span></h2>
-                </center>
-            </div>
-            <div class="col-lg-8">
-                <div class="row">
-                    <center>
-                        <h3 class="text-dark txt-b" style="font-family: b Biger Over;"><span class="text-success ">P r o j e c t</span>&nbsp; <span class="text-secondary">S u m m a y</span>&nbsp; <span class="text-success ">D e t a i l</span></h3>
-                    </center>
-                </div>
-                <div class="row">
-                    <center>
-                        <h3 class="text-dark txt-b"><span class="projectName text-dark">Dashboard management</span></h3>
-                    </center>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <a href="http://127.0.0.1/DashboardProject/Dashboard/dashboard"> <button type="button" class="btn btn-secondary"><i class="bi bi-house"></i> Home</button></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-9">
-                <div class="row">
-                    <div class="col-lg-10">
-                        <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" aria-label="Example with label" style="width: 67%;" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100">67%</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 text-success txt-b">
-                        <i class="bi bi-flag-fill"></i> Completed
-                    </div>
-                </div>
-                <div class="row py-3  ">
-                    <div class="col-lg-3 card bg-white set-pading"><br>
-                        <center>
-                            <h5 class="text-success  txt-b " style="font-family: b Biger Over;">P l a n n i n g </h5>
-                        </center>
-                        <div id="chartPlane"></div>
-                        <div class=" badge text-bg-success "><i class="bi bi-check-circle-fill"></i> Completed</div>
-                    </div>
-                    <div class="col-lg-3 card bg-white set-pading-crad"><br>
-                        <center>
-                            <h5 class="text-success txt-b" style="font-family: b Biger Over;">D e s i g n</h5>
-                        </center>
-                        <div id="chartDesign"></div>
-                        <div class=" badge text-bg-warning "><i class="bi bi-patch-exclamation-fill"></i> in progess</div>
-                    </div>
-                    <div class="col-lg-3 bg-white card set-pading-crad"><br>
-                        <center>
-                            <h5 class="text-success txt-b " style="font-family: b Biger Over;">D e v e l o p</h5>
-                        </center>
-                        <div id="chartDev"></div>
-                        <div class=" badge text-bg-warning "><i class="bi bi-patch-exclamation-fill"></i> in progess</div>
-                    </div>
-                    <div class="col-lg-2 bg-white card set-pading-crad"><br>
-                        <center>
-                            <h5 class="text-success txt-b " style="font-family: b Biger Over;">T e s t</h5>
-                        </center>
-                        <div id="chartTest"></div>
-                        <div class=" badge text-bg-warning  set-test-top"><i class="bi bi-patch-exclamation-fill"></i> in progess</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="card">
-                    <center><br>
-                        <h5 class="text-success  txt-b " style="font-family: b Biger Over;">O v e r a l l</h5>
-                    </center>
-                    <div class="crad-body p-2 text-dark bg-opacity-25">
-                        <div id="chartHalfOverall"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body ">
-                        <div class="row">
-                            <span class="fs-3 txt-b text-dark">Progress</span>
-                        </div>
-                        <table id="tblStap" class="display" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>code</th>
-                                    <th>Stap project</th>
-                                    <th>Name</th>
-                                    <th>Name</th>
-                                    <th>Name</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbodyStap">
+<div class="container py-2 " id="detailDashboard">
+	<div class="container bg-white raduis-div detailPage">
+		<div class="row py-4">
+			<div class="col-sm-2">
+				<center><i class="bi bi-question-circle-fill fs-3 text-success" data-bs-toggle="modal" data-bs-target="#ModalWi"></i></center>
+			</div>
+			<div class="col-sm-8">
+				<div class="row">
+					<center>
+						<h1 class="text-dark txt-b txt-shadow-head"><span class="text-success ">P&nbsp;R&nbsp;O&nbsp;J&nbsp;E&nbsp;C&nbsp;T</span>&nbsp;<span class="text-secondary txt-shadow-head">S&nbsp;U&nbsp;M&nbsp;M&nbsp;A&nbsp;R&nbsp;Y</span>&nbsp; <span class="text-success txt-shadow-head">D E T A I L</span></h1>
+					</center>
+				</div>
+				<div class="row">
+					<center>
+						<h1 class="text-primary-emphasis txt-b txt-shadow-head"><span class="projectName text-primary-emphasis text-uppercase" id="ProjectName">Project Name</span></h1>
+					</center>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<a href="dashboard"> <button type="button" class="btn btn-secondary"><i class="bi bi-house"></i> Home</button></a>
+			</div>
+		</div>
+		
+		<div class="row ">
+			<div class="col-sm-4">
+				<div class="row py-4">
+					<center>
+						<div class="text-uppercase txt-shadow-head fs-2"><span class="text-success">O v e r a l l</span></div>
+					</center>
+				</div>
+				<div class="row py-3" id="Overall">
 
-                            </tbody>
-                        </table>
+				</div>
+				<div class="row py-3" id="projectStatus">
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <span class="fs-3 txt-b text-dark">Overdue Task</span>
-                        </div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Time left</th>
-                                    <th scope="col">Stap</th>
-                                    <th scope="col">Deadline</th>
-                                    <th scope="col">Person in charge</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-warning"><i class="bi bi-circle-fill"></i> 3 Days </td>
-                                    <td>Development</td>
-                                    <td>23-05-22</td>
-                                    <td>Rapeepat</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-success"><i class="bi bi-circle-fill"></i> 7 Days </td>
-                                    <td>Design</td>
-                                    <td>23-05-22</td>
-                                    <td>Rapeepat</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-danger"><i class="bi bi-circle-fill"></i> 1 Days </td>
-                                    <td>Planning</td>
-                                    <td>23-05-22</td>
-                                    <td>Rapeepat</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-warning"><i class="bi bi-circle-fill"></i> 4 Days </td>
-                                    <td>Development</td>
-                                    <td>23-05-22</td>
-                                    <td>Rapeepat</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-success"><i class="bi bi-circle-fill"></i> 12 Days </td>
-                                    <td>Planning</td>
-                                    <td>23-05-22</td>
-                                    <td>Rapeepat</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-danger"><i class="bi bi-circle-fill"></i> 1 Days </td>
-                                    <td>Planning</td>
-                                    <td>23-05-22</td>
-                                    <td>Rapeepat</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<ul class="showData">
+
+				</ul>
+			</div>
+			<div class="col-sm-6">
+				<ul class="step-progress">
+					
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+
 
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalWi" data-bs-backdrop="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content border-start border-5 border-5 border-success">
+			<div class="modal-header">
+					<center>
+						<div class="text-uppercase txt-shadow-head fs-2"><span class="text-success text-uppercase">e x p l a i n</span></div>
+					</center>
+				<h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row py-2">
+					<div class="col-sm-2">
+						<img src="https://cdn-icons-png.flaticon.com/512/1828/1828231.png" width="50px">
+					</div>
+					<div class="col-sm">
+						<h5 class="text-dark txt-b">This Step Development </h5>
+					</div>
+				</div>
+				<div class="row py-2">
+					<div class="col-sm-2">
+						<img src="https://cdn-icons-png.flaticon.com/512/1027/1027650.png" width="50px">
+					</div>
+					<div class="col-sm">
+						<h5 class="text-dark txt-b">This Step Waiting For Edit</h5>
+					</div>
+				</div>
+				<div class="row py-2">
+					<div class="col-sm-2">
+						<img src="https://cdn0.iconfinder.com/data/icons/shift-free/32/Complete_Symbol-512.png" width="50px">
+					</div>
+					<div class="col-sm">
+						<h5 class="text-dark txt-b">This Step Completed</h5>
+					</div>
+				</div>
+				<div class="row py-2">
+					<div class="col-sm-2">
+						<img src="https://cdn-icons-png.flaticon.com/128/6814/6814082.png" width="50px">
+					</div>
+					<div class="col-sm">
+						<h5 class="text-dark txt-b">This Step Delayed</h5>
+					</div>
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
 </div>

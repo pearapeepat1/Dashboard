@@ -1,24 +1,26 @@
+
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar"><!--style="background: rgb(2,0,36);
 background: radial-gradient(circle, rgba(2,0,36,1) 33%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);"-->
         <a class="sidebar-brand">
-            <a class="sidebar-link" href="http://127.0.0.1/DashboardProject/Dashboard/dashboard">
-                <h1><span class="align-middle text-white txt-b ">SangNgaan</span></h1>
+            <a class="sidebar-link" href="dashboard">
+            <img class="" src="..\assets\js\img\logo.png" alt="" width="100%" >
+                <!-- <h1><span class="align-middle text-white fw-bolder ">SangNgaan</span></h1>  -->
             </a>
         </a>
 
         <ul class="sidebar-nav">
-            <li class="sidebar-header">
+            <li class="sidebar-header ">
                 Pages
             </li>
             <li class="sidebar-item active">
-                <a class="sidebar-link" href="http://127.0.0.1/DashboardProject/Dashboard/dashboard">
-                    <img src="https://cdn-icons-png.flaticon.com/512/5234/5234682.png" alt="" srcset="" width="20%"> <span class="align-middle">Dashboard</span>
+                <a class="sidebar-link">
+                <span class="align-middle"><i class="bi bi-speedometer fs-3"></i> Dashboard</span>
                 </a>
             </li>
             <li class="sidebar-item active">
                 <a class="sidebar-link">
-                    <p data-toggle="modal" data-target="#exampleModalCenter" id="mdlLogin"><img src="https://cdn-icons-png.flaticon.com/512/2833/2833704.png" width="18%" alt="" srcset=""> <span class="align-middle">Management</span></p>
+                    <p data-toggle="modal" data-target="#exampleModalCenter" id="mdlLogin"><span class="align-middle"><i class="bi bi-sliders fs-3"></i> Management</span></p>
                 </a>
 
             </li>
@@ -35,11 +37,12 @@ background: radial-gradient(circle, rgba(2,0,36,1) 33%, rgba(9,9,121,1) 100%, rg
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <div class="container">
-                <h3 class="modal-title txt-b text-success txt-shadow-head" id="exampleModalLongTitle" style="font-family: b Biger Over;"><center>L o g i n </center></h3>
+                <h2 class="modal-title txt-b text-success txt-shadow-head" id="exampleModalLongTitle" ><center>L O G I N </center></h2>
                     <form action="" id="formLogin">
                         <div class="row py-3">
                             <div class="col-lg-1 ">
-                            <center><img src="https://cdn-icons-png.flaticon.com/512/219/219986.png" width="280%" ></center>
+                            <center><i class="bi bi-person-circle text-success fs-3"></i></center>
+                            <!-- <center><img src="https://cdn-icons-png.flaticon.com/512/219/219986.png" width="280%" ></center> -->
                             </div>
                             <div class="col-lg-1 "></div>
                             <div class="col-lg-9">
@@ -48,7 +51,8 @@ background: radial-gradient(circle, rgba(2,0,36,1) 33%, rgba(9,9,121,1) 100%, rg
                         </div><br>
                         <div class="row">
                             <div class="col-lg-1">
-                            <center><img src="https://cdn-icons-png.flaticon.com/512/7477/7477884.png" width="280%" ></center>
+                            <center><i class="bi bi-key text-success fs-3"></i></center>
+                            <!-- <center><img src="https://cdn-icons-png.flaticon.com/512/7477/7477884.png" width="280%" ></center> -->
                             </div>
                             <div class="col-lg-1 "></div>
                             <div class="col-lg-9">

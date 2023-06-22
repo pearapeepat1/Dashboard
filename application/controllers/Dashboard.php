@@ -25,7 +25,7 @@ class Dashboard extends CI_Controller
         $this->footer = $result;
 
 
-        $this->load->model('dashboard_model', 'dashboard');
+        // $this->load->model('dashboard_model', 'dashboard');
     }
 
     protected function render_view($path)
@@ -38,6 +38,16 @@ class Dashboard extends CI_Controller
         $this->data['another_js'] = $this->another_js;
         $this->parser->parse('pages/homepage', $this->data);
     }
+    public function index()
+    {
+        $this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
+        $this->another_js .= "<script src='" . base_url() . "/assets/js/js/pieChart.js'></script>";
+        // $this->another_js .= "<script src='" . base_url() . "/assets/js/js/getData.js'></script>";
+        // $this->data['tblProjectList'] = $this->Show_model->ProjectList();
+        //$this->ShowProjectList();
+
+        $this->render_view('home');
+    }
     public function dashboard()
     {
         $this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
@@ -48,9 +58,105 @@ class Dashboard extends CI_Controller
 
         $this->render_view('home');
     }
+    public function manage()
+    {
+        $this->another_js = "<script src='" . base_url() . "/assets/js/js/manage.js'></script>"; 
+        $this->another_js .= "<script src='" . base_url() . "/assets/js/js/Edits.js'></script>"; 
+        $this->render_view('manage');
+    }
+ 
+    public function detail()
+    {
+        $this->render_view('detail');
+    }
+
+
     public function callApi()
     {
         $url = $_GET["url"];
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        $data = json_decode($output, true);
+        // $data = $output;
+        // print_r($output);
+        if (empty($data)) {
+            echo "NO DATA";
+        }
+        echo json_encode($data);
+    }
+
+    public function callApiShowPersonEdit2()
+    {
+        $url = $_GET["url"];
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        $data = json_decode($output, true);
+        // $data = $output;
+        // print_r($output);
+        if (empty($data)) {
+            echo "NO DATA";
+        }
+        echo json_encode($data);
+    }
+    public function callApiStepEdit()
+    {
+        $url = $_GET["url"];
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        $data = json_decode($output, true);
+        // $data = $output;
+        // print_r($output);
+        if (empty($data)) {
+            echo "NO DATA";
+        }
+        echo json_encode($data);
+    }
+    public function callApiShowAdmin()
+    {
+        $url = $_GET["url"];
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        $data = json_decode($output, true);
+        // $data = $output;
+        // print_r($output);
+        if (empty($data)) {
+            echo "NO DATA";
+        }
+        echo json_encode($data);
+    }
+    public function callApiDel()
+    {
+        $result = $this->curPostRequest('Editproject/del_person', ['data' => serialize($_POST)]);
+        print_r($result);
+
+    }
+    public function callApiCreateEmp()
+    {
+        $result = $this->curPostRequest('Manage/add_resources', ['data' => serialize($_POST)]);
+        print_r($result);
+
+    }
+    public function callApiFillter()
+    {
+        $url = $_POST["url"];
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        $data = json_decode($output, true);
+        // $data = $output;
+        // print_r($output);
+        if (empty($data)) {
+            echo "NO DATA";
+        }
+        echo json_encode($data);
+    }
+    public function callApiShowPersonEdit()
+    {
+        $url = $_POST["url"];
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = curl_exec($ch);
@@ -93,23 +199,70 @@ class Dashboard extends CI_Controller
 
     public function callApiInsert()
     {
-        $url = $_POST["url"];
-        // print_r($_POST);
-        // exit;
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $output = curl_exec($ch);
+        // $url = $_POST["url"];
+        // // print_r($_POST);
+        // // exit;
+        // $ch = curl_init($url);
+        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // $output = curl_exec($ch);
         // echo  $output;
         $result = $this->curPostRequest('Addproject/add_project', ['data' => serialize($_POST)]);
+        // $arrayStep = array($result);
+
+        // foreach ($result as $key => $value) {
+        //     if (is_array($value)) {
+        //         // สำหรับสมาชิกที่เป็นอาร์เรย์
+        
+        //         $tempArray = array(); // สร้างอาร์เรย์เปล่าเพื่อเก็บสมาชิกในรูปแบบ JSON
+        
+        //         foreach ($value as $item) {
+        //             // ลูปเพื่อถอดออกและแปลงแต่ละสมาชิกในอาร์เรย์
+        
+        //             $tempObject = new stdClass(); // สร้างออบเจกต์ใหม่เพื่อเก็บสมาชิกในรูปแบบ JSON
+        
+        //             foreach ($item as $subKey => $subValue) {
+        //                 // สร้างสมาชิกของออบเจกต์ในรูปแบบ JSON
+        //                 $tempObject->$subKey = $subValue;
+        //             }
+        
+        //             $tempArray[] = $tempObject; // เพิ่มออบเจกต์ในอาร์เรย์
+        //         }
+        
+        //         $jsonArray[$key] = $tempArray; // เพิ่มอาร์เรย์ในอาร์เรย์ JSON
+        //     } else {
+        //         // สำหรับสมาชิกที่ไม่ใช่อาร์เรย์
+        //         $jsonArray[$key] = $value;
+        //     }
+        // }
+        // $json =  json_encode($jsonArray) ;
+        print_r($result);
         // if(empty($data)){
         //     echo "NO DATA";
         // }
         // echo json_encode($data);
+        //  foreach ($result as $value) {
+        //     $data[] = $value;
+        //    }
+        // echo json_encode($data);
+    }
+    public function callApiInsertPersonAdd()
+    {
+        $result = $this->curPostRequest('Editproject/add_person', ['data' => serialize($_POST)]);
+        print_r($result);
+    }
+    public function callApiEditPosition()
+    {
+        $result = $this->curPostRequest('Editproject/edit_position', ['data' => serialize($_POST)]);
+        print_r($result);
+    }
+    public function callApiUpdateProject()
+    {
+        $result = $this->curPostRequest('Editproject/update_project', ['data' => serialize($_POST)]);
         print_r($result);
     }
     function curPostRequest($enpoint, $param_data, $is_array = true, $associative = false){
         /* Endpoint */
-        $url = 'http://172.21.64.115/APIDashboardProject/' . $enpoint;
+        $url = 'http://172.21.64.177/APIDashboardProject/' . $enpoint;
     
         /* eCurl */
         $curl = curl_init($url);
@@ -251,27 +404,7 @@ class Dashboard extends CI_Controller
     //         echo 'เกิดข้อผิดพลาดในการส่งคำขอ API';
     //     }
     // }
-    public function manage()
-    {
-        // $this->another_js .= "<script src='" . base_url() . "/assets/js/js/getData.js'></script>";
-        $this->another_js .= "<script src='" . base_url() . "/assets/js/js/manage.js'></script>"; 
-        //$this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
-        //$this->data['tblProjectList'] = $this->Show_model->ProjectList();
-        //$this->ShowProjectList();
-        $this->render_view('manage');
-    }
-    public function test()
-    {
-        //$this->another_js = "<script src='" . base_url() . "/assets/js/js/table.js'></script>";
-        //$this->data['tblProjectList'] = $this->Show_model->ProjectList();
-        //$this->ShowProjectList();
-        $this->render_view('test');
-    }
-    public function detail()
-    {
-
-        $this->render_view('detail');
-    }
+ 
 
     ##count project
     public function showProjectcount()
